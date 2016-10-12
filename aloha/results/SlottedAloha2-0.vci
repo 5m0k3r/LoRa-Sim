@@ -1,0 +1,57 @@
+file 134211 1476270996                                          
+version 2
+run SlottedAloha2-0-20161012-07:50:55-25781
+attr configname SlottedAloha2
+attr datetime 20161012-07:50:55
+attr experiment SlottedAloha2
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Aloha
+attr processid 25781
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param Aloha.host[*].iaTime exponential(2s)
+param Aloha.host[*].pkLenBits 952b
+param Aloha.host[*].radioDelay 10ms
+param Aloha.numHosts 5
+param Aloha.server.iaTime exponential(2s)
+param Aloha.server.pkLenBits 952b
+param Aloha.server.radioDelay 10ms
+param Aloha.slotTime 0
+param Aloha.txRate 9.6kbps
+
+vector 0  Aloha.server  serverChannelState:vector  ETV
+attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source  channelState
+attr title  "Channel state, vector"
+vector 1  Aloha.host[0]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 2  Aloha.host[1]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 3  Aloha.host[2]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 4  Aloha.host[3]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 5  Aloha.host[4]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+0	1491 48462 0 6840 0 2336.209166666667 2281 0 2 1146 1154
+1	49953 870 0 386 0 32.799166666667 55 0 3 81 187
+2	50823 976 0 359 0 29.399166666667 63 0 3 93 215
+3	51799 588 0 284 0 24.499166666667 39 0 3 57 131
+4	52387 79670 0 6841 0 2336.3 4274 0 3 6409 14953
+5	132057 2154 0 605 0 65.699166666667 135 0 3 201 467

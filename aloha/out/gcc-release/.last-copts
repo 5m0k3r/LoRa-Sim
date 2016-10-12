@@ -1,0 +1,1 @@
+-DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_OSG -DWITH_TKENV -DXMLPARSER=libxml -DWITH_PARSIM -DWITH_NETBUILDER  -O2 -DNDEBUG=1 -fPIC  -fno-stack-protector  -I. -I/home/wolf/Documents/Universidad/tesis/simulador_lora/omnetpp-5.0/include
