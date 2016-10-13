@@ -1,4 +1,4 @@
-# tesis-udp-2016
+#  LoRa-Sim
 
 Para replicar la simulación se debe copiar la carpeta "aloha"
 
