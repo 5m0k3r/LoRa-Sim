@@ -1,3 +1,45 @@
+## English Version
+
+#  LoRa-Sim
+
+Copy the "aloha" folder in the samples/ folder which is below
+
+the installation root folder of OMNET++ 5.0. 
+
+# Joining Phase
+
+To date, the joining phase is in working condition. It sends the "uplink window message"
+
+to the gateway/server and then waits for the two answers "downlink window message" to 
+
+achieve initial configuration including application-level keys and network access.
+
+# Remarks
+
+Given that (at this time) this is a PHY and MAC simulation of 
+
+Al ser una simulación de la capa física de los dispositivos LoRaWAN, sólo se envían paquetes Dummy
+
+entre nodos y servers, la próxima fase será incluir condiciones de potencia de señal, spreading factor (ADR)
+
+y retransmisión de datos por parte de los nodos (downlink window message), implementando timeouts y timestamps
+
+para la implementación de acuse de recibo que posee LoRa.
+
+# Fases Objetivo
+
+-->Transmission Phase
+
+-->Adaptative Rate Phase
+
+-->Configuration Deployment
+
+-->LoRaWAN/IPv6 transition Module (Coming soon!)
+
+
+
+## Versión en Español
+
 #  LoRa-Sim
 
 Para replicar la simulación se debe copiar la carpeta "aloha"
