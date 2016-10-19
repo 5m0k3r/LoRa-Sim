@@ -16,17 +16,16 @@ achieve initial configuration including application-level keys and network acces
 
 # Remarks
 
-Given that (at this time) this is a PHY and MAC simulation of 
+Given that (at this time) this is a PHY and MAC simulation of LoRaWAN devices, only dummy
 
-Al ser una simulación de la capa física de los dispositivos LoRaWAN, sólo se envían paquetes Dummy
+packets are sent between the nodes and the server. The following step will be to include signal
 
-entre nodos y servers, la próxima fase será incluir condiciones de potencia de señal, spreading factor (ADR)
+power values, spreading factors and packet retransmission from the nodes (uplink window message),
 
-y retransmisión de datos por parte de los nodos (downlink window message), implementando timeouts y timestamps
+thus implementing timeouts and timestamps to generate LoRa Acknowledge packets.
 
-para la implementación de acuse de recibo que posee LoRa.
 
-# Fases Objetivo
+# LoRa Phases (ToDo)
 
 -->Transmission Phase
 
@@ -35,7 +34,6 @@ para la implementación de acuse de recibo que posee LoRa.
 -->Configuration Deployment
 
 -->LoRaWAN/IPv6 transition Module (Coming soon!)
-
 
 
 ## Versión en Español
