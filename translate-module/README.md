@@ -1,8 +1,8 @@
-## English Version
+# English Version
 
-# Translate Module - LoRaWAN/IPv6
+## Translate Module - LoRaWAN/IPv6
 
 
-## Versión en Español
-# Modulo de transición LoRaWAN/IPv6
+# Versión en Español
+## Modulo de transición LoRaWAN/IPv6
 
