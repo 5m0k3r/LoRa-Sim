@@ -32,6 +32,7 @@ simple Server
         double slotTime @unit(s);         // zero means no slots (pure Aloha)
         double txRate @unit(bps);         // transmission rate
         double radioDelay @unit(s);
+        double sleeptime @unit(s);
     gates:
         input in7 @directIn;
         input in6 @directIn;

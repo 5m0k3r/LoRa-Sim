@@ -32,6 +32,11 @@ class Server : public cSimpleModule
     cMessage *ack1;
     cMessage *ack2;
     cMessage *pair;
+    cMessage *uplink;
+    cMessage *payload;
+    cMessage *ackpayload;
+    cMessage *ackuplink;
+    cMessage *ack0;
     long currentCollisionNumFrames;
     long receiveCounter;
     simtime_t recvStartTime;

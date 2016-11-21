@@ -43,19 +43,25 @@ class Host : public cSimpleModule
     cMessage *ack1;
     cMessage *ack2;
     cMessage *uplink;
-    enum { IDLE = 0, TRANSMIT = 1 , RECEIVE = 2, RECEIVE2=3, IDLE2 = 2} state;
+    cMessage *payload;
+    cMessage *ack0;
+    cMessage *sleeep;
+    enum { IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8} state;
     simsignal_t channelStateSignal;
     simsignal_t receiveBeginSignal;
     simsignal_t receiveSignal;
     simsignal_t stateSignal;
     int pkCounter;
     int pair;
+    int sleeptime;
 
   public:
     Host();
     virtual ~Host();
     void setpair(int);
     int getpair();
+    void setsleep(int);
+    int getsleep();
 
   protected:
     virtual void initialize() override;

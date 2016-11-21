@@ -37,9 +37,13 @@ void Server::initialize()
     endRxEvent = new cMessage("end-reception");
     startRxEvent = new cMessage("downlink-1");
     startRx2Event = new cMessage("downlink-2");
+    ack0 = new cMessage("ack-join-request");
     ack1 = new cMessage("ack-downlink-1");
     ack2 = new cMessage("ack-downlink-2");
-    //pair = new cMessage("pair-request");
+    uplink = new cMessage("uplink-req");
+    payload = new cMessage("uplink-payload");
+    pair = new cMessage("pair-request");
+    ackpayload = new cMessage("ack-payload");
     channelBusy = false;
     emit(channelStateSignal, IDLE);
     gate("in7")->setDeliverOnReceptionStart(true);
@@ -68,14 +72,58 @@ void Server::initialize()
 
 void Server::handleMessage(cMessage *msg)
 {
-    EV << "msg-server-inicial: "<< msg->getFullName() <<endl;
 
-    if (msg == endRxEvent || msg == endJoinEvent || msg == endJoinEvent2 || msg == ack2) {
+    const char *msgtxt = msg->getFullName();
 
+    EV << "msg-server-inicial: "<< msgtxt <<endl;
+    if (strcmp(msgtxt, "end-reception") == 0|| strcmp(msgtxt, "downlink-1" ) == 0 || strcmp(msgtxt, "end-downlink-window1") == 0 || strcmp(msgtxt, "end-downlink-window2") == 0 || strcmp(msgtxt, "ack-downlink-2") == 0 || strcmp(msgtxt, "uplink-req") == 0 || strcmp(msgtxt, "uplink-payload"   ) == 0 )
+    {
         EV << "reception finished\n";
+
+        if ( strcmp(msgtxt, "ack-downlink-1")==0 ){
+
+            // start of reception at recvStartTime
+            cTimestampedValue tmp(recvStartTime, 1l);
+            emit(receiveSignal, &tmp);
+            emit(receiveSignal, 0);
+            emit(receiveBeginSignal, receiveCounter);
+            cancelEvent(ack1);
+            scheduleAt(simTime(), ack1);
+        }
+        if (strcmp(msgtxt, "ack-downlink-2") == 0){
+
+            // start of reception at recvStartTime
+            cTimestampedValue tmp(recvStartTime, 1l);
+            emit(receiveSignal, &tmp);
+            emit(receiveSignal, 0);
+            emit(receiveBeginSignal, receiveCounter);
+            cancelEvent(ack2);
+            scheduleAt(simTime(), ack2);
+        }
         channelBusy = false;
         emit(channelStateSignal, IDLE);
+        //envío de los disintos ack que componen la comunicación con lora
+        if ( strcmp(msgtxt,"uplink-req")==0){
+            EV << "generating uplink-ack " << endl;
+            cPacket *pkt = check_and_cast<cPacket *>(msg);
 
+            ASSERT(pkt->isReceptionStart());
+            cTimestampedValue tmp(recvStartTime, 1l);
+            emit(receiveSignal, &tmp);
+            emit(receiveSignal, 0);
+            emit(receiveBeginSignal, receiveCounter);
+            char pkname6[40];
+            sprintf(pkname6, "ack-uplink");
+            host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje
+            EV << "generating uplink-ack to host "<< (pkt->getSenderModuleId()-3) << endl;
+            cPacket *pk6 = new cPacket(pkname6);  //creación downlink window #1 luego de uplink desde nodo
+            pk6->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
+            simtime_t duration = simTime()+pk6->getBitLength()/txRate; // asignacion de duracion de envio de paquete
+            cancelEvent(ackpayload);
+            sendDirect(pk6, radioDelay, duration, host->gate("in"));
+            scheduleAt(simTime()+duration, ackpayload);
+
+        }
         // update statistics
         simtime_t dt = simTime() - recvStartTime;
         if (currentCollisionNumFrames == 0) {
@@ -98,6 +146,10 @@ void Server::handleMessage(cMessage *msg)
         emit(receiveBeginSignal, receiveCounter);
         cancelEvent(startRxEvent);
         cancelEvent(startRx2Event);
+        cancelEvent(ack0);
+        cancelEvent(ack1);
+        cancelEvent(uplink);
+        cancelEvent(payload);
         //delete pkt;
     }
     else {
@@ -110,12 +162,24 @@ void Server::handleMessage(cMessage *msg)
         emit(receiveBeginSignal, ++receiveCounter);
 
         if (!channelBusy) {
-
                 EV << "started receiving\n";
                 recvStartTime = simTime();
 
                 emit(channelStateSignal, TRANSMISSION);
                 emit(receiveBeginSignal, ++receiveCounter);
+                //envio de join-accept
+                char pkname1[40];
+                host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje
+                sprintf(pkname1, "join-accept-ack");
+                EV << "generating join-accept-ack to host " << pkt->getSenderModuleId()-3 << endl;
+                cPacket *pk1 = new cPacket(pkname1);  //creación downlink window #1 luego de uplink desde nodo
+                pk1->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
+                simtime_t duration1 = simTime() + pk1->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+                EV << "duration: "<<duration1 << endl;
+                sendDirect(pk1, radioDelay, duration1, host->gate("in")); // envío de mensaje a nodo
+                cancelEvent(ack0);
+                scheduleAt(simTime()+duration1, ack0);
+
                 //envío primer mensaje downlink window
                 char pkname2[40];
                 host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje

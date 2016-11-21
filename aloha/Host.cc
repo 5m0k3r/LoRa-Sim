@@ -19,6 +19,7 @@ Host::Host()
     endJoinEvent = nullptr;
     endJoinEvent2 = nullptr;
     pair = 0;
+    sleeptime = 0;
 }
 
 Host::~Host()
@@ -43,9 +44,12 @@ void Host::initialize()
     endJoinEvent = new cMessage("end-downlink-window1");
     endJoinEvent2 = new cMessage("end-downlink-window2");
     endTxEvent = new cMessage("send/endTx");
+    ack0 = new cMessage("ack-join-request");
     ack1 = new cMessage("ack-downlink-1");
     ack2 = new cMessage("ack-downlink-2");
-    uplink = new cMessage("uplink");
+    uplink = new cMessage("uplink-req");
+    payload = new cMessage("uplink-payload");
+    sleeep = new cMessage("sleep-time");
     txRate = par("txRate");
     radioDelay = par("radioDelay");
     iaTime = &par("iaTime");
@@ -75,7 +79,7 @@ void Host::handleMessage(cMessage *msg)
         sprintf(pkname, "pair-request", getId(), pkCounter++);
         EV << "generating packet " << pkname << endl;
 
-        state = TRANSMIT;
+        state = PRERECEIVE;;
         emit(stateSignal, state);
 
         cPacket *pk = new cPacket(pkname);
@@ -89,7 +93,7 @@ void Host::handleMessage(cMessage *msg)
 
         gate("in")->setDeliverOnReceptionStart(true);
     }
-    else if (state == TRANSMIT && strcmp(msgtxt,"downlink-1") == 0 ) {
+    else if (state == TRANSMIT &&  strcmp(msgtxt,"downlink-1") == 0 ){
         // endTxEvent indicates end of transmission
         state = RECEIVE;
 
@@ -152,24 +156,81 @@ void Host::handleMessage(cMessage *msg)
     }
     else if (state == IDLE2 && this->getpair() == 1 ){
         //inicio de fase de transmisión
+        emit(stateSignal, state);
         char pkname4[40];
         sprintf(pkname4, "uplink-req");
         EV << "generating uplink-request to gateway" << endl;
         cPacket *pk4 = new cPacket(pkname4);  //creación downlink window #1 luego de uplink desde nodo
         pk4->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
-        simtime_t duration = pk4->getBitLength() / txRate; // asignacion de duracion de envio de paquete
-        cancelEvent(uplink);
-        sendDirect(pk4, radioDelay, duration, server->gate("in7"));
-        if (simTime() >= duration){
+        if (this->getsleep() > 0){
+            simtime_t duration = pk4->getBitLength() / txRate + this->getsleep(); // asignacion de duracion de envio de paquete
+            sendDirect(pk4, radioDelay, duration, server->gate("in7"));
+            cancelEvent(uplink);
+
+            scheduleAt(simTime()+duration, uplink);
+
+        }
+        else{
+            simtime_t duration = pk4->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+            sendDirect(pk4, radioDelay, duration, server->gate("in7"));
+            cancelEvent(uplink);
+
+            scheduleAt(simTime()+duration, uplink);
+
+        }
+
+        /*if (simTime() >= duration){
             cancelEvent(uplink);
             sendDirect(pk4, radioDelay, duration, server->gate("in7"));
             EV << "packet retransmited" << endl;
-        }
-        scheduleAt(simTime()+duration, uplink);
+        }*/
+        state = ACK;
+    }
+    else if ( state == ACK && this->getpair() == 1 && strcmp(msgtxt,"ack-uplink") == 0){
+            cTimestampedValue tmp(recvStartTime, 1l);
+            state = SLEEP;
+            emit(receiveSignal, &tmp);
+            emit(receiveSignal, 0);
+            emit(receiveBeginSignal, receiveCounter);
+            char pkname5[40];
+            sprintf(pkname5, "uplink-payload");
+            EV << "generating uplink-payload to gateway" << endl;
+            cPacket *pk5 = new cPacket(pkname5);  //creación downlink window #1 luego de uplink desde nodo
+            pk5->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
+            simtime_t duration = pk5->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+            cancelEvent(payload);
+            sendDirect(pk5, radioDelay, duration, server->gate("in7"));
+            scheduleAt(simTime()+duration, payload);
+    }
+    else if ( state == PRERECEIVE && this->getpair() != 1){
+                state = TRANSMIT;
+
+                emit(stateSignal, state);
+
+                // start of reception at recvStartTime
+                cTimestampedValue tmp(recvStartTime, 1l);
+                emit(receiveSignal, &tmp);
+                emit(receiveSignal, 0);
+                emit(receiveBeginSignal, receiveCounter);
+                // end of reception now
+
+                cancelEvent(ack0);
+                scheduleAt(simTime(), ack0);
+    }
+    else if ( state == SLEEP ){
+        cTimestampedValue tmp(recvStartTime, 1l);
+        emit(receiveSignal, &tmp);
+        emit(receiveSignal, 0);
+        emit(receiveBeginSignal, receiveCounter);
+        cancelEvent(sleeep);
+        scheduleAt(getNextTransmissionTime(), sleeep);
+        this->setsleep(5000);
+        state = IDLE2;
     }
     else {
+
         EV <<"state final: "<< state << endl;
-        throw cRuntimeError("invalid state");
+        //throw cRuntimeError("invalid state");
     }
 }
 
@@ -180,7 +241,12 @@ int Host::getpair()
 void Host::setpair(int a){
     this->pair = a;
 }
-
+void Host::setsleep(int a){
+    this->sleeptime = a;
+}
+int Host::getsleep(){
+    return this->sleeptime;
+}
 simtime_t Host::getNextTransmissionTime()
 {
     simtime_t t = simTime() + iaTime->doubleValue();
