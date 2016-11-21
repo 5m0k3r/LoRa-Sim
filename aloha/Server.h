@@ -11,7 +11,7 @@
 #define __ALOHA_SERVER_H_
 
 #include <omnetpp.h>
-
+int winCounter = 1;
 using namespace omnetpp;
 
 namespace aloha {
@@ -27,6 +27,11 @@ class Server : public cSimpleModule
     cMessage *endRxEvent;
     cMessage *endJoinEvent;
     cMessage *endJoinEvent2;
+    cMessage *startRxEvent;
+    cMessage *startRx2Event;
+    cMessage *ack1;
+    cMessage *ack2;
+    cMessage *pair;
     long currentCollisionNumFrames;
     long receiveCounter;
     simtime_t recvStartTime;
@@ -47,7 +52,7 @@ class Server : public cSimpleModule
     simtime_t delay;
     bool isSlotted;
     int pkCounter;
-    int winCounter;
+
     int randomnumber;
 
   public:

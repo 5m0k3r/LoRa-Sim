@@ -40,22 +40,29 @@ class Host : public cSimpleModule
     cMessage *endRxEvent;
     cMessage *endJoinEvent;
     cMessage *endJoinEvent2;
-    enum { IDLE = 0, TRANSMIT = 1 , RECEIVE = 2, RECEIVE2=3} state;
+    cMessage *ack1;
+    cMessage *ack2;
+    cMessage *uplink;
+    enum { IDLE = 0, TRANSMIT = 1 , RECEIVE = 2, RECEIVE2=3, IDLE2 = 2} state;
     simsignal_t channelStateSignal;
     simsignal_t receiveBeginSignal;
     simsignal_t receiveSignal;
     simsignal_t stateSignal;
     int pkCounter;
+    int pair;
 
   public:
     Host();
     virtual ~Host();
+    void setpair(int);
+    int getpair();
 
   protected:
     virtual void initialize() override;
     virtual void handleMessage(cMessage *msg) override;
     virtual void refreshDisplay() const override;
     simtime_t getNextTransmissionTime();
+
 };
 
 }; //namespace

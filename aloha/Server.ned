@@ -33,6 +33,12 @@ simple Server
         double txRate @unit(bps);         // transmission rate
         double radioDelay @unit(s);
     gates:
-        input in @directIn;
+        input in7 @directIn;
+        input in6 @directIn;
+        input in5 @directIn;
+        input in4 @directIn;
+        input in3 @directIn;
+        input in2 @directIn;
+        input in1 @directIn;
 }
 

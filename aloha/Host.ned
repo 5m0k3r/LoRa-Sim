@@ -22,8 +22,10 @@ simple Host
         @signal[channelState](type="long");
 		
         
-        string NwkID;
-        string NwkAddr;
+//        string NwkID;
+//        string NwkAddr;
+//        double distance @unit(meters);    // distance of the host to the gateway
+//        double radioChannel @unit(id);    // id of channel asigned in ADR resolution by GW
         double txRate @unit(bps);         // transmission rate
         double radioDelay @unit(s);       // propagation delay of radio link
         volatile int pkLenBits @unit(b);  // packet length in bits

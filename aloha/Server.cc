@@ -35,9 +35,21 @@ void Server::initialize()
     endJoinEvent = new cMessage("end-downlink-window1");
     endJoinEvent2 = new cMessage("end-downlink-window2");
     endRxEvent = new cMessage("end-reception");
+    startRxEvent = new cMessage("downlink-1");
+    startRx2Event = new cMessage("downlink-2");
+    ack1 = new cMessage("ack-downlink-1");
+    ack2 = new cMessage("ack-downlink-2");
+    //pair = new cMessage("pair-request");
     channelBusy = false;
     emit(channelStateSignal, IDLE);
-    gate("in")->setDeliverOnReceptionStart(true);
+    gate("in7")->setDeliverOnReceptionStart(true);
+    gate("in6")->setDeliverOnReceptionStart(true);
+    gate("in5")->setDeliverOnReceptionStart(true);
+    gate("in4")->setDeliverOnReceptionStart(true);
+    gate("in3")->setDeliverOnReceptionStart(true);
+    gate("in2")->setDeliverOnReceptionStart(true);
+    gate("in1")->setDeliverOnReceptionStart(true);
+
     currentCollisionNumFrames = 0;
     receiveCounter = 0;
     WATCH(currentCollisionNumFrames);
@@ -50,18 +62,19 @@ void Server::initialize()
     collisionSignal = registerSignal("collision");
     collisionLengthSignal = registerSignal("collisionLength");
     pkCounter = 0;
-    winCounter = 1;
     emit(receiveSignal, 0L);
     emit(receiveBeginSignal, 0L);
 }
 
 void Server::handleMessage(cMessage *msg)
 {
-    if (msg == endRxEvent || msg == endJoinEvent || msg == endJoinEvent2) {
+    EV << "msg-server-inicial: "<< msg->getFullName() <<endl;
+
+    if (msg == endRxEvent || msg == endJoinEvent || msg == endJoinEvent2 || msg == ack2) {
+
         EV << "reception finished\n";
         channelBusy = false;
         emit(channelStateSignal, IDLE);
-
 
         // update statistics
         simtime_t dt = simTime() - recvStartTime;
@@ -83,8 +96,8 @@ void Server::handleMessage(cMessage *msg)
         currentCollisionNumFrames = 0;
         receiveCounter = 0;
         emit(receiveBeginSignal, receiveCounter);
-        cancelEvent(endJoinEvent);
-        cancelEvent(endJoinEvent2);
+        cancelEvent(startRxEvent);
+        cancelEvent(startRx2Event);
         //delete pkt;
     }
     else {
@@ -97,62 +110,47 @@ void Server::handleMessage(cMessage *msg)
         emit(receiveBeginSignal, ++receiveCounter);
 
         if (!channelBusy) {
-            EV << "started receiving\n";
-            recvStartTime = simTime();
-            channelBusy = true;
-            emit(channelStateSignal, TRANSMISSION);
-            emit(receiveBeginSignal, ++receiveCounter);
-            //envío primer mensaje downlink window
-            char pkname2[40];
-            char pkname3[40];
 
-            host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje
-            sprintf(pkname2, "downlink-1-to host %d-#%d", pkt->getSenderModuleId(), pkCounter++);
-            EV << "generating packet 1 to host " << pkt->getSenderModuleId() << endl;
-            cPacket *pk2 = new cPacket(pkname2);  //creación downlink window #1 luego de uplink desde nodo
-            pk2->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
-            randomnumber = ((rand() % 20)+1)/1000; // generación de tiempo aleatorio de diferencia con recepción
-            simtime_t duration = (simTime() + SimTime(randomnumber, SIMTIME_US)).trunc(SIMTIME_MS); // asignacion de duracion de envio de paquete
-            EV << "duration: "<<duration << endl;
-            sendDirect(pk2, radioDelay, duration, host->gate("in")); // envío de mensaje a nodo
-            //cancelEvent(endJoinEvent);
-            scheduleAt(simTime()+duration, endJoinEvent);
-            EV << "downlink window "<<winCounter<<" to host "<< pkt->getSenderModuleId() <<" is ended in "<< duration << endl;
-            winCounter+=1;
+                EV << "started receiving\n";
+                recvStartTime = simTime();
 
-            sprintf(pkname3, "downlink-2-to host %d-#%d", pkt->getSenderModuleId(), pkCounter++);
-            EV << "generating packet 2 to host" << pkt->getSenderModuleId() << endl;
-            cPacket *pk3 = new cPacket(pkname3);  //creación downlink window #1 luego de uplink desde nodo
-            pk3->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
-            srand ( time(NULL) );
-            randomnumber = ((rand() % 20)+1)/1000; // generación de tiempo aleatorio de diferencia con recepción
-            simtime_t duration2 = (simTime() + SimTime(randomnumber, SIMTIME_US)).trunc(SIMTIME_MS); // asignacion de duracion de envio de paquete
-            EV << "duration2: "<<duration2 << endl;
-            sendDirect(pk3, radioDelay, duration2, host->gate("in")); // envío de mensaje a nodo
-            //cancelEvent(endJoinEvent2);
+                emit(channelStateSignal, TRANSMISSION);
+                emit(receiveBeginSignal, ++receiveCounter);
+                //envío primer mensaje downlink window
+                char pkname2[40];
+                host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje
+                sprintf(pkname2, "downlink-1");
+                EV << "generating packet 1 to host " << pkt->getSenderModuleId() << endl;
+                cPacket *pk2 = new cPacket(pkname2);  //creación downlink window #1 luego de uplink desde nodo
+                pk2->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
+                randomnumber = ((rand() % 20)+1)/1000; // generación de tiempo aleatorio de diferencia con recepción
+                simtime_t duration = (simTime() + SimTime(randomnumber, SIMTIME_US)).trunc(SIMTIME_MS); // asignacion de duracion de envio de paquete
+                EV << "duration: "<<duration << endl;
+                sendDirect(pk2, radioDelay, duration, host->gate("in")); // envío de mensaje a nodo
+                //cancelEvent(endJoinEvent);
+                scheduleAt(simTime()+duration, startRxEvent);
+                EV << "downlink window "<<winCounter<<" to host "<< pkt->getSenderModuleId() <<" is ended in "<< duration << endl;
+                winCounter+=1;
 
-            scheduleAt(simTime()+duration2, endJoinEvent2);
-            EV << "downlink window "<<winCounter<<" to host "<< pkt->getSenderModuleId() <<" is ended in "<< duration2 << endl;
-            winCounter = 1;
 
-            //pkCounter++;
-            //envío segundo mensaje downlink window
-            //if (pkCounter ==2){
-            /*
-            cPacket *pk3 = new cPacket(pkname3);
-            pk3->setBitLength(pkLenBits->longValue());
-            randomnumber = (rand() % 20)+1;
-            simtime_t duration2 = (simTime() + SimTime(randomnumber, SIMTIME_US)).trunc(SIMTIME_MS);
-            EV << "duration2: "<< duration2 << endl;
-            EV << "duration2 + simtime: "<< simTime()<<endl;
-            sendDirect(pk2, radioDelay, duration2, host->gate("in"));
-            scheduleAt(simTime()+duration2, endJoinEvent2);
-            */
-            //pkCounter = 0;
-           // }
-            //termino envio mensaje
+                char pkname3[40];
+                sprintf(pkname3, "downlink-2");
+                EV << "generating packet 2 to host" << pkt->getSenderModuleId() << endl;
+                cPacket *pk3 = new cPacket(pkname3);  //creación downlink window #1 luego de uplink desde nodo
+                pk3->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
+                srand ( time(NULL) );
+                randomnumber = ((rand() % 20)+1)/1000; // generación de tiempo aleatorio de diferencia con recepción
+                simtime_t duration2 = (simTime() + SimTime(randomnumber, SIMTIME_US)).trunc(SIMTIME_MS); // asignacion de duracion de envio de paquete
+                EV << "duration2: "<<duration2 << endl;
+                sendDirect(pk3, radioDelay, duration2, host->gate("in")); // envío de mensaje a nodo
+                //cancelEvent(endJoinEvent2);
+                scheduleAt(simTime()+duration2, startRx2Event);
+                EV << "downlink window "<<winCounter<<" to host "<< pkt->getSenderModuleId() <<" is ended in "<< duration2 << endl;
+                winCounter = 1;
+                scheduleAt(endReceptionTime, endRxEvent);
+                channelBusy = true;
 
-            scheduleAt(endReceptionTime, endRxEvent);
+
         }
         else {
             EV << "another frame arrived while receiving -- collision!\n";
