@@ -51,9 +51,10 @@ class Host : public cSimpleModule
     simsignal_t receiveBeginSignal;
     simsignal_t receiveSignal;
     simsignal_t stateSignal;
+    simtime_t timeout;
     int pkCounter;
     int pair;
-    int sleeptime;
+    simtime_t sleeptime;
 
   public:
     Host();
@@ -61,7 +62,7 @@ class Host : public cSimpleModule
     void setpair(int);
     int getpair();
     void setsleep(int);
-    int getsleep();
+    simtime_t getsleep();
 
   protected:
     virtual void initialize() override;

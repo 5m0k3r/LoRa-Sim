@@ -1,14 +1,14 @@
 version 2
-run SlottedAloha2-0-20161121-17:09:38-19765
+run SlottedAloha2-0-20161122-15:15:51-15215
 attr configname SlottedAloha2
-attr datetime 20161121-17:09:38
+attr datetime 20161122-15:15:51
 attr experiment SlottedAloha2
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Aloha
-attr processid 19765
+attr processid 15215
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -24,13 +24,13 @@ param Aloha.server.radioDelay 10ms
 param Aloha.slotTime 0
 param Aloha.txRate 9.6kbps
 
-scalar Aloha.server 	duration 	2.118333333334
+scalar Aloha.server 	duration 	10.12
 statistic Aloha.server 	collisionLength:histogram
-field count 20
-field mean 0.0095833333337
-field stddev 0.02149136233404
-field sum 0.191666666674
-field sqrsum 0.010612500000183
+field count 32
+field mean 0.0073177083336562
+field stddev 0.017283912142634
+field sum 0.234166666677
+field sqrsum 0.010974305555789
 field min 0
 field max 0.099166666667
 attr title  "collision length, histogram"
@@ -42,8 +42,8 @@ bin	-0.0297500000001	0
 bin	-0.023138888888967	0
 bin	-0.016527777777833	0
 bin	-0.0099166666667	0
-bin	-0.0033055555555667	8
-bin	0.0033055555555667	11
+bin	-0.0033055555555667	15
+bin	0.0033055555555667	16
 bin	0.0099166666667	0
 bin	0.016527777777833	0
 bin	0.023138888888967	0
@@ -66,18 +66,18 @@ bin	0.1289166666671	0
 bin	0.13552777777823	0
 bin	0.14213888888937	0
 bin	0.1487500000005	0
-scalar Aloha.server 	collisionLength:mean 	0.0095833333337
+scalar Aloha.server 	collisionLength:mean 	0.0073177083336562
 attr title  "collision length, mean"
-scalar Aloha.server 	collisionLength:sum 	0.191666666674
+scalar Aloha.server 	collisionLength:sum 	0.234166666677
 attr title  "collision length, sum"
 scalar Aloha.server 	collisionLength:max 	0.099166666667
 attr title  "collision length, max"
 statistic Aloha.server 	collisionMultiplicity:histogram
-field count 20
-field mean 4.8
-field stddev 1.9894458366194
-field sum 96
-field sqrsum 536
+field count 32
+field mean 4
+field stddev 2.0478155158844
+field sum 128
+field sqrsum 642
 field min 2
 field max 10
 attr source  collision
@@ -87,11 +87,11 @@ bin	-2	0
 bin	-1	0
 bin	0	0
 bin	1	0
-bin	2	2
-bin	3	4
+bin	2	11
+bin	3	5
 bin	4	2
-bin	5	7
-bin	6	2
+bin	5	8
+bin	6	3
 bin	7	1
 bin	8	1
 bin	9	0
@@ -100,13 +100,13 @@ bin	11	0
 bin	12	0
 bin	13	0
 bin	14	0
-scalar Aloha.server 	collidedFrames:last 	96
+scalar Aloha.server 	collidedFrames:last 	128
 attr source  sum(collision)
 attr title  "collided frames, last"
-scalar Aloha.server 	channelUtilization:last 	3.2616050354345
+scalar Aloha.server 	channelUtilization:last 	18.342308959176
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server 	receivedFrames:last 	161
+scalar Aloha.server 	receivedFrames:last 	335313
 attr source  sum(receive)
 attr title  "received frames, last"

@@ -37,6 +37,7 @@ class Server : public cSimpleModule
     cMessage *ackpayload;
     cMessage *ackuplink;
     cMessage *ack0;
+    cMessage *ackpayload2;
     long currentCollisionNumFrames;
     long receiveCounter;
     simtime_t recvStartTime;
@@ -57,7 +58,7 @@ class Server : public cSimpleModule
     simtime_t delay;
     bool isSlotted;
     int pkCounter;
-
+    int counter;
     int randomnumber;
 
   public:

@@ -67,13 +67,14 @@ void Host::initialize()
     WATCH((int&)state);
     WATCH(pkCounter);
     gate("in")->setDeliverOnReceptionStart(true);
+
     scheduleAt(getNextTransmissionTime(), endTxEvent);
 }
 
 void Host::handleMessage(cMessage *msg)
 {
     const char *msgtxt = msg->getFullName();
-    if (state == IDLE && pair == 0) {
+    if (state == IDLE && this->getpair() == 0) {
         // generate packet and schedule timer when it ends
         char pkname[40];
         sprintf(pkname, "pair-request", getId(), pkCounter++);
@@ -90,8 +91,8 @@ void Host::handleMessage(cMessage *msg)
         scheduleAt(simTime()+duration, endTxEvent);
         cancelEvent(endJoinEvent);
         cancelEvent(endJoinEvent2);
-
         gate("in")->setDeliverOnReceptionStart(true);
+        this->timeout = simTime()+duration;
     }
     else if (state == TRANSMIT &&  strcmp(msgtxt,"downlink-1") == 0 ){
         // endTxEvent indicates end of transmission
@@ -115,6 +116,7 @@ void Host::handleMessage(cMessage *msg)
         cancelEvent(ack1);
         sendDirect(pk, radioDelay+10, duration+0.000020, server->gate("in7"));
         scheduleAt(simTime()+duration, ack1);
+        this->timeout = simTime()+duration;
 
         EV << "downlink-window-1 received"<<endl;
         //cancelEvent(endJoinEvent);
@@ -141,6 +143,7 @@ void Host::handleMessage(cMessage *msg)
         cancelEvent(ack2);
         sendDirect(pk, radioDelay+10, duration+0.000020, server->gate("in7"));
         scheduleAt(simTime()+duration, ack2);
+        this->timeout = simTime()+duration;
 
         EV << "downlink-window-2 received"<<endl;
         //cancelEvent(endJoinEvent2);
@@ -164,10 +167,12 @@ void Host::handleMessage(cMessage *msg)
         pk4->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
         if (this->getsleep() > 0){
             simtime_t duration = pk4->getBitLength() / txRate + this->getsleep(); // asignacion de duracion de envio de paquete
-            sendDirect(pk4, radioDelay, duration, server->gate("in7"));
+            sendDirect(pk4, radioDelay, duration+this->getsleep(), server->gate("in7"));
             cancelEvent(uplink);
 
-            scheduleAt(simTime()+duration, uplink);
+            scheduleAt(simTime()+duration+this->getsleep(), uplink);
+            this->timeout = simTime()+duration+this->getsleep();
+            EV<<"Timeout: "<<this->timeout <<endl;
 
         }
         else{
@@ -176,6 +181,8 @@ void Host::handleMessage(cMessage *msg)
             cancelEvent(uplink);
 
             scheduleAt(simTime()+duration, uplink);
+            this->timeout = simTime()+duration;
+
 
         }
 
@@ -217,7 +224,7 @@ void Host::handleMessage(cMessage *msg)
                 cancelEvent(ack0);
                 scheduleAt(simTime(), ack0);
     }
-    else if ( state == SLEEP ){
+    else if ( state == SLEEP && strcmp(msgtxt,"ack-payload-2") == 0 ){
         cTimestampedValue tmp(recvStartTime, 1l);
         emit(receiveSignal, &tmp);
         emit(receiveSignal, 0);
@@ -226,10 +233,39 @@ void Host::handleMessage(cMessage *msg)
         scheduleAt(getNextTransmissionTime(), sleeep);
         this->setsleep(5000);
         state = IDLE2;
+        this->timeout = 0;
+        this->setpair(1);
+        EV << "Inicio de tiempo de reposo"<<endl;
+    }
+    else if( strcmp(msgtxt, "passtime")==0){
+        cTimestampedValue tmp(recvStartTime, 1l);
+        emit(receiveSignal, &tmp);
+        emit(receiveSignal, 0);
+        emit(receiveBeginSignal, receiveCounter);
     }
     else {
-
+        char pkname5[40];
+        sprintf(pkname5, "passtime");
+        cPacket *pk5 = new cPacket(pkname5);  //creación downlink window #1 luego de uplink desde nodo
+        pk5->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
+        simtime_t duration = pk5->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+        sendDirect(pk5, radioDelay, duration, this->gate("in"));
         EV <<"state final: "<< state << endl;
+        EV<<"Timeout: "<<this->timeout <<endl;
+        EV<<"simtime: "<<simTime()<<endl;
+
+
+        if(this->timeout !=0){
+            if(simTime() >= this->timeout){
+                EV<<"Inicio de retransmision de uplink-request"<< endl;
+                if (this->getpair()==1){
+                    state = IDLE2;
+                }
+                else{
+                    state = IDLE;
+                }
+            }
+        }
         //throw cRuntimeError("invalid state");
     }
 }
@@ -244,7 +280,7 @@ void Host::setpair(int a){
 void Host::setsleep(int a){
     this->sleeptime = a;
 }
-int Host::getsleep(){
+simtime_t Host::getsleep(){
     return this->sleeptime;
 }
 simtime_t Host::getNextTransmissionTime()

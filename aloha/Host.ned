@@ -24,7 +24,7 @@ simple Host
         
 //        string NwkID;
 //        string NwkAddr;
-//        double distance @unit(meters);    // distance of the host to the gateway
+        int distance @unit(kilometers);    // distance of the host to the gateway
 //        double radioChannel @unit(id);    // id of channel asigned in ADR resolution by GW
         double txRate @unit(bps);         // transmission rate
         double radioDelay @unit(s);       // propagation delay of radio link
@@ -33,5 +33,6 @@ simple Host
         double slotTime @unit(s);         // zero means no slots (pure Aloha)
     gates:
         input in @directIn;
+        output out @loose;
 }
 

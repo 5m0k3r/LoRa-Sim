@@ -19,6 +19,7 @@ Define_Module(Server);
 Server::Server()
 {
     endRxEvent = nullptr;
+    counter = 0;
 }
 
 Server::~Server()
@@ -44,15 +45,15 @@ void Server::initialize()
     payload = new cMessage("uplink-payload");
     pair = new cMessage("pair-request");
     ackpayload = new cMessage("ack-payload");
+    ackpayload2 = new cMessage("ack-payload-2");
     channelBusy = false;
     emit(channelStateSignal, IDLE);
     gate("in7")->setDeliverOnReceptionStart(true);
-    gate("in6")->setDeliverOnReceptionStart(true);
-    gate("in5")->setDeliverOnReceptionStart(true);
-    gate("in4")->setDeliverOnReceptionStart(true);
-    gate("in3")->setDeliverOnReceptionStart(true);
-    gate("in2")->setDeliverOnReceptionStart(true);
-    gate("in1")->setDeliverOnReceptionStart(true);
+    gate("in8")->setDeliverOnReceptionStart(true);
+    gate("in9")->setDeliverOnReceptionStart(true);
+    gate("in10")->setDeliverOnReceptionStart(true);
+    gate("in11")->setDeliverOnReceptionStart(true);
+    gate("in12")->setDeliverOnReceptionStart(true);
 
     currentCollisionNumFrames = 0;
     receiveCounter = 0;
@@ -72,10 +73,15 @@ void Server::initialize()
 
 void Server::handleMessage(cMessage *msg)
 {
-
     const char *msgtxt = msg->getFullName();
-
     EV << "msg-server-inicial: "<< msgtxt <<endl;
+    if (counter > 20){
+                msgtxt = "ack-downlink-2";
+                EV<<"retransmisión de ACK"<<endl;
+                channelBusy = false;
+                this->counter = 0;
+            }
+
     if (strcmp(msgtxt, "end-reception") == 0|| strcmp(msgtxt, "downlink-1" ) == 0 || strcmp(msgtxt, "end-downlink-window1") == 0 || strcmp(msgtxt, "end-downlink-window2") == 0 || strcmp(msgtxt, "ack-downlink-2") == 0 || strcmp(msgtxt, "uplink-req") == 0 || strcmp(msgtxt, "uplink-payload"   ) == 0 )
     {
         EV << "reception finished\n";
@@ -88,7 +94,7 @@ void Server::handleMessage(cMessage *msg)
             emit(receiveSignal, 0);
             emit(receiveBeginSignal, receiveCounter);
             cancelEvent(ack1);
-            scheduleAt(simTime(), ack1);
+            scheduleAt(simTime()+10, ack1);
         }
         if (strcmp(msgtxt, "ack-downlink-2") == 0){
 
@@ -98,8 +104,10 @@ void Server::handleMessage(cMessage *msg)
             emit(receiveSignal, 0);
             emit(receiveBeginSignal, receiveCounter);
             cancelEvent(ack2);
-            scheduleAt(simTime(), ack2);
+            scheduleAt(simTime()+100, ack2);
+            counter ++;
         }
+
         channelBusy = false;
         emit(channelStateSignal, IDLE);
         //envío de los disintos ack que componen la comunicación con lora
@@ -122,6 +130,27 @@ void Server::handleMessage(cMessage *msg)
             cancelEvent(ackpayload);
             sendDirect(pk6, radioDelay, duration, host->gate("in"));
             scheduleAt(simTime()+duration, ackpayload);
+
+        }
+        if ( strcmp(msgtxt,"uplink-payload")==0){
+            EV << "generating uplink-payload-ack " << endl;
+            cPacket *pkt = check_and_cast<cPacket *>(msg);
+
+            ASSERT(pkt->isReceptionStart());
+            cTimestampedValue tmp(recvStartTime, 1l);
+            emit(receiveSignal, &tmp);
+            emit(receiveSignal, 0);
+            emit(receiveBeginSignal, receiveCounter);
+            char pkname7[40];
+            sprintf(pkname7, "ack-payload-2");
+            host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje
+            EV << "generating payload-ack to host "<< (pkt->getSenderModuleId()-3) << endl;
+            cPacket *pk7 = new cPacket(pkname7);  //creación downlink window #1 luego de uplink desde nodo
+            pk7->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
+            simtime_t duration = simTime()+pk7->getBitLength()/txRate; // asignacion de duracion de envio de paquete
+            cancelEvent(ackpayload2);
+            sendDirect(pk7, radioDelay, duration, host->gate("in"));
+            scheduleAt(simTime()+duration, ackpayload2);
 
         }
         // update statistics
@@ -191,7 +220,7 @@ void Server::handleMessage(cMessage *msg)
                 simtime_t duration = (simTime() + SimTime(randomnumber, SIMTIME_US)).trunc(SIMTIME_MS); // asignacion de duracion de envio de paquete
                 EV << "duration: "<<duration << endl;
                 sendDirect(pk2, radioDelay, duration, host->gate("in")); // envío de mensaje a nodo
-                //cancelEvent(endJoinEvent);
+                cancelEvent(startRxEvent);
                 scheduleAt(simTime()+duration, startRxEvent);
                 EV << "downlink window "<<winCounter<<" to host "<< pkt->getSenderModuleId() <<" is ended in "<< duration << endl;
                 winCounter+=1;
@@ -207,10 +236,11 @@ void Server::handleMessage(cMessage *msg)
                 simtime_t duration2 = (simTime() + SimTime(randomnumber, SIMTIME_US)).trunc(SIMTIME_MS); // asignacion de duracion de envio de paquete
                 EV << "duration2: "<<duration2 << endl;
                 sendDirect(pk3, radioDelay, duration2, host->gate("in")); // envío de mensaje a nodo
-                //cancelEvent(endJoinEvent2);
+                cancelEvent(startRx2Event);
                 scheduleAt(simTime()+duration2, startRx2Event);
                 EV << "downlink window "<<winCounter<<" to host "<< pkt->getSenderModuleId() <<" is ended in "<< duration2 << endl;
                 winCounter = 1;
+                cancelEvent(endRxEvent);
                 scheduleAt(endReceptionTime, endRxEvent);
                 channelBusy = true;
 
