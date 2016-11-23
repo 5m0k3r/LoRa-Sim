@@ -46,7 +46,6 @@ void Server::initialize()
     pair = new cMessage("pair-request");
     ackpayload = new cMessage("ack-payload");
     ackpayload2 = new cMessage("ack-payload-2");
-    waits = new cMessage("waittime");
     channelBusy = false;
     emit(channelStateSignal, IDLE);
     gate("in7")->setDeliverOnReceptionStart(true);
@@ -76,23 +75,14 @@ void Server::handleMessage(cMessage *msg)
 {
     const char *msgtxt = msg->getFullName();
     EV << "msg-server-inicial: "<< msgtxt <<endl;
-    if (counter ==  20){
+    if (counter > 20){
                 msgtxt = "ack-downlink-2";
                 EV<<"retransmisión de ACK"<<endl;
                 channelBusy = false;
-
+                this->counter = 0;
             }
-    if (counter > 20){
-        msgtxt = "waittime";
-        cTimestampedValue tmp(recvStartTime, 1l);
-        emit(receiveSignal, &tmp);
-        emit(receiveSignal, 0);
-        emit(receiveBeginSignal, receiveCounter);
-        EV<<"retransmisión de ACK"<<endl;
-        this->counter = 0;
-    }
 
-    if (strcmp(msgtxt, "end-reception") == 0 || strcmp(msgtxt, "ack-payload-2")==0 || strcmp(msgtxt, "ack-payload")==0 || strcmp(msgtxt, "downlink-1" ) == 0 || strcmp(msgtxt, "end-downlink-window1") == 0 || strcmp(msgtxt, "end-downlink-window2") == 0|| strcmp(msgtxt, "ack-downlink-1") == 0 || strcmp(msgtxt, "ack-downlink-2") == 0 || strcmp(msgtxt, "uplink-req") == 0 || strcmp(msgtxt, "uplink-payload") == 0 || strcmp(msgtxt, "waittime") == 0 )
+    if (strcmp(msgtxt, "end-reception") == 0|| strcmp(msgtxt, "downlink-1" ) == 0 || strcmp(msgtxt, "end-downlink-window1") == 0 || strcmp(msgtxt, "end-downlink-window2") == 0 || strcmp(msgtxt, "ack-downlink-2") == 0 || strcmp(msgtxt, "uplink-req") == 0 || strcmp(msgtxt, "uplink-payload"   ) == 0 )
     {
         EV << "reception finished\n";
 
@@ -116,7 +106,6 @@ void Server::handleMessage(cMessage *msg)
             cancelEvent(ack2);
             scheduleAt(simTime()+10, ack2);
             counter ++;
-            msgtxt = "waittime";
         }
 
         channelBusy = false;
@@ -124,15 +113,13 @@ void Server::handleMessage(cMessage *msg)
         //envío de los disintos ack que componen la comunicación con lora
         if ( strcmp(msgtxt,"uplink-req")==0){
             EV << "generating uplink-ack " << endl;
+            cPacket *pkt = check_and_cast<cPacket *>(msg);
 
-
+            ASSERT(pkt->isReceptionStart());
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
             emit(receiveSignal, 0);
             emit(receiveBeginSignal, receiveCounter);
-            cPacket *pkt = check_and_cast<cPacket *>(msg);
-            ASSERT(pkt->isReceptionStart());
-
             char pkname6[40];
             sprintf(pkname6, "ack-uplink");
             host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje
@@ -147,16 +134,15 @@ void Server::handleMessage(cMessage *msg)
         }
         if ( strcmp(msgtxt,"uplink-payload")==0){
             EV << "generating uplink-payload-ack " << endl;
+            cPacket *pkt = check_and_cast<cPacket *>(msg);
 
+            ASSERT(pkt->isReceptionStart());
             cTimestampedValue tmp(recvStartTime, 1l);
-
             emit(receiveSignal, &tmp);
             emit(receiveSignal, 0);
             emit(receiveBeginSignal, receiveCounter);
             char pkname7[40];
             sprintf(pkname7, "ack-payload-2");
-            cPacket *pkt = check_and_cast<cPacket *>(msg);
-            ASSERT(pkt->isReceptionStart());
             host = pkt->getSenderModule(); //obtencion de id de nodo que envió mensaje
             EV << "generating payload-ack to host "<< (pkt->getSenderModuleId()-3) << endl;
             cPacket *pk7 = new cPacket(pkname7);  //creación downlink window #1 luego de uplink desde nodo
@@ -165,17 +151,6 @@ void Server::handleMessage(cMessage *msg)
             cancelEvent(ackpayload2);
             sendDirect(pk7, radioDelay, duration, host->gate("in"));
             scheduleAt(simTime()+duration, ackpayload2);
-            msgtxt = "wait";
-
-        }
-        if ( strcmp(msgtxt, "wait")==0 || strcmp(msgtxt, "ack-payload")==0 || strcmp(msgtxt, "ack-payload-2")==0){
-            cTimestampedValue tmp(recvStartTime, 1l);
-            emit(receiveSignal, &tmp);
-            emit(receiveSignal, 0);
-            emit(receiveBeginSignal, receiveCounter);
-            cancelEvent(waits);
-            scheduleAt(simTime()+1, waits);
-            EV << "en tiempo de espera"<<endl;
 
         }
         // update statistics

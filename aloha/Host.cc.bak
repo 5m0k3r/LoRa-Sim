@@ -50,6 +50,7 @@ void Host::initialize()
     uplink = new cMessage("uplink-req");
     payload = new cMessage("uplink-payload");
     sleeep = new cMessage("sleep-time");
+    passtime = new cMessage("passtime");
     txRate = par("txRate");
     radioDelay = par("radioDelay");
     iaTime = &par("iaTime");
@@ -85,16 +86,67 @@ void Host::handleMessage(cMessage *msg)
 
         cPacket *pk = new cPacket(pkname);
         pk->setBitLength(pkLenBits->longValue());
-        simtime_t duration = pk->getBitLength() / txRate;
+        if ( this->distance == 14 && this->distance > 11){
+            this->txRate = 5740;
+            simtime_t duration = pk->getBitLength() / txRate;
+            // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay, duration, server->gate("in12"));
+            cancelEvent(endTxEvent);
+            scheduleAt(simTime()+duration, endTxEvent);
+            this->timeout = simTime()+duration+20;
+        }
+        if (this->distance == 11 && this->distance > 8 ){
+            this->txRate = 3125;
+            simtime_t duration = pk->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay, duration, server->gate("in11"));
+            cancelEvent(endTxEvent);
+            scheduleAt(simTime()+duration, endTxEvent);
+            this->timeout = simTime()+duration+20;
+        }
+        if (this->distance == 8 && this->distance > 6){
+            this->txRate = 1760;
+            simtime_t duration = pk->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay, duration, server->gate("in10"));
+            cancelEvent(endTxEvent);
+            scheduleAt(simTime()+duration+5, endTxEvent);
+            this->timeout = simTime()+duration+20;
+        }
+        if (this->distance == 6 && this->distance > 4){
+            this->txRate = 980;
+            simtime_t duration = pk->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay, duration, server->gate("in9"));
+            cancelEvent(endTxEvent);
+            scheduleAt(simTime()+duration+7, endTxEvent);
+            this->timeout = simTime()+duration+7+20;
+
+        }
+        if (this->distance == 4 && this->distance > 2){
+            this->txRate = 440;
+            simtime_t duration = pk->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay, duration, server->gate("in8"));
+            cancelEvent(endTxEvent);
+            scheduleAt(simTime()+duration, endTxEvent);
+            this->timeout = simTime()+duration+9+20;
+        }
+        if (this->distance <= 2){
+            this->txRate = 290;
+            simtime_t duration = pk->getBitLength() / txRate; // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay, duration, server->gate("in7"));
+            cancelEvent(endTxEvent);
+            scheduleAt(simTime()+duration, endTxEvent);
+            this->timeout = simTime()+duration+20;
+        }
+
+        //simtime_t duration = pk->getBitLength() / txRate;
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
-        sendDirect(pk, radioDelay, duration, server->gate("in7"));
-        scheduleAt(simTime()+duration, endTxEvent);
+        //sendDirect(pk, radioDelay, duration, server->gate("in7"));
+        //scheduleAt(simTime()+duration, endTxEvent);
         cancelEvent(endJoinEvent);
         cancelEvent(endJoinEvent2);
         gate("in")->setDeliverOnReceptionStart(true);
-        this->timeout = simTime()+duration;
+        //this->timeout = simTime()+duration;
     }
-    else if (state == TRANSMIT &&  strcmp(msgtxt,"downlink-1") == 0 ){
+    else if (state == TRANSMIT &&  (strcmp(msgtxt,"downlink-1") == 0 )){
         // endTxEvent indicates end of transmission
         state = RECEIVE;
 
@@ -102,7 +154,7 @@ void Host::handleMessage(cMessage *msg)
         char pkname[40];
         sprintf(pkname, "ack-downlink-1", getId(), pkCounter++);
         // schedule next sending
-        simtime_t endReceptionTime = simTime() + msg->getSendingTime();
+        //simtime_t endReceptionTime = simTime() + msg->getSendingTime();
         // start of reception at recvStartTime
         cTimestampedValue tmp(recvStartTime, 1l);
         emit(receiveSignal, &tmp);
@@ -111,18 +163,70 @@ void Host::handleMessage(cMessage *msg)
         // end of reception now
         cPacket *pk = new cPacket(pkname);
         pk->setBitLength(pkLenBits->longValue());
+        /*
+        if ( this->distance == 14 && this->distance > 11){
+            this->txRate = 5740;
+            simtime_t duration = (pk->getBitLength()/this->txRate); // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay+20, duration+0.000020, server->gate("in12"));
+            cancelEvent(ack1);
+            scheduleAt(simTime()+duration+0.000020, ack1);
+            this->timeout = simTime()+duration+0.000020+20;
+        }
+        if (this->distance == 11 && this->distance > 8 ){
+            this->txRate = 3125;
+            simtime_t duration = (pk->getBitLength()/this->txRate); // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay+12, duration+0.000020, server->gate("in11"));
+            cancelEvent(ack1);
+            scheduleAt(simTime()+duration+0.000020, ack1);
+            this->timeout = simTime()+duration+0.000020+20;
+        }
+        if (this->distance == 8 && this->distance > 6){
+            this->txRate = 1760;
+            simtime_t duration = (pk->getBitLength()/this->txRate); // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay+14, duration+0.000020, server->gate("in10"));
+            cancelEvent(ack1);
+            scheduleAt(simTime()+duration+0.000020, ack1);
+            this->timeout = simTime()+duration+0.000020+20;
+        }
+        if (this->distance == 6 && this->distance > 4){
+            this->txRate = 980;
+            simtime_t duration = (pk->getBitLength()/this->txRate); // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay+16, duration+0.000020, server->gate("in9"));
+            cancelEvent(ack1);
+            scheduleAt(simTime()+duration+0.000020, ack1);
+            this->timeout = simTime()+duration+0.000020+20;
+
+        }
+        if (this->distance == 4 && this->distance > 2){
+            this->txRate = 440;
+            simtime_t duration =(pk->getBitLength()/this->txRate) ; // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay+18, duration+0.000020, server->gate("in8"));
+            cancelEvent(ack1);
+            scheduleAt(simTime()+duration+0.000020, ack1);
+            this->timeout = simTime()+duration+0.000020+20;
+        }
+        if (this->distance <= 2){
+            this->txRate = 290;
+            simtime_t duration = (pk->getBitLength()/this->txRate) ; // asignacion de duracion de envio de paquete
+            sendDirect(pk, radioDelay+20, duration+0.000020, server->gate("in7"));
+            cancelEvent(ack1);
+            scheduleAt(simTime()+duration, ack1);
+            this->timeout = simTime()+duration+0.000020+20;
+        }
+        */
+
         simtime_t duration = pk->getBitLength() / txRate;
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
         cancelEvent(ack1);
         sendDirect(pk, radioDelay+10, duration+0.000020, server->gate("in7"));
         scheduleAt(simTime()+duration, ack1);
-        this->timeout = simTime()+duration;
+        this->timeout = simTime()+duration+20;
 
         EV << "downlink-window-1 received"<<endl;
         //cancelEvent(endJoinEvent);
         //scheduleAt(endReceptionTime+0.000020, endJoinEvent);
     }
-    else if (state == RECEIVE && strcmp(msgtxt,"downlink-2") == 0 ){
+    else if (state == RECEIVE && (strcmp(msgtxt,"downlink-2") == 0 )){
 
         state = RECEIVE2;
         emit(stateSignal, state);
@@ -141,7 +245,7 @@ void Host::handleMessage(cMessage *msg)
         simtime_t duration = pk->getBitLength() / txRate;
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
         cancelEvent(ack2);
-        sendDirect(pk, radioDelay+10, duration+0.000020, server->gate("in7"));
+        sendDirect(pk, radioDelay+15, duration+0.000020, server->gate("in7"));
         scheduleAt(simTime()+duration, ack2);
         this->timeout = simTime()+duration;
 
@@ -186,11 +290,6 @@ void Host::handleMessage(cMessage *msg)
 
         }
 
-        /*if (simTime() >= duration){
-            cancelEvent(uplink);
-            sendDirect(pk4, radioDelay, duration, server->gate("in7"));
-            EV << "packet retransmited" << endl;
-        }*/
         state = ACK;
     }
     else if ( state == ACK && this->getpair() == 1 && strcmp(msgtxt,"ack-uplink") == 0){
@@ -230,13 +329,14 @@ void Host::handleMessage(cMessage *msg)
         emit(receiveSignal, 0);
         emit(receiveBeginSignal, receiveCounter);
         cancelEvent(sleeep);
-        scheduleAt(getNextTransmissionTime()+5, sleeep);
         this->setsleep(5);
+        scheduleAt(getNextTransmissionTime()+5, sleeep);
 
         this->timeout = getNextTransmissionTime()+5;
         this->setpair(1);
         EV << "Inicio de tiempo de reposo"<<endl;
-        if ( strcmp(msgtxt, "sleep-time")==0){
+        if(strcmp(msgtxt,"sleep-time") == 0)
+        {
             state = IDLE2;
         }
     }
@@ -247,12 +347,16 @@ void Host::handleMessage(cMessage *msg)
         emit(receiveBeginSignal, receiveCounter);
     }
     else {
+        /*
         char pkname5[40];
         sprintf(pkname5, "passtime");
         cPacket *pk5 = new cPacket(pkname5);  //creación downlink window #1 luego de uplink desde nodo
         pk5->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
         simtime_t duration = pk5->getBitLength() / txRate; // asignacion de duracion de envio de paquete
         sendDirect(pk5, radioDelay, duration, this->gate("in"));
+        */
+        cancelEvent(passtime);
+        scheduleAt(simTime()+1,passtime);
         EV <<"state final: "<< state << endl;
         EV<<"Timeout: "<<this->timeout <<endl;
         EV<<"simtime: "<<simTime()<<endl;
@@ -260,7 +364,7 @@ void Host::handleMessage(cMessage *msg)
 
         if(this->timeout !=0){
             if(simTime() >= this->timeout){
-                EV<<"Inicio de retransmision de uplink-request"<< endl;
+                EV<<"Inicio de retransmision de package sended"<< endl;
                 if (this->getpair()==1){
                     state = IDLE2;
                 }
