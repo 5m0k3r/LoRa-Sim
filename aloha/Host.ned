@@ -21,11 +21,8 @@ simple Host
         @signal[receive](type="long");  // for successful receptions (non-collisions): 1 at the start of the reception, 0 at the end of the reception
         @signal[channelState](type="long");
 		
-        
-//        string NwkID;
-//        string NwkAddr;
-        int distance @unit(kilometers);    // distance of the host to the gateway
-//        double radioChannel @unit(id);    // id of channel asigned in ADR resolution by GW
+
+        volatile int distance;    	      // distance of the host to the gateway in km
         double txRate @unit(bps);         // transmission rate
         double radioDelay @unit(s);       // propagation delay of radio link
         volatile int pkLenBits @unit(b);  // packet length in bits

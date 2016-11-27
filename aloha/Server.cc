@@ -49,13 +49,7 @@ void Server::initialize()
     waits = new cMessage("waittime");
     channelBusy = false;
     emit(channelStateSignal, IDLE);
-    gate("in7")->setDeliverOnReceptionStart(true);
-    gate("in8")->setDeliverOnReceptionStart(true);
-    gate("in9")->setDeliverOnReceptionStart(true);
-    gate("in10")->setDeliverOnReceptionStart(true);
-    gate("in11")->setDeliverOnReceptionStart(true);
-    gate("in12")->setDeliverOnReceptionStart(true);
-
+    gate("in")->setDeliverOnReceptionStart(true);
     currentCollisionNumFrames = 0;
     receiveCounter = 0;
     WATCH(currentCollisionNumFrames);

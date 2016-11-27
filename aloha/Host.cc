@@ -8,7 +8,10 @@
 //
 
 #include "Host.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <random>
 namespace aloha {
 
 Define_Module(Host);
@@ -36,10 +39,19 @@ void Host::initialize()
     receiveSignal = registerSignal("receive");
     receiveBeginSignal = registerSignal("receiveBegin");
     channelStateSignal = registerSignal("channelState");
+    server = getModuleByPath("server[0]");
+    server2 = getModuleByPath("server[1]");
+    server3 = getModuleByPath("server[2]");
+    server4 = getModuleByPath("server[3]");
+    server5 = getModuleByPath("server[4]");
+    server6 = getModuleByPath("server[5]");
 
-    server = getModuleByPath("server");
     if (!server)
         throw cRuntimeError("server not found");
+    for(int ix=2; ix <7; ix++){
+        if (!(server + ix))
+                throw cRuntimeError("server not found");
+    }
     endRxEvent = new cMessage("end-reception");
     endJoinEvent = new cMessage("end-downlink-window1");
     endJoinEvent2 = new cMessage("end-downlink-window2");
@@ -67,7 +79,7 @@ void Host::initialize()
     WATCH((int&)state);
     WATCH(pkCounter);
     gate("in")->setDeliverOnReceptionStart(true);
-
+    this->distance = par("distance");
     scheduleAt(getNextTransmissionTime(), endTxEvent);
 }
 
@@ -87,7 +99,8 @@ void Host::handleMessage(cMessage *msg)
         pk->setBitLength(pkLenBits->longValue());
         simtime_t duration = pk->getBitLength() / txRate;
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
-        sendDirect(pk, radioDelay, duration, server->gate("in7"));
+        //sendDirect(pk, radioDelay, duration, server->gate("in"));
+        sendDirect(pk, radioDelay, duration, this->getadr()->gate("in"));
         scheduleAt(simTime()+duration, endTxEvent);
         cancelEvent(endJoinEvent);
         cancelEvent(endJoinEvent2);
@@ -114,7 +127,7 @@ void Host::handleMessage(cMessage *msg)
         simtime_t duration = pk->getBitLength() / txRate;
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
         cancelEvent(ack1);
-        sendDirect(pk, radioDelay+10, duration+0.000020, server->gate("in7"));
+        sendDirect(pk, radioDelay+10, duration+0.000020, this->getadr()->gate("in"));
         scheduleAt(simTime()+duration, ack1);
         this->timeout = simTime()+duration;
 
@@ -141,7 +154,7 @@ void Host::handleMessage(cMessage *msg)
         simtime_t duration = pk->getBitLength() / txRate;
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
         cancelEvent(ack2);
-        sendDirect(pk, radioDelay+10, duration+0.000020, server->gate("in7"));
+        sendDirect(pk, radioDelay+10, duration+0.000020, this->getadr()->gate("in"));
         scheduleAt(simTime()+duration, ack2);
         this->timeout = simTime()+duration;
 
@@ -167,7 +180,7 @@ void Host::handleMessage(cMessage *msg)
         pk4->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
         if (this->getsleep() > 0){
             simtime_t duration = pk4->getBitLength() / txRate + this->getsleep(); // asignacion de duracion de envio de paquete
-            sendDirect(pk4, radioDelay, duration+this->getsleep(), server->gate("in7"));
+            sendDirect(pk4, radioDelay, duration+this->getsleep(), this->getadr()->gate("in"));
             cancelEvent(uplink);
 
             scheduleAt(simTime()+duration+this->getsleep(), uplink);
@@ -177,7 +190,7 @@ void Host::handleMessage(cMessage *msg)
         }
         else{
             simtime_t duration = pk4->getBitLength() / txRate; // asignacion de duracion de envio de paquete
-            sendDirect(pk4, radioDelay, duration, server->gate("in7"));
+            sendDirect(pk4, radioDelay, duration, this->getadr()->gate("in"));
             cancelEvent(uplink);
 
             scheduleAt(simTime()+duration, uplink);
@@ -206,7 +219,7 @@ void Host::handleMessage(cMessage *msg)
             pk5->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
             simtime_t duration = pk5->getBitLength() / txRate; // asignacion de duracion de envio de paquete
             cancelEvent(payload);
-            sendDirect(pk5, radioDelay, duration, server->gate("in7"));
+            sendDirect(pk5, radioDelay, duration, this->getadr()->gate("in"));
             scheduleAt(simTime()+duration, payload);
     }
     else if ( state == PRERECEIVE && this->getpair() != 1){
@@ -309,6 +322,36 @@ void Host::refreshDisplay() const
         getDisplayString().setTagArg("t", 0, "TRANSMIT");
     }
 }
-
+int Host::getdistance(){
+    return this->distance;
+}
+cModule *Host::getadr(){
+    float random;
+    srand(time(NULL));
+    random = rand() % 1 +0;
+    float distancia = this->getdistance()+ random ;
+    if (distancia <= 14 &&  distancia > 11){
+        return server6;
+    }
+    else if (distancia <= 11 && distancia > 8){
+        return server5;
+    }
+    else if (distancia <= 8 && distancia > 6){
+        return server4;
+    }
+    else if (distancia <= 6 && distancia > 4){
+        return server3;
+    }
+    else if (distancia <= 4 && distancia >2){
+        return server2;
+    }
+    else if (distancia <= 2){
+        return server;
+    }
+    else if (distancia > 14){
+        EV<<"Distancia en nodo: "<<this->getdistance()<<endl;
+        throw cRuntimeError("distance of node out of range");
+    }
+}
 
 }; //namespace

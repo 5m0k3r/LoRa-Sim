@@ -34,11 +34,6 @@ simple Server
         double radioDelay @unit(s);
         //int sleeptime @unit(s);
     gates:
-        input in7 @directIn;
-        input in8 @directIn;
-        input in9 @directIn;
-        input in10 @directIn;
-        input in11 @directIn;
-        input in12 @directIn;
+        input in @directIn;
 }
 

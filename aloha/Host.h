@@ -36,6 +36,11 @@ class Host : public cSimpleModule
 
     // state variables, event pointers etc
     cModule *server;
+    cModule *server2;
+    cModule *server3;
+    cModule *server4;
+    cModule *server5;
+    cModule *server6;
     cMessage *endTxEvent;
     cMessage *endRxEvent;
     cMessage *endJoinEvent;
@@ -54,6 +59,7 @@ class Host : public cSimpleModule
     simtime_t timeout;
     int pkCounter;
     int pair;
+    int distance;
     simtime_t sleeptime;
 
   public:
@@ -63,6 +69,8 @@ class Host : public cSimpleModule
     int getpair();
     void setsleep(int);
     simtime_t getsleep();
+    cModule *getadr();
+    int getdistance();
 
   protected:
     virtual void initialize() override;
