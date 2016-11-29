@@ -18,6 +18,7 @@ Define_Module(Server);
 
 Server::Server()
 {
+
     endRxEvent = nullptr;
     counter = 0;
 }

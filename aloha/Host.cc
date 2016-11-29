@@ -39,19 +39,19 @@ void Host::initialize()
     receiveSignal = registerSignal("receive");
     receiveBeginSignal = registerSignal("receiveBegin");
     channelStateSignal = registerSignal("channelState");
-    server = getModuleByPath("server[0]");
-    server2 = getModuleByPath("server[1]");
-    server3 = getModuleByPath("server[2]");
-    server4 = getModuleByPath("server[3]");
-    server5 = getModuleByPath("server[4]");
-    server6 = getModuleByPath("server[5]");
+    server = getModuleByPath("server1");
+    server2 = getModuleByPath("server2");
+    server3 = getModuleByPath("server3");
+    server4 = getModuleByPath("server4");
+    server5 = getModuleByPath("server5");
+    server6 = getModuleByPath("server6");
 
-    if (!server)
+    /*if (!server)
         throw cRuntimeError("server not found");
     for(int ix=2; ix <7; ix++){
         if (!(server + ix))
                 throw cRuntimeError("server not found");
-    }
+    }*/
     endRxEvent = new cMessage("end-reception");
     endJoinEvent = new cMessage("end-downlink-window1");
     endJoinEvent2 = new cMessage("end-downlink-window2");
@@ -105,7 +105,7 @@ void Host::handleMessage(cMessage *msg)
         cancelEvent(endJoinEvent);
         cancelEvent(endJoinEvent2);
         gate("in")->setDeliverOnReceptionStart(true);
-        this->timeout = simTime()+duration;
+        this->timeout = simTime()+duration+10;
     }
     else if (state == TRANSMIT &&  strcmp(msgtxt,"downlink-1") == 0 ){
         // endTxEvent indicates end of transmission
@@ -124,12 +124,12 @@ void Host::handleMessage(cMessage *msg)
         // end of reception now
         cPacket *pk = new cPacket(pkname);
         pk->setBitLength(pkLenBits->longValue());
-        simtime_t duration = pk->getBitLength() / txRate;
+        simtime_t duration = pk->getBitLength()/txRate;
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
         cancelEvent(ack1);
         sendDirect(pk, radioDelay+10, duration+0.000020, this->getadr()->gate("in"));
         scheduleAt(simTime()+duration, ack1);
-        this->timeout = simTime()+duration;
+        this->timeout = simTime()+duration+10;
 
         EV << "downlink-window-1 received"<<endl;
         //cancelEvent(endJoinEvent);
@@ -156,7 +156,7 @@ void Host::handleMessage(cMessage *msg)
         cancelEvent(ack2);
         sendDirect(pk, radioDelay+10, duration+0.000020, this->getadr()->gate("in"));
         scheduleAt(simTime()+duration, ack2);
-        this->timeout = simTime()+duration;
+        this->timeout = simTime()+duration+10;
 
         EV << "downlink-window-2 received"<<endl;
         //cancelEvent(endJoinEvent2);
@@ -209,6 +209,7 @@ void Host::handleMessage(cMessage *msg)
     else if ( state == ACK && this->getpair() == 1 && strcmp(msgtxt,"ack-uplink") == 0){
             cTimestampedValue tmp(recvStartTime, 1l);
             state = SLEEP;
+            emit(stateSignal, state);
             emit(receiveSignal, &tmp);
             emit(receiveSignal, 0);
             emit(receiveBeginSignal, receiveCounter);
@@ -239,6 +240,7 @@ void Host::handleMessage(cMessage *msg)
     }
     else if ( state == SLEEP && strcmp(msgtxt,"ack-payload-2") == 0 ){
         cTimestampedValue tmp(recvStartTime, 1l);
+        emit(stateSignal, state);
         emit(receiveSignal, &tmp);
         emit(receiveSignal, 0);
         emit(receiveBeginSignal, receiveCounter);
@@ -254,6 +256,7 @@ void Host::handleMessage(cMessage *msg)
         }
     }
     else if( strcmp(msgtxt, "passtime")==0){
+        emit(stateSignal, state);
         cTimestampedValue tmp(recvStartTime, 1l);
         emit(receiveSignal, &tmp);
         emit(receiveSignal, 0);
@@ -262,6 +265,7 @@ void Host::handleMessage(cMessage *msg)
     else {
         char pkname5[40];
         sprintf(pkname5, "passtime");
+        emit(stateSignal, state);
         cPacket *pk5 = new cPacket(pkname5);  //creación downlink window #1 luego de uplink desde nodo
         pk5->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
         simtime_t duration = pk5->getBitLength() / txRate; // asignacion de duracion de envio de paquete

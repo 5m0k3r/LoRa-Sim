@@ -21,7 +21,7 @@ simple Host
         @signal[receive](type="long");  // for successful receptions (non-collisions): 1 at the start of the reception, 0 at the end of the reception
         @signal[channelState](type="long");
 		
-
+		
         volatile int distance;    	      // distance of the host to the gateway in km
         double txRate @unit(bps);         // transmission rate
         double radioDelay @unit(s);       // propagation delay of radio link
@@ -30,6 +30,5 @@ simple Host
         double slotTime @unit(s);         // zero means no slots (pure Aloha)
     gates:
         input in @directIn;
-        output out @loose;
 }
 

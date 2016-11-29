@@ -26,7 +26,7 @@ simple Server
         @statistic[collisionMultiplicity](source=collision; record=vector?,histogram; title="collision multiplicity");
         @statistic[collisionLength](record=vector?,histogram,mean,sum,max; title="collision length");
         @statistic[receivedFrames](source="sum(receive)"; record=last; title="received frames");
-        @statistic[collidedFrames](source="sum(collision)"; record=last; title="collided frames");
+        @statistic[collidedFrames](source="count(collision)"; record=last; title="collided frames");
         volatile int pkLenBits @unit(b);
         volatile double iaTime @unit(s);
         double slotTime @unit(s);         // zero means no slots (pure Aloha)

@@ -1,0 +1,120 @@
+version 2
+run SlottedAloha1-0-20161128-21:59:26-9167
+attr configname SlottedAloha1
+attr datetime 20161128-21:59:26
+attr experiment SlottedAloha1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Aloha
+attr processid 9167
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param Aloha.host[*].iaTime exponential(0.5s)
+param Aloha.slotTime 100ms
+
+vector 0  Aloha.host[0]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 1  Aloha.host[1]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 2  Aloha.host[2]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 3  Aloha.host[3]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 4  Aloha.host[4]  radioState:vector  ETV
+attr enum  IDLE=0,TRANSMIT=1
+attr source  state
+attr title  "Radio state, vector"
+vector 5  Aloha.server1  serverChannelState:vector  ETV
+attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source  channelState
+attr title  "Channel state, vector"
+vector 6  Aloha.server2  serverChannelState:vector  ETV
+attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source  channelState
+attr title  "Channel state, vector"
+vector 7  Aloha.server3  serverChannelState:vector  ETV
+attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source  channelState
+attr title  "Channel state, vector"
+vector 8  Aloha.server4  serverChannelState:vector  ETV
+attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source  channelState
+attr title  "Channel state, vector"
+vector 9  Aloha.server5  serverChannelState:vector  ETV
+attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source  channelState
+attr title  "Channel state, vector"
+vector 10  Aloha.server6  serverChannelState:vector  ETV
+attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source  channelState
+attr title  "Channel state, vector"
+0	0	0	0
+0	1	0.4	2
+0	11	0.5	1
+0	12	0.5	3
+0	13	0.5	4
+0	23	0.5	5
+0	27	0.9	5
+0	39	1	8
+1	0	0	0
+1	2	0.4	2
+1	14	0.5	1
+1	15	0.5	3
+1	16	0.5	4
+1	24	0.5	5
+1	28	0.9	5
+1	40	1	8
+2	0	0	0
+2	3	0.4	2
+2	17	0.5	1
+2	18	0.5	3
+2	19	0.5	4
+2	25	0.5	5
+2	29	0.9	5
+2	41	1	8
+3	0	0	0
+3	4	0.4	2
+3	20	0.5	1
+3	21	0.5	3
+3	22	0.5	4
+3	26	0.5	5
+3	30	0.9	5
+3	42	1	8
+4	0	0	0
+4	5	0.4	2
+5	0	0	0
+5	8	0.5	1
+5	33	1	0
+5	37	1	0
+5	45	1.1	0
+6	0	0	0
+6	6	0.5	1
+6	31	1	0
+6	35	1	0
+6	43	1.1	0
+7	0	0	0
+7	7	0.5	1
+7	32	1	0
+7	36	1	0
+7	44	1.1	0
+8	0	0	0
+9	0	0	0
+9	9	0.5	1
+9	10	0.5	2
+9	34	1	0
+9	38	1	0
+9	46	1.1	0
+10	0	0	0
