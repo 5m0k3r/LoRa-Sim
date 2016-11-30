@@ -35,12 +35,12 @@ class Host : public cSimpleModule
 
 
     // state variables, event pointers etc
-    cModule *server;
-    cModule *server2;
-    cModule *server3;
-    cModule *server4;
-    cModule *server5;
-    cModule *server6;
+    cModule *sf7;
+    cModule *sf8;
+    cModule *sf9;
+    cModule *sf10;
+    cModule *sf11;
+    cModule *sf12;
     cMessage *endTxEvent;
     cMessage *endRxEvent;
     cMessage *endJoinEvent;

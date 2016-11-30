@@ -42,7 +42,7 @@ network Aloha
                      
         };
     
-        server1: Server{
+        sf7: Server{
         	txRate = 5470bps;
         	iaTime = 56ms;
         	slotTime = slotTime;
@@ -50,7 +50,7 @@ network Aloha
 		 	radioDelay = radioDelay;
        	};
        	
-        server2: Server{
+        sf8: Server{
        		txRate = 3125bps;
         	iaTime = 100ms;
 	        slotTime = slotTime;
@@ -58,7 +58,7 @@ network Aloha
 		 	radioDelay = radioDelay;
         };
         
-        server3: Server{
+        sf9: Server{
         	txRate = 1760bps;
         	iaTime = 200ms;
 	        slotTime = slotTime;
@@ -66,7 +66,7 @@ network Aloha
 		 	radioDelay = radioDelay;
         };
         
-        server4: Server{
+        sf10: Server{
         	txRate = 980bps;
        		iaTime = 370ms;
        		slotTime = slotTime;
@@ -74,7 +74,7 @@ network Aloha
 		 	radioDelay = radioDelay;
         };
         
-        server5: Server{
+        sf11: Server{
         	txRate = 440bps;
         	iaTime = 740ms;
         	slotTime = slotTime;
@@ -82,7 +82,7 @@ network Aloha
 		 	radioDelay = radioDelay;
         };
         
-        server6: Server{
+        sf12: Server{
         	txRate = 290bps;
         	iaTime = 1400ms;
         	slotTime = slotTime;

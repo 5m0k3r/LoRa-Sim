@@ -39,12 +39,12 @@ void Host::initialize()
     receiveSignal = registerSignal("receive");
     receiveBeginSignal = registerSignal("receiveBegin");
     channelStateSignal = registerSignal("channelState");
-    server = getModuleByPath("server1");
-    server2 = getModuleByPath("server2");
-    server3 = getModuleByPath("server3");
-    server4 = getModuleByPath("server4");
-    server5 = getModuleByPath("server5");
-    server6 = getModuleByPath("server6");
+    sf7 = getModuleByPath("sf7");
+    sf8 = getModuleByPath("sf8");
+    sf9 = getModuleByPath("sf9");
+    sf10 = getModuleByPath("sf10");
+    sf11 = getModuleByPath("sf11");
+    sf12 = getModuleByPath("sf12");
 
     /*if (!server)
         throw cRuntimeError("server not found");
@@ -340,27 +340,27 @@ cModule *Host::getadr(){
     float distancia = this->getdistance();//+ random ;
     if (distancia <= 14 &&  distancia > 11){
         this->setdatarate(290);
-        return server6;
+        return sf12;
     }
     else if (distancia <= 11 && distancia > 8){
         this->setdatarate(440);
-        return server5;
+        return sf11;
     }
     else if (distancia <= 8 && distancia > 6){
         this->setdatarate(980);
-        return server4;
+        return sf10;
     }
     else if (distancia <= 6 && distancia > 4){
         this->setdatarate(1760);
-        return server3;
+        return sf9;
     }
     else if (distancia <= 4 && distancia >2){
         this->setdatarate(3126);
-        return server2;
+        return sf8;
     }
     else if (distancia <= 2){
         this->setdatarate(5470);
-        return server;
+        return sf7;
     }
     else if (distancia > 14){
         EV<<"Distancia en nodo: "<<this->getdistance()<<endl;
