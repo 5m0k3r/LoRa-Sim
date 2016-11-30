@@ -1,41 +1,29 @@
 E # 0 t 0 m 1 ce -1 msg -1
-SB v 1280 rid SlottedAloha1-0-20161128-21:59:26-9167 b 1000
+SB v 1280 rid SlottedAloha1-0-20161130-02:28:13-14102 b 1000
 KF p -1 c "" s ""
 MC id 1 c omnetpp::cModule t Aloha n Aloha cm 1
 MS id 1 d bgi=background/terrain,s
 MC id 2 c aloha::Host t Host pid 1 n host[0]
 GC m 2 g 0 n in o 0
 MS id 2 d i=device/pc_s
-MC id 3 c aloha::Host t Host pid 1 n host[1]
+MC id 3 c aloha::Server t Server pid 1 n server1
 GC m 3 g 0 n in o 0
-MS id 3 d i=device/pc_s
-MC id 4 c aloha::Host t Host pid 1 n host[2]
+MS id 3 d i=device/antennatower_l
+MC id 4 c aloha::Server t Server pid 1 n server2
 GC m 4 g 0 n in o 0
-MS id 4 d i=device/pc_s
-MC id 5 c aloha::Host t Host pid 1 n host[3]
+MS id 4 d i=device/antennatower_l
+MC id 5 c aloha::Server t Server pid 1 n server3
 GC m 5 g 0 n in o 0
-MS id 5 d i=device/pc_s
-MC id 6 c aloha::Host t Host pid 1 n host[4]
+MS id 5 d i=device/antennatower_l
+MC id 6 c aloha::Server t Server pid 1 n server4
 GC m 6 g 0 n in o 0
-MS id 6 d i=device/pc_s
-MC id 7 c aloha::Server t Server pid 1 n server1
+MS id 6 d i=device/antennatower_l
+MC id 7 c aloha::Server t Server pid 1 n server5
 GC m 7 g 0 n in o 0
 MS id 7 d i=device/antennatower_l
-MC id 8 c aloha::Server t Server pid 1 n server2
+MC id 8 c aloha::Server t Server pid 1 n server6
 GC m 8 g 0 n in o 0
 MS id 8 d i=device/antennatower_l
-MC id 9 c aloha::Server t Server pid 1 n server3
-GC m 9 g 0 n in o 0
-MS id 9 d i=device/antennatower_l
-MC id 10 c aloha::Server t Server pid 1 n server4
-GC m 10 g 0 n in o 0
-MS id 10 d i=device/antennatower_l
-MC id 11 c aloha::Server t Server pid 1 n server5
-GC m 11 g 0 n in o 0
-MS id 11 d i=device/antennatower_l
-MC id 12 c aloha::Server t Server pid 1 n server6
-GC m 12 g 0 n in o 0
-MS id 12 d i=device/antennatower_l
 MB sm 1 tm 2 m initialize(0)
 CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n end-reception pe -1
 CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n end-downlink-window1 pe -1
@@ -51,1647 +39,1197 @@ BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n send/endTx pe 0
 ES t 0.4
 ME
 MB sm 1 tm 3 m initialize(0)
-CM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n end-reception pe -1
-CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n send/endTx pe -1
-CM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n ack-join-request pe -1
-CM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n uplink-req pe -1
-CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n uplink-payload pe -1
-CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n sleep-time pe -1
-BS id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n send/endTx pe 0
-ES t 0.4
+CM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n end-downlink-window1 pe -1
+CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n end-downlink-window2 pe -1
+CM id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n end-reception pe -1
+CM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n downlink-1 pe -1
+CM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n downlink-2 pe -1
+CM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n ack-join-request pe -1
+CM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n ack-downlink-1 pe -1
+CM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n ack-downlink-2 pe -1
+CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n uplink-req pe -1
+CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n uplink-payload pe -1
+CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n pair-request pe -1
+CM id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n ack-payload pe -1
+CM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n ack-payload-2 pe -1
+CM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n waittime pe -1
+CM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n error-package pe -1
 ME
 MB sm 1 tm 4 m initialize(0)
-CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n end-reception pe -1
-CM id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n send/endTx pe -1
-CM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n ack-join-request pe -1
-CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n uplink-req pe -1
-CM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n uplink-payload pe -1
-CM id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n sleep-time pe -1
-BS id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n send/endTx pe 0
-ES t 0.4
+CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n end-downlink-window1 pe -1
+CM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n end-downlink-window2 pe -1
+CM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n end-reception pe -1
+CM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n downlink-1 pe -1
+CM id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n downlink-2 pe -1
+CM id 30 tid 30 eid 30 etid 30 c omnetpp::cMessage n ack-join-request pe -1
+CM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n ack-downlink-1 pe -1
+CM id 32 tid 32 eid 32 etid 32 c omnetpp::cMessage n ack-downlink-2 pe -1
+CM id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n uplink-req pe -1
+CM id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n uplink-payload pe -1
+CM id 35 tid 35 eid 35 etid 35 c omnetpp::cMessage n pair-request pe -1
+CM id 36 tid 36 eid 36 etid 36 c omnetpp::cMessage n ack-payload pe -1
+CM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n ack-payload-2 pe -1
+CM id 38 tid 38 eid 38 etid 38 c omnetpp::cMessage n waittime pe -1
+CM id 39 tid 39 eid 39 etid 39 c omnetpp::cMessage n error-package pe -1
 ME
 MB sm 1 tm 5 m initialize(0)
-CM id 30 tid 30 eid 30 etid 30 c omnetpp::cMessage n end-reception pe -1
-CM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 32 tid 32 eid 32 etid 32 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n send/endTx pe -1
-CM id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n ack-join-request pe -1
-CM id 35 tid 35 eid 35 etid 35 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 36 tid 36 eid 36 etid 36 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n uplink-req pe -1
-CM id 38 tid 38 eid 38 etid 38 c omnetpp::cMessage n uplink-payload pe -1
-CM id 39 tid 39 eid 39 etid 39 c omnetpp::cMessage n sleep-time pe -1
-BS id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n send/endTx pe 0
-ES t 0.4
+CM id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n end-downlink-window1 pe -1
+CM id 41 tid 41 eid 41 etid 41 c omnetpp::cMessage n end-downlink-window2 pe -1
+CM id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n end-reception pe -1
+CM id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n downlink-1 pe -1
+CM id 44 tid 44 eid 44 etid 44 c omnetpp::cMessage n downlink-2 pe -1
+CM id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n ack-join-request pe -1
+CM id 46 tid 46 eid 46 etid 46 c omnetpp::cMessage n ack-downlink-1 pe -1
+CM id 47 tid 47 eid 47 etid 47 c omnetpp::cMessage n ack-downlink-2 pe -1
+CM id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n uplink-req pe -1
+CM id 49 tid 49 eid 49 etid 49 c omnetpp::cMessage n uplink-payload pe -1
+CM id 50 tid 50 eid 50 etid 50 c omnetpp::cMessage n pair-request pe -1
+CM id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe -1
+CM id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe -1
+CM id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe -1
+CM id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe -1
 ME
 MB sm 1 tm 6 m initialize(0)
-CM id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n end-reception pe -1
-CM id 41 tid 41 eid 41 etid 41 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n send/endTx pe -1
-CM id 44 tid 44 eid 44 etid 44 c omnetpp::cMessage n ack-join-request pe -1
-CM id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 46 tid 46 eid 46 etid 46 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 47 tid 47 eid 47 etid 47 c omnetpp::cMessage n uplink-req pe -1
-CM id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n uplink-payload pe -1
-CM id 49 tid 49 eid 49 etid 49 c omnetpp::cMessage n sleep-time pe -1
-BS id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n send/endTx pe 0
-ES t 0.4
+CM id 55 tid 55 eid 55 etid 55 c omnetpp::cMessage n end-downlink-window1 pe -1
+CM id 56 tid 56 eid 56 etid 56 c omnetpp::cMessage n end-downlink-window2 pe -1
+CM id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n end-reception pe -1
+CM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n downlink-1 pe -1
+CM id 59 tid 59 eid 59 etid 59 c omnetpp::cMessage n downlink-2 pe -1
+CM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n ack-join-request pe -1
+CM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n ack-downlink-1 pe -1
+CM id 62 tid 62 eid 62 etid 62 c omnetpp::cMessage n ack-downlink-2 pe -1
+CM id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n uplink-req pe -1
+CM id 64 tid 64 eid 64 etid 64 c omnetpp::cMessage n uplink-payload pe -1
+CM id 65 tid 65 eid 65 etid 65 c omnetpp::cMessage n pair-request pe -1
+CM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n ack-payload pe -1
+CM id 67 tid 67 eid 67 etid 67 c omnetpp::cMessage n ack-payload-2 pe -1
+CM id 68 tid 68 eid 68 etid 68 c omnetpp::cMessage n waittime pe -1
+CM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n error-package pe -1
 ME
 MB sm 1 tm 7 m initialize(0)
-CM id 50 tid 50 eid 50 etid 50 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n end-reception pe -1
-CM id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n downlink-1 pe -1
-CM id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n downlink-2 pe -1
-CM id 55 tid 55 eid 55 etid 55 c omnetpp::cMessage n ack-join-request pe -1
-CM id 56 tid 56 eid 56 etid 56 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n uplink-req pe -1
-CM id 59 tid 59 eid 59 etid 59 c omnetpp::cMessage n uplink-payload pe -1
-CM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n pair-request pe -1
-CM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n ack-payload pe -1
-CM id 62 tid 62 eid 62 etid 62 c omnetpp::cMessage n ack-payload-2 pe -1
-CM id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n waittime pe -1
+CM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n end-downlink-window1 pe -1
+CM id 71 tid 71 eid 71 etid 71 c omnetpp::cMessage n end-downlink-window2 pe -1
+CM id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n end-reception pe -1
+CM id 73 tid 73 eid 73 etid 73 c omnetpp::cMessage n downlink-1 pe -1
+CM id 74 tid 74 eid 74 etid 74 c omnetpp::cMessage n downlink-2 pe -1
+CM id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n ack-join-request pe -1
+CM id 76 tid 76 eid 76 etid 76 c omnetpp::cMessage n ack-downlink-1 pe -1
+CM id 77 tid 77 eid 77 etid 77 c omnetpp::cMessage n ack-downlink-2 pe -1
+CM id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n uplink-req pe -1
+CM id 79 tid 79 eid 79 etid 79 c omnetpp::cMessage n uplink-payload pe -1
+CM id 80 tid 80 eid 80 etid 80 c omnetpp::cMessage n pair-request pe -1
+CM id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n ack-payload pe -1
+CM id 82 tid 82 eid 82 etid 82 c omnetpp::cMessage n ack-payload-2 pe -1
+CM id 83 tid 83 eid 83 etid 83 c omnetpp::cMessage n waittime pe -1
+CM id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n error-package pe -1
 ME
 MB sm 1 tm 8 m initialize(0)
-CM id 64 tid 64 eid 64 etid 64 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 65 tid 65 eid 65 etid 65 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n end-reception pe -1
-CM id 67 tid 67 eid 67 etid 67 c omnetpp::cMessage n downlink-1 pe -1
-CM id 68 tid 68 eid 68 etid 68 c omnetpp::cMessage n downlink-2 pe -1
-CM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n ack-join-request pe -1
-CM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 71 tid 71 eid 71 etid 71 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n uplink-req pe -1
-CM id 73 tid 73 eid 73 etid 73 c omnetpp::cMessage n uplink-payload pe -1
-CM id 74 tid 74 eid 74 etid 74 c omnetpp::cMessage n pair-request pe -1
-CM id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n ack-payload pe -1
-CM id 76 tid 76 eid 76 etid 76 c omnetpp::cMessage n ack-payload-2 pe -1
-CM id 77 tid 77 eid 77 etid 77 c omnetpp::cMessage n waittime pe -1
-ME
-MB sm 1 tm 9 m initialize(0)
-CM id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 79 tid 79 eid 79 etid 79 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 80 tid 80 eid 80 etid 80 c omnetpp::cMessage n end-reception pe -1
-CM id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n downlink-1 pe -1
-CM id 82 tid 82 eid 82 etid 82 c omnetpp::cMessage n downlink-2 pe -1
-CM id 83 tid 83 eid 83 etid 83 c omnetpp::cMessage n ack-join-request pe -1
-CM id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 85 tid 85 eid 85 etid 85 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 86 tid 86 eid 86 etid 86 c omnetpp::cMessage n uplink-req pe -1
-CM id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n uplink-payload pe -1
-CM id 88 tid 88 eid 88 etid 88 c omnetpp::cMessage n pair-request pe -1
-CM id 89 tid 89 eid 89 etid 89 c omnetpp::cMessage n ack-payload pe -1
-CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n ack-payload-2 pe -1
-CM id 91 tid 91 eid 91 etid 91 c omnetpp::cMessage n waittime pe -1
-ME
-MB sm 1 tm 10 m initialize(0)
-CM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 93 tid 93 eid 93 etid 93 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 94 tid 94 eid 94 etid 94 c omnetpp::cMessage n end-reception pe -1
-CM id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n downlink-1 pe -1
-CM id 96 tid 96 eid 96 etid 96 c omnetpp::cMessage n downlink-2 pe -1
-CM id 97 tid 97 eid 97 etid 97 c omnetpp::cMessage n ack-join-request pe -1
-CM id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 99 tid 99 eid 99 etid 99 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 100 tid 100 eid 100 etid 100 c omnetpp::cMessage n uplink-req pe -1
-CM id 101 tid 101 eid 101 etid 101 c omnetpp::cMessage n uplink-payload pe -1
-CM id 102 tid 102 eid 102 etid 102 c omnetpp::cMessage n pair-request pe -1
-CM id 103 tid 103 eid 103 etid 103 c omnetpp::cMessage n ack-payload pe -1
-CM id 104 tid 104 eid 104 etid 104 c omnetpp::cMessage n ack-payload-2 pe -1
-CM id 105 tid 105 eid 105 etid 105 c omnetpp::cMessage n waittime pe -1
-ME
-MB sm 1 tm 11 m initialize(0)
-CM id 106 tid 106 eid 106 etid 106 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 107 tid 107 eid 107 etid 107 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 108 tid 108 eid 108 etid 108 c omnetpp::cMessage n end-reception pe -1
-CM id 109 tid 109 eid 109 etid 109 c omnetpp::cMessage n downlink-1 pe -1
-CM id 110 tid 110 eid 110 etid 110 c omnetpp::cMessage n downlink-2 pe -1
-CM id 111 tid 111 eid 111 etid 111 c omnetpp::cMessage n ack-join-request pe -1
-CM id 112 tid 112 eid 112 etid 112 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 113 tid 113 eid 113 etid 113 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 114 tid 114 eid 114 etid 114 c omnetpp::cMessage n uplink-req pe -1
-CM id 115 tid 115 eid 115 etid 115 c omnetpp::cMessage n uplink-payload pe -1
-CM id 116 tid 116 eid 116 etid 116 c omnetpp::cMessage n pair-request pe -1
-CM id 117 tid 117 eid 117 etid 117 c omnetpp::cMessage n ack-payload pe -1
-CM id 118 tid 118 eid 118 etid 118 c omnetpp::cMessage n ack-payload-2 pe -1
-CM id 119 tid 119 eid 119 etid 119 c omnetpp::cMessage n waittime pe -1
-ME
-MB sm 1 tm 12 m initialize(0)
-CM id 120 tid 120 eid 120 etid 120 c omnetpp::cMessage n end-downlink-window1 pe -1
-CM id 121 tid 121 eid 121 etid 121 c omnetpp::cMessage n end-downlink-window2 pe -1
-CM id 122 tid 122 eid 122 etid 122 c omnetpp::cMessage n end-reception pe -1
-CM id 123 tid 123 eid 123 etid 123 c omnetpp::cMessage n downlink-1 pe -1
-CM id 124 tid 124 eid 124 etid 124 c omnetpp::cMessage n downlink-2 pe -1
-CM id 125 tid 125 eid 125 etid 125 c omnetpp::cMessage n ack-join-request pe -1
-CM id 126 tid 126 eid 126 etid 126 c omnetpp::cMessage n ack-downlink-1 pe -1
-CM id 127 tid 127 eid 127 etid 127 c omnetpp::cMessage n ack-downlink-2 pe -1
-CM id 128 tid 128 eid 128 etid 128 c omnetpp::cMessage n uplink-req pe -1
-CM id 129 tid 129 eid 129 etid 129 c omnetpp::cMessage n uplink-payload pe -1
-CM id 130 tid 130 eid 130 etid 130 c omnetpp::cMessage n pair-request pe -1
-CM id 131 tid 131 eid 131 etid 131 c omnetpp::cMessage n ack-payload pe -1
-CM id 132 tid 132 eid 132 etid 132 c omnetpp::cMessage n ack-payload-2 pe -1
-CM id 133 tid 133 eid 133 etid 133 c omnetpp::cMessage n waittime pe -1
+CM id 85 tid 85 eid 85 etid 85 c omnetpp::cMessage n end-downlink-window1 pe -1
+CM id 86 tid 86 eid 86 etid 86 c omnetpp::cMessage n end-downlink-window2 pe -1
+CM id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n end-reception pe -1
+CM id 88 tid 88 eid 88 etid 88 c omnetpp::cMessage n downlink-1 pe -1
+CM id 89 tid 89 eid 89 etid 89 c omnetpp::cMessage n downlink-2 pe -1
+CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n ack-join-request pe -1
+CM id 91 tid 91 eid 91 etid 91 c omnetpp::cMessage n ack-downlink-1 pe -1
+CM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n ack-downlink-2 pe -1
+CM id 93 tid 93 eid 93 etid 93 c omnetpp::cMessage n uplink-req pe -1
+CM id 94 tid 94 eid 94 etid 94 c omnetpp::cMessage n uplink-payload pe -1
+CM id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n pair-request pe -1
+CM id 96 tid 96 eid 96 etid 96 c omnetpp::cMessage n ack-payload pe -1
+CM id 97 tid 97 eid 97 etid 97 c omnetpp::cMessage n ack-payload-2 pe -1
+CM id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n waittime pe -1
+CM id 99 tid 99 eid 99 etid 99 c omnetpp::cMessage n error-package pe -1
 ME
 MS id 2 d t=,,#808000;i=device/pc_s
 MS id 2 d t=,,#808000;i=device/pc_s,
 MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
+MS id 3 d i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d i2=status/off;i=device/antennatower_l
+MS id 5 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
 MS id 7 d i2=status/off;i=device/antennatower_l
 MS id 7 d t=;i2=status/off;i=device/antennatower_l
 MS id 8 d i2=status/off;i=device/antennatower_l
 MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
 
 E # 1 t 0.4 m 2 ce 0 msg 3
 - INFO (Host)Aloha.host[0]: generating packet pair-request
-CM id 134 tid 134 eid 134 etid 134 c omnetpp::cMessage n pair-request pe -1
-BS id 134 tid 134 eid 134 etid 134 c omnetpp::cPacket n pair-request l 256 pe 1
-CL id 134 tid 134 eid 134 etid 134 c omnetpp::cPacket n pair-request l 256 pe 1 cid 135
-SD sm 2 dm 8 dg 0 pd 0.1 td 0.853333333333
+CM id 100 tid 100 eid 100 etid 100 c omnetpp::cMessage n pair-request pe -1
+BS id 100 tid 100 eid 100 etid 100 c omnetpp::cPacket n pair-request l 256 pe 1
+CL id 100 tid 100 eid 100 etid 100 c omnetpp::cPacket n pair-request l 256 pe 1 cid 101
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.853333333333
 ES t 0.5 is 1
 BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n send/endTx pe 1
 ES t 1.253333333333
 MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
 MS id 7 d t=;i2=status/off;i=device/antennatower_l
 MS id 7 d t=;i2=status/off;i=device/antennatower_l
 MS id 8 d t=;i2=status/off;i=device/antennatower_l
 MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
 
-E # 2 t 0.4 m 3 ce 0 msg 13
-- INFO (Host)Aloha.host[1]: generating packet pair-request
-CM id 136 tid 136 eid 136 etid 136 c omnetpp::cMessage n pair-request pe -1
-BS id 136 tid 136 eid 136 etid 136 c omnetpp::cPacket n pair-request l 256 pe 2
-CL id 136 tid 136 eid 136 etid 136 c omnetpp::cPacket n pair-request l 256 pe 2 cid 137
-SD sm 3 dm 9 dg 0 pd 0.1 td 0.853333333333
-ES t 0.5 is 1
-BS id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n send/endTx pe 2
-ES t 1.253333333333
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 3 t 0.4 m 4 ce 0 msg 23
-- INFO (Host)Aloha.host[2]: generating packet pair-request
-CM id 138 tid 138 eid 138 etid 138 c omnetpp::cMessage n pair-request pe -1
-BS id 138 tid 138 eid 138 etid 138 c omnetpp::cPacket n pair-request l 256 pe 3
-CL id 138 tid 138 eid 138 etid 138 c omnetpp::cPacket n pair-request l 256 pe 3 cid 139
-SD sm 4 dm 7 dg 0 pd 0.1 td 0.853333333333
-ES t 0.5 is 1
-BS id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n send/endTx pe 3
-ES t 1.253333333333
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 4 t 0.4 m 5 ce 0 msg 33
-- INFO (Host)Aloha.host[3]: generating packet pair-request
-CM id 140 tid 140 eid 140 etid 140 c omnetpp::cMessage n pair-request pe -1
-BS id 140 tid 140 eid 140 etid 140 c omnetpp::cPacket n pair-request l 256 pe 4
-CL id 140 tid 140 eid 140 etid 140 c omnetpp::cPacket n pair-request l 256 pe 4 cid 141
-SD sm 5 dm 11 dg 0 pd 0.1 td 0.853333333333
-ES t 0.5 is 1
-BS id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n send/endTx pe 4
-ES t 1.253333333333
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 5 t 0.4 m 6 ce 0 msg 43
-- INFO (Host)Aloha.host[4]: generating packet pair-request
-CM id 142 tid 142 eid 142 etid 142 c omnetpp::cMessage n pair-request pe -1
-BS id 142 tid 142 eid 142 etid 142 c omnetpp::cPacket n pair-request l 256 pe 5
-CL id 142 tid 142 eid 142 etid 142 c omnetpp::cPacket n pair-request l 256 pe 5 cid 143
-SD sm 6 dm 11 dg 0 pd 0.1 td 0.853333333333
-ES t 0.5 is 1
-BS id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n send/endTx pe 5
-ES t 1.253333333333
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 6 t 0.5 m 8 ce 1 msg 134
-- INFO (Server)Aloha.server2: msg-server-inicial: pair-request
-- INFO (Server)Aloha.server2: started receiving
-- INFO (Server)Aloha.server2: generating join-accept-ack to host -1
-CM id 144 tid 144 eid 144 etid 144 c omnetpp::cMessage n join-accept-ack pe -1
-- INFO (Server)Aloha.server2: duration: 0.58192
-BS id 144 tid 144 eid 144 etid 144 c omnetpp::cPacket n join-accept-ack l 256 pe 6
-CL id 144 tid 144 eid 144 etid 144 c omnetpp::cPacket n join-accept-ack l 256 pe 6 cid 145
-SD sm 8 dm 2 dg 0 td 0.58192
-ES t 0.5 is 1
-BS id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n ack-join-request pe 0
-ES t 1.08192
-- INFO (Server)Aloha.server2: generating packet 1 to host 2
-CM id 146 tid 146 eid 146 etid 146 c omnetpp::cMessage n downlink-1 pe -1
-- INFO (Server)Aloha.server2: duration: 0.5
-BS id 146 tid 146 eid 146 etid 146 c omnetpp::cPacket n downlink-1 l 256 pe 6
-CL id 146 tid 146 eid 146 etid 146 c omnetpp::cPacket n downlink-1 l 256 pe 6 cid 147
-SD sm 8 dm 2 dg 0 td 0.5
-ES t 0.5 is 1
-BS id 67 tid 67 eid 67 etid 67 c omnetpp::cMessage n downlink-1 pe 0
-ES t 1
-- INFO (Server)Aloha.server2: downlink window 1 to host 2 is ended in 0.5
-- INFO (Server)Aloha.server2: generating packet 2 to host2
-CM id 148 tid 148 eid 148 etid 148 c omnetpp::cMessage n downlink-2 pe -1
-- INFO (Server)Aloha.server2: duration2: 0.5
-BS id 148 tid 148 eid 148 etid 148 c omnetpp::cPacket n downlink-2 l 256 pe 6
-CL id 148 tid 148 eid 148 etid 148 c omnetpp::cPacket n downlink-2 l 256 pe 6 cid 149
-SD sm 8 dm 2 dg 0 td 0.5
-ES t 0.5 is 1
-BS id 68 tid 68 eid 68 etid 68 c omnetpp::cMessage n downlink-2 pe 0
-ES t 1
-- INFO (Server)Aloha.server2: downlink window 2 to host 2 is ended in 0.5
-BS id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n end-reception pe 0
-ES t 1.353333333333
-DM id 134 tid 134 eid 134 etid 134 c omnetpp::cMessage n pair-request pe 6
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 9 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 7 t 0.5 m 9 ce 2 msg 136
+E # 2 t 0.5 m 5DM id 94 tid 94 eid 94 etid 94 c omnetpp::cMessage n pair-request pe 1
+DM id 96 tid 96 eid 96 etid 96 c omnetpp::cMessage n "error package" pe 2
+::cMessage n error-package pe 0
+ES t 1.5
 - INFO (Server)Aloha.server3: msg-server-inicial: pair-request
 - INFO (Server)Aloha.server3: started receiving
-- INFO (Server)Aloha.server3: generating join-accept-ack to host 0
-CM id 150 tid 150 eid 150 etid 150 c omnetpp::cMessage n join-accept-ack pe -1
+- INFO (Server)Aloha.server3: generating join-accept-ack to host -1
+CM id 102 tid 102 eid 102 etid 102 c omnetpp::cMessage n join-accept-ack pe -1
 - INFO (Server)Aloha.server3: duration: 0.645454545455
-BS id 150 tid 150 eid 150 etid 150 c omnetpp::cPacket n join-accept-ack l 256 pe 7
-CL id 150 tid 150 eid 150 etid 150 c omnetpp::cPacket n join-accept-ack l 256 pe 7 cid 151
-SD sm 9 dm 3 dg 0 td 0.645454545455
+BS id 102 tid 102 eid 102 etid 102 c omnetpp::cPacket n join-accept-ack l 256 pe 2
+CL id 102 tid 102 eid 102 etid 102 c omnetpp::cPacket n join-accept-ack l 256 pe 2 cid 103
+SD sm 5 dm 2 dg 0 td 0.645454545455
 ES t 0.5 is 1
-BS id 83 tid 83 eid 83 etid 83 c omnetpp::cMessage n ack-join-request pe 0
+BS id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n ack-join-request pe 0
 ES t 1.145454545455
-- INFO (Server)Aloha.server3: generating packet 1 to host 3
-CM id 152 tid 152 eid 152 etid 152 c omnetpp::cMessage n downlink-1 pe -1
+- INFO (Server)Aloha.server3: generating packet 1 to host 2
+CM id 104 tid 104 eid 104 etid 104 c omnetpp::cMessage n downlink-1 pe -1
 - INFO (Server)Aloha.server3: duration: 0.5
-BS id 152 tid 152 eid 152 etid 152 c omnetpp::cPacket n downlink-1 l 256 pe 7
-CL id 152 tid 152 eid 152 etid 152 c omnetpp::cPacket n downlink-1 l 256 pe 7 cid 153
-SD sm 9 dm 3 dg 0 td 0.5
+BS id 104 tid 104 eid 104 etid 104 c omnetpp::cPacket n downlink-1 l 256 pe 2
+CL id 104 tid 104 eid 104 etid 104 c omnetpp::cPacket n downlink-1 l 256 pe 2 cid 105
+SD sm 5 dm 2 dg 0 td 0.5
 ES t 0.5 is 1
-BS id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n downlink-1 pe 0
+BS id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n downlink-1 pe 0
 ES t 1
-- INFO (Server)Aloha.server3: downlink window 1 to host 3 is ended in 0.5
-- INFO (Server)Aloha.server3: generating packet 2 to host3
-CM id 154 tid 154 eid 154 etid 154 c omnetpp::cMessage n downlink-2 pe -1
+- INFO (Server)Aloha.server3: downlink window 1 to host 2 is ended in 0.5
+- INFO (Server)Aloha.server3: generating packet 2 to host2
+CM id 106 tid 106 eid 106 etid 106 c omnetpp::cMessage n downlink-2 pe -1
 - INFO (Server)Aloha.server3: duration2: 0.5
-BS id 154 tid 154 eid 154 etid 154 c omnetpp::cPacket n downlink-2 l 256 pe 7
-CL id 154 tid 154 eid 154 etid 154 c omnetpp::cPacket n downlink-2 l 256 pe 7 cid 155
-SD sm 9 dm 3 dg 0 td 0.5
+BS id 106 tid 106 eid 106 etid 106 c omnetpp::cPacket n downlink-2 l 256 pe 2
+CL id 106 tid 106 eid 106 etid 106 c omnetpp::cPacket n downlink-2 l 256 pe 2 cid 107
+SD sm 5 dm 2 dg 0 td 0.5
 ES t 0.5 is 1
-BS id 82 tid 82 eid 82 etid 82 c omnetpp::cMessage n downlink-2 pe 0
+BS id 44 tid 44 eid 44 etid 44 c omnetpp::cMessage n downlink-2 pe 0
 ES t 1
-- INFO (Server)Aloha.server3: downlink window 2 to host 3 is ended in 0.5
-BS id 80 tid 80 eid 80 etid 80 c omnetpp::cMessage n end-reception pe 0
+- INFO (Server)Aloha.server3: downlink window 2 to host 2 is ended in 0.5
+BS id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n end-reception pe 0
 ES t 1.353333333333
-DM id 136 tid 136 eid 136 etid 136 c omnetpp::cMessage n pair-request pe 7
+DM id 100 tid 100 eid 100 etid 100 c omnetpp::cMessage n pair-request pe 2
 MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
 MS id 7 d t=;i2=status/off;i=device/antennatower_l
 MS id 7 d t=;i2=status/off;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 8 t 0.5 m 7 ce 3 msg 138
-- INFO (Server)Aloha.server1: msg-server-inicial: pair-request
-- INFO (Server)Aloha.server1: started receiving
-- INFO (Server)Aloha.server1: generating join-accept-ack to host 1
-CM id 156 tid 156 eid 156 etid 156 c omnetpp::cMessage n join-accept-ack pe -1
-- INFO (Server)Aloha.server1: duration: 0.546800731261
-BS id 156 tid 156 eid 156 etid 156 c omnetpp::cPacket n join-accept-ack l 256 pe 8
-CL id 156 tid 156 eid 156 etid 156 c omnetpp::cPacket n join-accept-ack l 256 pe 8 cid 157
-SD sm 7 dm 4 dg 0 td 0.546800731261
-ES t 0.5 is 1
-BS id 55 tid 55 eid 55 etid 55 c omnetpp::cMessage n ack-join-request pe 0
-ES t 1.046800731261
-- INFO (Server)Aloha.server1: generating packet 1 to host 4
-CM id 158 tid 158 eid 158 etid 158 c omnetpp::cMessage n downlink-1 pe -1
-- INFO (Server)Aloha.server1: duration: 0.5
-BS id 158 tid 158 eid 158 etid 158 c omnetpp::cPacket n downlink-1 l 256 pe 8
-CL id 158 tid 158 eid 158 etid 158 c omnetpp::cPacket n downlink-1 l 256 pe 8 cid 159
-SD sm 7 dm 4 dg 0 td 0.5
-ES t 0.5 is 1
-BS id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n downlink-1 pe 0
-ES t 1
-- INFO (Server)Aloha.server1: downlink window 1 to host 4 is ended in 0.5
-- INFO (Server)Aloha.server1: generating packet 2 to host4
-CM id 160 tid 160 eid 160 etid 160 c omnetpp::cMessage n downlink-2 pe -1
-- INFO (Server)Aloha.server1: duration2: 0.5
-BS id 160 tid 160 eid 160 etid 160 c omnetpp::cPacket n downlink-2 l 256 pe 8
-CL id 160 tid 160 eid 160 etid 160 c omnetpp::cPacket n downlink-2 l 256 pe 8 cid 161
-SD sm 7 dm 4 dg 0 td 0.5
-ES t 0.5 is 1
-BS id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n downlink-2 pe 0
-ES t 1
-- INFO (Server)Aloha.server1: downlink window 2 to host 4 is ended in 0.5
-BS id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n end-reception pe 0
-ES t 1.353333333333
-DM id 138 tid 138 eid 138 etid 138 c omnetpp::cMessage n pair-request pe 8
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 9 t 0.5 m 11 ce 4 msg 140
-- INFO (Server)Aloha.server5: msg-server-inicial: pair-request
-- INFO (Server)Aloha.server5: started receiving
-- INFO (Server)Aloha.server5: generating join-accept-ack to host 2
-CM id 162 tid 162 eid 162 etid 162 c omnetpp::cMessage n join-accept-ack pe -1
-- INFO (Server)Aloha.server5: duration: 1.081818181818
-BS id 162 tid 162 eid 162 etid 162 c omnetpp::cPacket n join-accept-ack l 256 pe 9
-CL id 162 tid 162 eid 162 etid 162 c omnetpp::cPacket n join-accept-ack l 256 pe 9 cid 163
-SD sm 11 dm 5 dg 0 td 1.081818181818
-ES t 0.5 is 1
-BS id 111 tid 111 eid 111 etid 111 c omnetpp::cMessage n ack-join-request pe 0
-ES t 1.581818181818
-- INFO (Server)Aloha.server5: generating packet 1 to host 5
-CM id 164 tid 164 eid 164 etid 164 c omnetpp::cMessage n downlink-1 pe -1
-- INFO (Server)Aloha.server5: duration: 0.5
-BS id 164 tid 164 eid 164 etid 164 c omnetpp::cPacket n downlink-1 l 256 pe 9
-CL id 164 tid 164 eid 164 etid 164 c omnetpp::cPacket n downlink-1 l 256 pe 9 cid 165
-SD sm 11 dm 5 dg 0 td 0.5
-ES t 0.5 is 1
-BS id 109 tid 109 eid 109 etid 109 c omnetpp::cMessage n downlink-1 pe 0
-ES t 1
-- INFO (Server)Aloha.server5: downlink window 1 to host 5 is ended in 0.5
-- INFO (Server)Aloha.server5: generating packet 2 to host5
-CM id 166 tid 166 eid 166 etid 166 c omnetpp::cMessage n downlink-2 pe -1
-- INFO (Server)Aloha.server5: duration2: 0.5
-BS id 166 tid 166 eid 166 etid 166 c omnetpp::cPacket n downlink-2 l 256 pe 9
-CL id 166 tid 166 eid 166 etid 166 c omnetpp::cPacket n downlink-2 l 256 pe 9 cid 167
-SD sm 11 dm 5 dg 0 td 0.5
-ES t 0.5 is 1
-BS id 110 tid 110 eid 110 etid 110 c omnetpp::cMessage n downlink-2 pe 0
-ES t 1
-- INFO (Server)Aloha.server5: downlink window 2 to host 5 is ended in 0.5
-BS id 108 tid 108 eid 108 etid 108 c omnetpp::cMessage n end-reception pe 0
-ES t 1.353333333333
-DM id 140 tid 140 eid 140 etid 140 c omnetpp::cMessage n pair-request pe 9
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=;i2=status/yellow;i=device/antennatower_l
-MS id 11 d t=RECEIVE;i2=status/yellow;i=device/antennatower_l
-MS id 11 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 10 t 0.5 m 11 ce 5 msg 142
-- INFO (Server)Aloha.server5: msg-server-inicial: pair-request
-- INFO (Server)Aloha.server5: another frame arrived while receiving -- collision!
-BU id 11 txt "Collision! (2 frames)"
-DM id 142 tid 142 eid 142 etid 142 c omnetpp::cMessage n pair-request pe 10
-MS id 2 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=RECEIVE,,#808000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#808000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 11 t 0.5 m 2 ce 6 msg 144
+E # 3 t 0.5 m 2 ce 2 msg 102
 BS id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n ack-join-request pe 0
 ES t 0.5
 MS id 2 d t=,,#808000;i=device/pc_s,
 MS id 2 d t=,,#808000;i=device/pc_s,yellow
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 12 t 0.5 m 2 ce 6 msg 146
-CM id 168 tid 168 eid 168 etid 168 c omnetpp::cMessage n ack-downlink-1 pe -1
-BS id 168 tid 168 eid 168 etid 168 c omnetpp::cPacket n ack-downlink-1 l 256 pe 12
-CL id 168 tid 168 eid 168 etid 168 c omnetpp::cPacket n ack-downlink-1 l 256 pe 12 cid 169
-SD sm 2 dm 8 dg 0 pd 10.1 td 0.853353333333
+E # 4 t 0.5 m 2 ce 2 msg 104
+CM id 108 tid 108 eid 108 etid 108 c omnetpp::cMessage n ack-downlink-1 pe -1
+BS id 108 tid 108 eid 108 etid 108 c omnetpp::cPacket n ack-downlink-1 l 256 pe 4
+CL id 108 tid 108 eid 108 etid 108 c omnetpp::cPacket n ack-downlink-1 l 256 pe 4 cid 109
+SD sm 2 dm 5 dg 0 pd 10.1 td 0.145474545455
 ES t 10.6 is 1
 BS id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n ack-downlink-1 pe 0
-ES t 1.353333333333
+ES t 0.645454545455
 - INFO (Host)Aloha.host[0]: downlink-window-1 received
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 13 t 0.5 m 2 ce 6 msg 148
-CM id 170 tid 170 eid 170 etid 170 c omnetpp::cMessage n ack-downlink-2 pe -1
-BS id 170 tid 170 eid 170 etid 170 c omnetpp::cPacket n ack-downlink-2 l 256 pe 13
-CL id 170 tid 170 eid 170 etid 170 c omnetpp::cPacket n ack-downlink-2 l 256 pe 13 cid 171
-SD sm 2 dm 8 dg 0 pd 10.1 td 0.853353333333
+E # 5 t 0.5 m 2 ce 2 msg 106
+CM id 110 tid 110 eid 110 etid 110 c omnetpp::cMessage n ack-downlink-2 pe -1
+BS id 110 tid 110 eid 110 etid 110 c omnetpp::cPacket n ack-downlink-2 l 256 pe 5
+CL id 110 tid 110 eid 110 etid 110 c omnetpp::cPacket n ack-downlink-2 l 256 pe 5 cid 111
+SD sm 2 dm 5 dg 0 pd 10.1 td 0.145474545455
 ES t 10.6 is 1
 BS id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n ack-downlink-2 pe 0
-ES t 1.353333333333
+ES t 0.645454545455
 - INFO (Host)Aloha.host[0]: downlink-window-2 received
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 14 t 0.5 m 3 ce 7 msg 150
-BS id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n ack-join-request pe 0
-ES t 0.5
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=,,#808000;i=device/pc_s,
-MS id 3 d t=,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 15 t 0.5 m 3 ce 7 msg 152
-CM id 172 tid 172 eid 172 etid 172 c omnetpp::cMessage n ack-downlink-1 pe -1
-BS id 172 tid 172 eid 172 etid 172 c omnetpp::cPacket n ack-downlink-1 l 256 pe 15
-CL id 172 tid 172 eid 172 etid 172 c omnetpp::cPacket n ack-downlink-1 l 256 pe 15 cid 173
-SD sm 3 dm 9 dg 0 pd 10.1 td 0.853353333333
-ES t 10.6 is 1
-BS id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n ack-downlink-1 pe 0
-ES t 1.353333333333
-- INFO (Host)Aloha.host[1]: downlink-window-1 received
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 16 t 0.5 m 3 ce 7 msg 154
-CM id 174 tid 174 eid 174 etid 174 c omnetpp::cMessage n ack-downlink-2 pe -1
-BS id 174 tid 174 eid 174 etid 174 c omnetpp::cPacket n ack-downlink-2 l 256 pe 16
-CL id 174 tid 174 eid 174 etid 174 c omnetpp::cPacket n ack-downlink-2 l 256 pe 16 cid 175
-SD sm 3 dm 9 dg 0 pd 10.1 td 0.853353333333
-ES t 10.6 is 1
-BS id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n ack-downlink-2 pe 0
-ES t 1.353333333333
-- INFO (Host)Aloha.host[1]: downlink-window-2 received
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 17 t 0.5 m 4 ce 8 msg 156
-BS id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n ack-join-request pe 0
-ES t 0.5
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=,,#808000;i=device/pc_s,
-MS id 4 d t=,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 18 t 0.5 m 4 ce 8 msg 158
-CM id 176 tid 176 eid 176 etid 176 c omnetpp::cMessage n ack-downlink-1 pe -1
-BS id 176 tid 176 eid 176 etid 176 c omnetpp::cPacket n ack-downlink-1 l 256 pe 18
-CL id 176 tid 176 eid 176 etid 176 c omnetpp::cPacket n ack-downlink-1 l 256 pe 18 cid 177
-SD sm 4 dm 7 dg 0 pd 10.1 td 0.853353333333
-ES t 10.6 is 1
-BS id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n ack-downlink-1 pe 0
-ES t 1.353333333333
-- INFO (Host)Aloha.host[2]: downlink-window-1 received
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 19 t 0.5 m 4 ce 8 msg 160
-CM id 178 tid 178 eid 178 etid 178 c omnetpp::cMessage n ack-downlink-2 pe -1
-BS id 178 tid 178 eid 178 etid 178 c omnetpp::cPacket n ack-downlink-2 l 256 pe 19
-CL id 178 tid 178 eid 178 etid 178 c omnetpp::cPacket n ack-downlink-2 l 256 pe 19 cid 179
-SD sm 4 dm 7 dg 0 pd 10.1 td 0.853353333333
-ES t 10.6 is 1
-BS id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n ack-downlink-2 pe 0
-ES t 1.353333333333
-- INFO (Host)Aloha.host[2]: downlink-window-2 received
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 20 t 0.5 m 5 ce 9 msg 162
-BS id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n ack-join-request pe 0
-ES t 0.5
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=,,#808000;i=device/pc_s,
-MS id 5 d t=,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 21 t 0.5 m 5 ce 9 msg 164
-CM id 180 tid 180 eid 180 etid 180 c omnetpp::cMessage n ack-downlink-1 pe -1
-BS id 180 tid 180 eid 180 etid 180 c omnetpp::cPacket n ack-downlink-1 l 256 pe 21
-CL id 180 tid 180 eid 180 etid 180 c omnetpp::cPacket n ack-downlink-1 l 256 pe 21 cid 181
-SD sm 5 dm 11 dg 0 pd 10.1 td 0.853353333333
-ES t 10.6 is 1
-BS id 35 tid 35 eid 35 etid 35 c omnetpp::cMessage n ack-downlink-1 pe 0
-ES t 1.353333333333
-- INFO (Host)Aloha.host[3]: downlink-window-1 received
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 22 t 0.5 m 5 ce 9 msg 166
-CM id 182 tid 182 eid 182 etid 182 c omnetpp::cMessage n ack-downlink-2 pe -1
-BS id 182 tid 182 eid 182 etid 182 c omnetpp::cPacket n ack-downlink-2 l 256 pe 22
-CL id 182 tid 182 eid 182 etid 182 c omnetpp::cPacket n ack-downlink-2 l 256 pe 22 cid 183
-SD sm 5 dm 11 dg 0 pd 10.1 td 0.853353333333
-ES t 10.6 is 1
-BS id 36 tid 36 eid 36 etid 36 c omnetpp::cMessage n ack-downlink-2 pe 0
-ES t 1.353333333333
-- INFO (Host)Aloha.host[3]: downlink-window-2 received
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 23 t 0.5 m 2 ce 11 msg 4
+E # 6 t 0.5 m 2 ce 3 msg 4
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n end-reception pe 0
 ES t 0.9
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 24 t 0.5 m 3 ce 14 msg 14
-BS id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n end-reception pe 0
-ES t 0.9
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 25 t 0.5 m 4 ce 17 msg 24
-BS id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n end-reception pe 0
-ES t 0.9
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 26 t 0.5 m 5 ce 20 msg 34
-BS id 30 tid 30 eid 30 etid 30 c omnetpp::cMessage n end-reception pe 0
-ES t 0.9
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 27 t 0.9 m 2 ce 23 msg 0
+E # 7 t 0.645454545455 m 2 ce 4 msg 5
 - INFO (Host)Aloha.host[0]: generating uplink-request to gateway
-CM id 184 tid 184 eid 184 etid 184 c omnetpp::cMessage n uplink-req pe -1
-BS id 184 tid 184 eid 184 etid 184 c omnetpp::cPacket n uplink-req l 256 pe 27
-CL id 184 tid 184 eid 184 etid 184 c omnetpp::cPacket n uplink-req l 256 pe 27 cid 185
-SD sm 2 dm 8 dg 0 pd 0.1 td 0.853333333333
-ES t 1 is 1
+CM id 112 tid 112 eid 112 etid 112 c omnetpp::cMessage n uplink-req pe -1
+BS id 112 tid 112 eid 112 etid 112 c omnetpp::cPacket n uplink-req l 256 pe 7
+CL id 112 tid 112 eid 112 etid 112 c omnetpp::cPacket n uplink-req l 256 pe 7 cid 113
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 0.745454545455 is 1
 BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n uplink-req pe 0
-ES t 1.753333333333
+ES t 0.79090909091
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 28 t 0.9 m 3 ce 24 msg 10
-- INFO (Host)Aloha.host[1]: generating uplink-request to gateway
-CM id 186 tid 186 eid 186 etid 186 c omnetpp::cMessage n uplink-req pe -1
-BS id 186 tid 186 eid 186 etid 186 c omnetpp::cPacket n uplink-req l 256 pe 28
-CL id 186 tid 186 eid 186 etid 186 c omnetpp::cPacket n uplink-req l 256 pe 28 cid 187
-SD sm 3 dm 9 dg 0 pd 0.1 td 0.853333333333
-ES t 1 is 1
-BS id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n uplink-req pe 0
-ES t 1.753333333333
+E # 8 t 0.645454545455 m 2 ce 5 msg 6
+CM id 114 tid 114 eid 114 etid 114 c omnetpp::cMessage n passtime pe -1
+BS id 114 tid 114 eid 114 etid 114 c omnetpp::cPacket n passtime l 256 pe 8
+CL id 114 tid 114 eid 114 etid 114 c omnetpp::cPacket n passtime l 256 pe 8 cid 115
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 0.745454545455 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 0.79090909091
+- INFO (Host)Aloha.host[0]: simtime: 0.645454545455
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 29 t 0.9 m 4 ce 25 msg 20
-- INFO (Host)Aloha.host[2]: generating uplink-request to gateway
-CM id 188 tid 188 eid 188 etid 188 c omnetpp::cMessage n uplink-req pe -1
-BS id 188 tid 188 eid 188 etid 188 c omnetpp::cPacket n uplink-req l 256 pe 29
-CL id 188 tid 188 eid 188 etid 188 c omnetpp::cPacket n uplink-req l 256 pe 29 cid 189
-SD sm 4 dm 7 dg 0 pd 0.1 td 0.853333333333
-ES t 1 is 1
-BS id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n uplink-req pe 0
-ES t 1.753333333333
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 30 t 0.9 m 5 ce 26 msg 30
-- INFO (Host)Aloha.host[3]: generating uplink-request to gateway
-CM id 190 tid 190 eid 190 etid 190 c omnetpp::cMessage n uplink-req pe -1
-BS id 190 tid 190 eid 190 etid 190 c omnetpp::cPacket n uplink-req l 256 pe 30
-CL id 190 tid 190 eid 190 etid 190 c omnetpp::cPacket n uplink-req l 256 pe 30 cid 191
-SD sm 5 dm 11 dg 0 pd 0.1 td 0.853333333333
-ES t 1 is 1
-BS id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n uplink-req pe 0
-ES t 1.753333333333
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 31 t 1 m 8 ce 6 msg 67
-- INFO (Server)Aloha.server2: msg-server-inicial: downlink-1
-- INFO (Server)Aloha.server2: reception finished
-CE id 68 tid 68 eid 68 etid 68 c omnetpp::cMessage n downlink-2 pe 6
-CE id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n ack-join-request pe 6
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=RECEIVE,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 32 t 1 m 9 ce 7 msg 81
-- INFO (Server)Aloha.server3: msg-server-inicial: downlink-1
-- INFO (Server)Aloha.server3: reception finished
-CE id 82 tid 82 eid 82 etid 82 c omnetpp::cMessage n downlink-2 pe 7
-CE id 83 tid 83 eid 83 etid 83 c omnetpp::cMessage n ack-join-request pe 7
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 7 d t=RECEIVE,,#808000;i2=status/yellow;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=RECEIVE,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 33 t 1 m 7 ce 8 msg 53
-- INFO (Server)Aloha.server1: msg-server-inicial: downlink-1
-- INFO (Server)Aloha.server1: reception finished
-CE id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n downlink-2 pe 8
-CE id 55 tid 55 eid 55 etid 55 c omnetpp::cMessage n ack-join-request pe 8
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=RECEIVE,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/red;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 34 t 1 m 11 ce 9 msg 109
-- INFO (Server)Aloha.server5: msg-server-inicial: downlink-1
-- INFO (Server)Aloha.server5: reception finished
-CE id 110 tid 110 eid 110 etid 110 c omnetpp::cMessage n downlink-2 pe 9
-CE id 111 tid 111 eid 111 etid 111 c omnetpp::cMessage n ack-join-request pe 9
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=COLLISION,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 35 t 1 m 8 ce 27 msg 184
-- INFO (Server)Aloha.server2: msg-server-inicial: uplink-req
-- INFO (Server)Aloha.server2: reception finished
-- INFO (Server)Aloha.server2: generating uplink-ack 
-- INFO (Server)Aloha.server2: generating uplink-ack to host -1
-CM id 192 tid 192 eid 192 etid 192 c omnetpp::cMessage n ack-uplink pe -1
-BS id 192 tid 192 eid 192 etid 192 c omnetpp::cPacket n ack-uplink l 256 pe 35
-CL id 192 tid 192 eid 192 etid 192 c omnetpp::cPacket n ack-uplink l 256 pe 35 cid 193
-SD sm 8 dm 2 dg 0 td 1.08192
-ES t 1 is 1
-BS id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n ack-payload pe 0
-ES t 2.08192
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 36 t 1 m 9 ce 28 msg 186
+E # 9 t 0.745454545455 m 5 ce 7 msg 112
+- INFO (Server)Aloha.server3: error: 50
+- INFO (Server)Aloha.server3: receive counter: 2
 - INFO (Server)Aloha.server3: msg-server-inicial: uplink-req
 - INFO (Server)Aloha.server3: reception finished
 - INFO (Server)Aloha.server3: generating uplink-ack 
-- INFO (Server)Aloha.server3: generating uplink-ack to host 0
-CM id 194 tid 194 eid 194 etid 194 c omnetpp::cMessage n ack-uplink pe -1
-BS id 194 tid 194 eid 194 etid 194 c omnetpp::cPacket n ack-uplink l 256 pe 36
-CL id 194 tid 194 eid 194 etid 194 c omnetpp::cPacket n ack-uplink l 256 pe 36 cid 195
-SD sm 9 dm 3 dg 0 td 1.145454545455
-ES t 1 is 1
-BS id 89 tid 89 eid 89 etid 89 c omnetpp::cMessage n ack-payload pe 0
-ES t 2.145454545455
+- INFO (Server)Aloha.server3: generating uplink-ack to host -1
+CM id 116 tid 116 eid 116 etid 116 c omnetpp::cMessage n ack-uplink pe -1
+BS id 116 tid 116 eid 116 etid 116 c omnetpp::cPacket n ack-uplink l 256 pe 9
+CL id 116 tid 116 eid 116 etid 116 c omnetpp::cPacket n ack-uplink l 256 pe 9 cid 117
+SD sm 5 dm 2 dg 0 td 0.89090909091
+ES t 0.745454545455 is 1
+BS id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe 0
+ES t 1.636363636365
+CE id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n downlink-1 pe 2
+CE id 44 tid 44 eid 44 etid 44 c omnetpp::cMessage n downlink-2 pe 2
+CE id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n ack-join-request pe 2
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=RECEIVE,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 37 t 1 m 7 ce 29 msg 188
-- INFO (Server)Aloha.server1: msg-server-inicial: uplink-req
-- INFO (Server)Aloha.server1: reception finished
-- INFO (Server)Aloha.server1: generating uplink-ack 
-- INFO (Server)Aloha.server1: generating uplink-ack to host 1
-CM id 196 tid 196 eid 196 etid 196 c omnetpp::cMessage n ack-uplink pe -1
-BS id 196 tid 196 eid 196 etid 196 c omnetpp::cPacket n ack-uplink l 256 pe 37
-CL id 196 tid 196 eid 196 etid 196 c omnetpp::cPacket n ack-uplink l 256 pe 37 cid 197
-SD sm 7 dm 4 dg 0 td 1.046800731261
-ES t 1 is 1
-BS id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n ack-payload pe 0
-ES t 2.046800731261
+E # 10 t 0.745454545455 m 2 ce 8 msg 114
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 38 t 1 m 11 ce 30 msg 190
-- INFO (Server)Aloha.server5: msg-server-inicial: uplink-req
-- INFO (Server)Aloha.server5: reception finished
-- INFO (Server)Aloha.server5: generating uplink-ack 
-- INFO (Server)Aloha.server5: generating uplink-ack to host 2
-CM id 198 tid 198 eid 198 etid 198 c omnetpp::cMessage n ack-uplink pe -1
-BS id 198 tid 198 eid 198 etid 198 c omnetpp::cPacket n ack-uplink l 256 pe 38
-CL id 198 tid 198 eid 198 etid 198 c omnetpp::cPacket n ack-uplink l 256 pe 38 cid 199
-SD sm 11 dm 5 dg 0 td 1.581818181818
-ES t 1 is 1
-BS id 117 tid 117 eid 117 etid 117 c omnetpp::cMessage n ack-payload pe 0
-ES t 2.581818181818
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 39 t 1 m 2 ce 35 msg 192
+E # 11 t 0.745454545455 m 2 ce 9 msg 116
 - INFO (Host)Aloha.host[0]: generating uplink-payload to gateway
-CM id 200 tid 200 eid 200 etid 200 c omnetpp::cMessage n uplink-payload pe -1
-BS id 200 tid 200 eid 200 etid 200 c omnetpp::cPacket n uplink-payload l 256 pe 39
-CL id 200 tid 200 eid 200 etid 200 c omnetpp::cPacket n uplink-payload l 256 pe 39 cid 201
-SD sm 2 dm 8 dg 0 pd 0.1 td 0.853333333333
-ES t 1.1 is 1
+CM id 118 tid 118 eid 118 etid 118 c omnetpp::cMessage n uplink-payload pe -1
+BS id 118 tid 118 eid 118 etid 118 c omnetpp::cPacket n uplink-payload l 256 pe 11
+CL id 118 tid 118 eid 118 etid 118 c omnetpp::cPacket n uplink-payload l 256 pe 11 cid 119
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 0.845454545455 is 1
 BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n uplink-payload pe 0
-ES t 1.853333333333
+ES t 0.89090909091
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 40 t 1 m 3 ce 36 msg 194
-- INFO (Host)Aloha.host[1]: generating uplink-payload to gateway
-CM id 202 tid 202 eid 202 etid 202 c omnetpp::cMessage n uplink-payload pe -1
-BS id 202 tid 202 eid 202 etid 202 c omnetpp::cPacket n uplink-payload l 256 pe 40
-CL id 202 tid 202 eid 202 etid 202 c omnetpp::cPacket n uplink-payload l 256 pe 40 cid 203
-SD sm 3 dm 9 dg 0 pd 0.1 td 0.853333333333
-ES t 1.1 is 1
-BS id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n uplink-payload pe 0
-ES t 1.853333333333
+E # 12 t 0.79090909091 m 2 ce 7 msg 7
+CM id 120 tid 120 eid 120 etid 120 c omnetpp::cMessage n passtime pe -1
+BS id 120 tid 120 eid 120 etid 120 c omnetpp::cPacket n passtime l 256 pe 12
+CL id 120 tid 120 eid 120 etid 120 c omnetpp::cPacket n passtime l 256 pe 12 cid 121
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 0.89090909091 is 1
+- INFO (Host)Aloha.host[0]: state final: 8
+- INFO (Host)Aloha.host[0]: Timeout: 0.79090909091
+- INFO (Host)Aloha.host[0]: simtime: 0.79090909091
+- INFO (Host)Aloha.host[0]: Inicio de retransmision de uplink-request
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 41 t 1 m 4 ce 37 msg 196
-- INFO (Host)Aloha.host[2]: generating uplink-payload to gateway
-CM id 204 tid 204 eid 204 etid 204 c omnetpp::cMessage n uplink-payload pe -1
-BS id 204 tid 204 eid 204 etid 204 c omnetpp::cPacket n uplink-payload l 256 pe 41
-CL id 204 tid 204 eid 204 etid 204 c omnetpp::cPacket n uplink-payload l 256 pe 41 cid 205
-SD sm 4 dm 7 dg 0 pd 0.1 td 0.853333333333
-ES t 1.1 is 1
-BS id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n uplink-payload pe 0
-ES t 1.853333333333
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 42 t 1 m 5 ce 38 msg 198
-- INFO (Host)Aloha.host[3]: generating uplink-payload to gateway
-CM id 206 tid 206 eid 206 etid 206 c omnetpp::cMessage n uplink-payload pe -1
-BS id 206 tid 206 eid 206 etid 206 c omnetpp::cPacket n uplink-payload l 256 pe 42
-CL id 206 tid 206 eid 206 etid 206 c omnetpp::cPacket n uplink-payload l 256 pe 42 cid 207
-SD sm 5 dm 11 dg 0 pd 0.1 td 0.853333333333
-ES t 1.1 is 1
-BS id 38 tid 38 eid 38 etid 38 c omnetpp::cMessage n uplink-payload pe 0
-ES t 1.853333333333
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 43 t 1.1 m 8 ce 39 msg 200
-- INFO (Server)Aloha.server2: msg-server-inicial: uplink-payload
-- INFO (Server)Aloha.server2: reception finished
-- INFO (Server)Aloha.server2: generating uplink-payload-ack 
-- INFO (Server)Aloha.server2: generating payload-ack to host -1
-CM id 208 tid 208 eid 208 etid 208 c omnetpp::cMessage n ack-payload-2 pe -1
-BS id 208 tid 208 eid 208 etid 208 c omnetpp::cPacket n ack-payload-2 l 256 pe 43
-CL id 208 tid 208 eid 208 etid 208 c omnetpp::cPacket n ack-payload-2 l 256 pe 43 cid 209
-SD sm 8 dm 2 dg 0 td 1.18192
-ES t 1.1 is 1
-BS id 76 tid 76 eid 76 etid 76 c omnetpp::cMessage n ack-payload-2 pe 0
-ES t 2.28192
-BS id 77 tid 77 eid 77 etid 77 c omnetpp::cMessage n waittime pe 0
-ES t 2.1
-- INFO (Server)Aloha.server2: en tiempo de espera
-MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-
-E # 44 t 1.1 m 9 ce 40 msg 202
+E # 13 t 0.845454545455 m 5 ce 11 msg 118
+- INFO (Server)Aloha.server3: error: 33.3333
+- INFO (Server)Aloha.server3: receive counter: 3
 - INFO (Server)Aloha.server3: msg-server-inicial: uplink-payload
 - INFO (Server)Aloha.server3: reception finished
 - INFO (Server)Aloha.server3: generating uplink-payload-ack 
-- INFO (Server)Aloha.server3: generating payload-ack to host 0
-CM id 210 tid 210 eid 210 etid 210 c omnetpp::cMessage n ack-payload-2 pe -1
-BS id 210 tid 210 eid 210 etid 210 c omnetpp::cPacket n ack-payload-2 l 256 pe 44
-CL id 210 tid 210 eid 210 etid 210 c omnetpp::cPacket n ack-payload-2 l 256 pe 44 cid 211
-SD sm 9 dm 3 dg 0 td 1.245454545455
-ES t 1.1 is 1
-BS id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n ack-payload-2 pe 0
-ES t 2.345454545455
-BS id 91 tid 91 eid 91 etid 91 c omnetpp::cMessage n waittime pe 0
-ES t 2.1
+- INFO (Server)Aloha.server3: generating payload-ack to host -1
+CM id 122 tid 122 eid 122 etid 122 c omnetpp::cMessage n ack-payload-2 pe -1
+BS id 122 tid 122 eid 122 etid 122 c omnetpp::cPacket n ack-payload-2 l 256 pe 13
+CL id 122 tid 122 eid 122 etid 122 c omnetpp::cPacket n ack-payload-2 l 256 pe 13 cid 123
+SD sm 5 dm 2 dg 0 td 0.99090909091
+ES t 0.845454545455 is 1
+BS id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe 0
+ES t 1.836363636365
+BS id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe 0
+ES t 1.845454545455
 - INFO (Server)Aloha.server3: en tiempo de espera
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 45 t 1.1 m 7 ce 41 msg 204
-- INFO (Server)Aloha.server1: msg-server-inicial: uplink-payload
-- INFO (Server)Aloha.server1: reception finished
-- INFO (Server)Aloha.server1: generating uplink-payload-ack 
-- INFO (Server)Aloha.server1: generating payload-ack to host 1
-CM id 212 tid 212 eid 212 etid 212 c omnetpp::cMessage n ack-payload-2 pe -1
-BS id 212 tid 212 eid 212 etid 212 c omnetpp::cPacket n ack-payload-2 l 256 pe 45
-CL id 212 tid 212 eid 212 etid 212 c omnetpp::cPacket n ack-payload-2 l 256 pe 45 cid 213
-SD sm 7 dm 4 dg 0 td 1.146800731261
-ES t 1.1 is 1
-BS id 62 tid 62 eid 62 etid 62 c omnetpp::cMessage n ack-payload-2 pe 0
-ES t 2.246800731261
-BS id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n waittime pe 0
-ES t 2.1
-- INFO (Server)Aloha.server1: en tiempo de espera
+E # 14 t 0.845454545455 m 2 ce 13 msg 122
+- INFO (Host)Aloha.host[0]: generating uplink-request to gateway
+CM id 124 tid 124 eid 124 etid 124 c omnetpp::cMessage n uplink-req pe -1
+BS id 124 tid 124 eid 124 etid 124 c omnetpp::cPacket n uplink-req l 256 pe 14
+CL id 124 tid 124 eid 124 etid 124 c omnetpp::cPacket n uplink-req l 256 pe 14 cid 125
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 0.945454545455 is 1
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n uplink-req pe 12
+ES t 0.99090909091
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
 
-E # 46 t 1.1 m 11 ce 42 msg 206
-- INFO (Server)Aloha.server5: msg-server-inicial: uplink-payload
-- INFO (Server)Aloha.server5: reception finished
-- INFO (Server)Aloha.server5: generating uplink-payload-ack 
-- INFO (Server)Aloha.server5: generating payload-ack to host 2
-CM id 214 tid 214 eid 214 etid 214 c omnetpp::cMessage n ack-payload-2 pe -1
-BS id 214 tid 214 eid 214 etid 214 c omnetpp::cPacket n ack-payload-2 l 256 pe 46
-CL id 214 tid 214 eid 214 etid 214 c omnetpp::cPacket n ack-payload-2 l 256 pe 46 cid 215
-SD sm 11 dm 5 dg 0 td 1.681818181818
-ES t 1.1 is 1
-BS id 118 tid 118 eid 118 etid 118 c omnetpp::cMessage n ack-payload-2 pe 0
-ES t 2.781818181818
-BS id 119 tid 119 eid 119 etid 119 c omnetpp::cMessage n waittime pe 0
-ES t 2.1
-- INFO (Server)Aloha.server5: en tiempo de espera
+E # 15 t 0.89090909091 m 2 ce 11 msg 8
+CM id 126 tid 126 eid 126 etid 126 c omnetpp::cMessage n passtime pe -1
+BS id 126 tid 126 eid 126 etid 126 c omnetpp::cPacket n passtime l 256 pe 15
+CL id 126 tid 126 eid 126 etid 126 c omnetpp::cPacket n passtime l 256 pe 15 cid 127
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 0.99090909091 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 0.99090909091
+- INFO (Host)Aloha.host[0]: simtime: 0.89090909091
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-SE e 0 c 9 m "The user has finished the simulation at event #46, t=1.1."
-- INFO (Server)Aloha.server1: duration: 1.1
-- INFO (Server)Aloha.server2: duration: 1.1
-- INFO (Server)Aloha.server3: duration: 1.1
-- INFO (Server)Aloha.server4: duration: 1.1
-- INFO (Server)Aloha.server5: duration: 1.1
-- INFO (Server)Aloha.server6: duration: 1.1
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 16 t 0.89090909091 m 2 ce 12 msg 120
 MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 3 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 4 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 5 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
-MS id 6 d t=,,#808000;i=device/pc_s,
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 7 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 8 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 9 d t=,,#808000;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 10 d t=;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 11 d t=,,#800000;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
-MS id 12 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 17 t 0.9 m 2 ce 6 msg 0
+CM id 128 tid 128 eid 128 etid 128 c omnetpp::cMessage n passtime pe -1
+BS id 128 tid 128 eid 128 etid 128 c omnetpp::cPacket n passtime l 256 pe 17
+CL id 128 tid 128 eid 128 etid 128 c omnetpp::cPacket n passtime l 256 pe 17 cid 129
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 0.99090909091
+- INFO (Host)Aloha.host[0]: simtime: 0.9
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 18 t 0.945454545455 m 5 ce 14 msg 124
+- INFO (Server)Aloha.server3: error: 20
+- INFO (Server)Aloha.server3: receive counter: 5
+CE id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 2
+BS id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 18
+ES t 1.945454545455
+- INFO (Server)Aloha.server3: msg-server-inicial: uplink-req
+- INFO (Server)Aloha.server3: reception finished
+- INFO (Server)Aloha.server3: generating uplink-ack 
+- INFO (Server)Aloha.server3: generating uplink-ack to host -1
+CM id 130 tid 130 eid 130 etid 130 c omnetpp::cMessage n ack-uplink pe -1
+CE id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe 9
+BS id 130 tid 130 eid 130 etid 130 c omnetpp::cPacket n ack-uplink l 256 pe 18
+CL id 130 tid 130 eid 130 etid 130 c omnetpp::cPacket n ack-uplink l 256 pe 18 cid 131
+SD sm 5 dm 2 dg 0 td 1.09090909091
+ES t 0.945454545455 is 1
+BS id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe 18
+ES t 2.036363636365
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 19 t 0.945454545455 m 2 ce 18 msg 130
+- INFO (Host)Aloha.host[0]: generating uplink-payload to gateway
+CM id 132 tid 132 eid 132 etid 132 c omnetpp::cMessage n uplink-payload pe -1
+BS id 132 tid 132 eid 132 etid 132 c omnetpp::cPacket n uplink-payload l 256 pe 19
+CL id 132 tid 132 eid 132 etid 132 c omnetpp::cPacket n uplink-payload l 256 pe 19 cid 133
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 1.045454545455 is 1
+BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n uplink-payload pe 15
+ES t 1.09090909091
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 20 t 0.99090909091 m 2 ce 14 msg 7
+CM id 134 tid 134 eid 134 etid 134 c omnetpp::cMessage n passtime pe -1
+BS id 134 tid 134 eid 134 etid 134 c omnetpp::cPacket n passtime l 256 pe 20
+CL id 134 tid 134 eid 134 etid 134 c omnetpp::cPacket n passtime l 256 pe 20 cid 135
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.09090909091 is 1
+- INFO (Host)Aloha.host[0]: state final: 8
+- INFO (Host)Aloha.host[0]: Timeout: 0.99090909091
+- INFO (Host)Aloha.host[0]: simtime: 0.99090909091
+- INFO (Host)Aloha.host[0]: Inicio de retransmision de uplink-request
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 21 t 0.99090909091 m 2 ce 15 msg 126
+- INFO (Host)Aloha.host[0]: generating uplink-request to gateway
+CM id 136 tid 136 eid 136 etid 136 c omnetpp::cMessage n uplink-req pe -1
+BS id 136 tid 136 eid 136 etid 136 c omnetpp::cPacket n uplink-req l 256 pe 21
+CL id 136 tid 136 eid 136 etid 136 c omnetpp::cPacket n uplink-req l 256 pe 21 cid 137
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 1.09090909091 is 1
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n uplink-req pe 20
+ES t 1.136363636365
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 22 t 1 m 2 ce 17 msg 128
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 23 t 1.045454545455 m 5 ce 19 msg 132
+- INFO (Server)Aloha.server3: error: 33.3333
+- INFO (Server)Aloha.server3: receive counter: 6
+- INFO (Server)Aloha.server3: msg-server-inicial: uplink-payload
+- INFO (Server)Aloha.server3: reception finished
+- INFO (Server)Aloha.server3: generating uplink-payload-ack 
+- INFO (Server)Aloha.server3: generating payload-ack to host -1
+CM id 138 tid 138 eid 138 etid 138 c omnetpp::cMessage n ack-payload-2 pe -1
+CE id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe 13
+BS id 138 tid 138 eid 138 etid 138 c omnetpp::cPacket n ack-payload-2 l 256 pe 23
+CL id 138 tid 138 eid 138 etid 138 c omnetpp::cPacket n ack-payload-2 l 256 pe 23 cid 139
+SD sm 5 dm 2 dg 0 td 1.19090909091
+ES t 1.045454545455 is 1
+BS id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe 23
+ES t 2.236363636365
+CE id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe 13
+BS id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe 23
+ES t 2.045454545455
+- INFO (Server)Aloha.server3: en tiempo de espera
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 24 t 1.045454545455 m 2 ce 23 msg 138
+CM id 140 tid 140 eid 140 etid 140 c omnetpp::cMessage n passtime pe -1
+BS id 140 tid 140 eid 140 etid 140 c omnetpp::cPacket n passtime l 256 pe 24
+CL id 140 tid 140 eid 140 etid 140 c omnetpp::cPacket n passtime l 256 pe 24 cid 141
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.145454545455 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 1.136363636365
+- INFO (Host)Aloha.host[0]: simtime: 1.045454545455
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 25 t 1.09090909091 m 2 ce 19 msg 8
+CM id 142 tid 142 eid 142 etid 142 c omnetpp::cMessage n passtime pe -1
+BS id 142 tid 142 eid 142 etid 142 c omnetpp::cPacket n passtime l 256 pe 25
+CL id 142 tid 142 eid 142 etid 142 c omnetpp::cPacket n passtime l 256 pe 25 cid 143
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.19090909091 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 1.136363636365
+- INFO (Host)Aloha.host[0]: simtime: 1.09090909091
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 26 t 1.09090909091 m 2 ce 20 msg 134
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 27 t 1.09090909091 m 5 ce 21 msg 136
+- INFO (Server)Aloha.server3: error: 25
+- INFO (Server)Aloha.server3: receive counter: 8
+CE id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 18
+BS id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 27
+ES t 2.09090909091
+- INFO (Server)Aloha.server3: msg-server-inicial: uplink-req
+- INFO (Server)Aloha.server3: reception finished
+- INFO (Server)Aloha.server3: generating uplink-ack 
+- INFO (Server)Aloha.server3: generating uplink-ack to host -1
+CM id 144 tid 144 eid 144 etid 144 c omnetpp::cMessage n ack-uplink pe -1
+CE id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe 18
+BS id 144 tid 144 eid 144 etid 144 c omnetpp::cPacket n ack-uplink l 256 pe 27
+CL id 144 tid 144 eid 144 etid 144 c omnetpp::cPacket n ack-uplink l 256 pe 27 cid 145
+SD sm 5 dm 2 dg 0 td 1.236363636365
+ES t 1.09090909091 is 1
+BS id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe 27
+ES t 2.327272727275
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 28 t 1.09090909091 m 2 ce 27 msg 144
+- INFO (Host)Aloha.host[0]: generating uplink-payload to gateway
+CM id 146 tid 146 eid 146 etid 146 c omnetpp::cMessage n uplink-payload pe -1
+BS id 146 tid 146 eid 146 etid 146 c omnetpp::cPacket n uplink-payload l 256 pe 28
+CL id 146 tid 146 eid 146 etid 146 c omnetpp::cPacket n uplink-payload l 256 pe 28 cid 147
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 1.19090909091 is 1
+BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n uplink-payload pe 25
+ES t 1.236363636365
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 29 t 1.136363636365 m 2 ce 21 msg 7
+CM id 148 tid 148 eid 148 etid 148 c omnetpp::cMessage n passtime pe -1
+BS id 148 tid 148 eid 148 etid 148 c omnetpp::cPacket n passtime l 256 pe 29
+CL id 148 tid 148 eid 148 etid 148 c omnetpp::cPacket n passtime l 256 pe 29 cid 149
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.236363636365 is 1
+- INFO (Host)Aloha.host[0]: state final: 8
+- INFO (Host)Aloha.host[0]: Timeout: 1.136363636365
+- INFO (Host)Aloha.host[0]: simtime: 1.136363636365
+- INFO (Host)Aloha.host[0]: Inicio de retransmision de uplink-request
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 30 t 1.145454545455 m 2 ce 24 msg 140
+- INFO (Host)Aloha.host[0]: generating uplink-request to gateway
+CM id 150 tid 150 eid 150 etid 150 c omnetpp::cMessage n uplink-req pe -1
+BS id 150 tid 150 eid 150 etid 150 c omnetpp::cPacket n uplink-req l 256 pe 30
+CL id 150 tid 150 eid 150 etid 150 c omnetpp::cPacket n uplink-req l 256 pe 30 cid 151
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 1.245454545455 is 1
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n uplink-req pe 29
+ES t 1.29090909091
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 31 t 1.19090909091 m 2 ce 25 msg 142
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 32 t 1.19090909091 m 5 ce 28 msg 146
+- INFO (Server)Aloha.server3: error: 33.3333
+- INFO (Server)Aloha.server3: receive counter: 9
+- INFO (Server)Aloha.server3: msg-server-inicial: uplink-payload
+- INFO (Server)Aloha.server3: reception finished
+- INFO (Server)Aloha.server3: generating uplink-payload-ack 
+- INFO (Server)Aloha.server3: generating payload-ack to host -1
+CM id 152 tid 152 eid 152 etid 152 c omnetpp::cMessage n ack-payload-2 pe -1
+CE id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe 23
+BS id 152 tid 152 eid 152 etid 152 c omnetpp::cPacket n ack-payload-2 l 256 pe 32
+CL id 152 tid 152 eid 152 etid 152 c omnetpp::cPacket n ack-payload-2 l 256 pe 32 cid 153
+SD sm 5 dm 2 dg 0 td 1.336363636365
+ES t 1.19090909091 is 1
+BS id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe 32
+ES t 2.527272727275
+CE id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe 23
+BS id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe 32
+ES t 2.19090909091
+- INFO (Server)Aloha.server3: en tiempo de espera
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 33 t 1.19090909091 m 2 ce 32 msg 152
+CM id 154 tid 154 eid 154 etid 154 c omnetpp::cMessage n passtime pe -1
+BS id 154 tid 154 eid 154 etid 154 c omnetpp::cPacket n passtime l 256 pe 33
+CL id 154 tid 154 eid 154 etid 154 c omnetpp::cPacket n passtime l 256 pe 33 cid 155
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.29090909091 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 1.29090909091
+- INFO (Host)Aloha.host[0]: simtime: 1.19090909091
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 34 t 1.236363636365 m 2 ce 28 msg 8
+CM id 156 tid 156 eid 156 etid 156 c omnetpp::cMessage n passtime pe -1
+BS id 156 tid 156 eid 156 etid 156 c omnetpp::cPacket n passtime l 256 pe 34
+CL id 156 tid 156 eid 156 etid 156 c omnetpp::cPacket n passtime l 256 pe 34 cid 157
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.336363636365 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 1.29090909091
+- INFO (Host)Aloha.host[0]: simtime: 1.236363636365
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 35 t 1.236363636365 m 2 ce 29 msg 148
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 36 t 1.245454545455 m 5 ce 30 msg 150
+- INFO (Server)Aloha.server3: error: 27.2727
+- INFO (Server)Aloha.server3: receive counter: 11
+CE id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 27
+BS id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 36
+ES t 2.245454545455
+- INFO (Server)Aloha.server3: msg-server-inicial: uplink-req
+- INFO (Server)Aloha.server3: reception finished
+- INFO (Server)Aloha.server3: generating uplink-ack 
+- INFO (Server)Aloha.server3: generating uplink-ack to host -1
+CM id 158 tid 158 eid 158 etid 158 c omnetpp::cMessage n ack-uplink pe -1
+CE id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe 27
+BS id 158 tid 158 eid 158 etid 158 c omnetpp::cPacket n ack-uplink l 256 pe 36
+CL id 158 tid 158 eid 158 etid 158 c omnetpp::cPacket n ack-uplink l 256 pe 36 cid 159
+SD sm 5 dm 2 dg 0 td 1.39090909091
+ES t 1.245454545455 is 1
+BS id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n ack-payload pe 36
+ES t 2.636363636365
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 37 t 1.245454545455 m 2 ce 36 msg 158
+- INFO (Host)Aloha.host[0]: generating uplink-payload to gateway
+CM id 160 tid 160 eid 160 etid 160 c omnetpp::cMessage n uplink-payload pe -1
+BS id 160 tid 160 eid 160 etid 160 c omnetpp::cPacket n uplink-payload l 256 pe 37
+CL id 160 tid 160 eid 160 etid 160 c omnetpp::cPacket n uplink-payload l 256 pe 37 cid 161
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 1.345454545455 is 1
+BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n uplink-payload pe 34
+ES t 1.39090909091
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 38 t 1.253333333333 m 2 ce 1 msg 3
+CM id 162 tid 162 eid 162 etid 162 c omnetpp::cMessage n passtime pe -1
+BS id 162 tid 162 eid 162 etid 162 c omnetpp::cPacket n passtime l 256 pe 38
+CL id 162 tid 162 eid 162 etid 162 c omnetpp::cPacket n passtime l 256 pe 38 cid 163
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.353333333333 is 1
+- INFO (Host)Aloha.host[0]: state final: 8
+- INFO (Host)Aloha.host[0]: Timeout: 1.29090909091
+- INFO (Host)Aloha.host[0]: simtime: 1.253333333333
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 39 t 1.29090909091 m 2 ce 30 msg 7
+CM id 164 tid 164 eid 164 etid 164 c omnetpp::cMessage n passtime pe -1
+BS id 164 tid 164 eid 164 etid 164 c omnetpp::cPacket n passtime l 256 pe 39
+CL id 164 tid 164 eid 164 etid 164 c omnetpp::cPacket n passtime l 256 pe 39 cid 165
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.39090909091 is 1
+- INFO (Host)Aloha.host[0]: state final: 8
+- INFO (Host)Aloha.host[0]: Timeout: 1.29090909091
+- INFO (Host)Aloha.host[0]: simtime: 1.29090909091
+- INFO (Host)Aloha.host[0]: Inicio de retransmision de uplink-request
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 40 t 1.29090909091 m 2 ce 33 msg 154
+- INFO (Host)Aloha.host[0]: generating uplink-request to gateway
+CM id 166 tid 166 eid 166 etid 166 c omnetpp::cMessage n uplink-req pe -1
+BS id 166 tid 166 eid 166 etid 166 c omnetpp::cPacket n uplink-req l 256 pe 40
+CL id 166 tid 166 eid 166 etid 166 c omnetpp::cPacket n uplink-req l 256 pe 40 cid 167
+SD sm 2 dm 5 dg 0 pd 0.1 td 0.145454545455
+ES t 1.39090909091 is 1
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n uplink-req pe 39
+ES t 1.436363636365
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 41 t 1.336363636365 m 2 ce 34 msg 156
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 42 t 1.345454545455 m 5 ce 37 msg 160
+- INFO (Server)Aloha.server3: error: 33.3333
+- INFO (Server)Aloha.server3: receive counter: 12
+- INFO (Server)Aloha.server3: msg-server-inicial: uplink-payload
+- INFO (Server)Aloha.server3: reception finished
+- INFO (Server)Aloha.server3: generating uplink-payload-ack 
+- INFO (Server)Aloha.server3: generating payload-ack to host -1
+CM id 168 tid 168 eid 168 etid 168 c omnetpp::cMessage n ack-payload-2 pe -1
+CE id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe 32
+BS id 168 tid 168 eid 168 etid 168 c omnetpp::cPacket n ack-payload-2 l 256 pe 42
+CL id 168 tid 168 eid 168 etid 168 c omnetpp::cPacket n ack-payload-2 l 256 pe 42 cid 169
+SD sm 5 dm 2 dg 0 td 1.49090909091
+ES t 1.345454545455 is 1
+BS id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n ack-payload-2 pe 42
+ES t 2.836363636365
+CE id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe 32
+BS id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n waittime pe 42
+ES t 2.345454545455
+- INFO (Server)Aloha.server3: en tiempo de espera
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 43 t 1.345454545455 m 2 ce 42 msg 168
+CM id 170 tid 170 eid 170 etid 170 c omnetpp::cMessage n passtime pe -1
+BS id 170 tid 170 eid 170 etid 170 c omnetpp::cPacket n passtime l 256 pe 43
+CL id 170 tid 170 eid 170 etid 170 c omnetpp::cPacket n passtime l 256 pe 43 cid 171
+SD sm 2 dm 2 dg 0 pd 0.1 td 0.145454545455
+ES t 1.445454545455 is 1
+- INFO (Host)Aloha.host[0]: state final: 6
+- INFO (Host)Aloha.host[0]: Timeout: 1.436363636365
+- INFO (Host)Aloha.host[0]: simtime: 1.345454545455
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+
+E # 44 t 1.353333333333 m 5 ce 2 msg 42
+- INFO (Server)Aloha.server3: error: 28.5714
+- INFO (Server)Aloha.server3: receive counter: 14
+CE id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 36
+BS id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n error-package pe 44
+ES t 2.353333333333
+- INFO (Server)Aloha.server3: msg-server-inicial: end-reception
+- INFO (Server)Aloha.server3: reception finished
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+SE e 0 c 9 m "The user has finished the simulation at event #44, t=1.353333333333."
+- INFO (Server)Aloha.server1: duration: 1.353333333333
+- INFO (Server)Aloha.server2: duration: 1.353333333333
+- INFO (Server)Aloha.server3: duration: 1.353333333333
+- INFO (Server)Aloha.server4: duration: 1.353333333333
+- INFO (Server)Aloha.server5: duration: 1.353333333333
+- INFO (Server)Aloha.server6: duration: 1.353333333333
+MS id 2 d t=TRANSMIT,,#808000;i=device/pc_s,yellow
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 3 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 4 d t=;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 5 d t=,,#808000;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 6 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 7 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l
+MS id 8 d t=;i2=status/off;i=device/antennatower_l

@@ -300,6 +300,9 @@ void Host::setpair(int a){
 void Host::setsleep(int a){
     this->sleeptime = a;
 }
+void Host::setdatarate(double a){
+    this->txRate = a;
+}
 simtime_t Host::getsleep(){
     return this->sleeptime;
 }
@@ -330,26 +333,33 @@ int Host::getdistance(){
     return this->distance;
 }
 cModule *Host::getadr(){
-    float random;
-    srand(time(NULL));
-    random = rand() % 1 +0;
-    float distancia = this->getdistance()+ random ;
+    //float random;
+    //int random2;
+    //srand(time(NULL));
+    //random = rand() % 1 +0;
+    float distancia = this->getdistance();//+ random ;
     if (distancia <= 14 &&  distancia > 11){
+        this->setdatarate(290);
         return server6;
     }
     else if (distancia <= 11 && distancia > 8){
+        this->setdatarate(440);
         return server5;
     }
     else if (distancia <= 8 && distancia > 6){
+        this->setdatarate(980);
         return server4;
     }
     else if (distancia <= 6 && distancia > 4){
+        this->setdatarate(1760);
         return server3;
     }
     else if (distancia <= 4 && distancia >2){
+        this->setdatarate(3126);
         return server2;
     }
     else if (distancia <= 2){
+        this->setdatarate(5470);
         return server;
     }
     else if (distancia > 14){

@@ -71,6 +71,7 @@ class Host : public cSimpleModule
     simtime_t getsleep();
     cModule *getadr();
     int getdistance();
+    void setdatarate(double);
 
   protected:
     virtual void initialize() override;

@@ -21,6 +21,7 @@ Server::Server()
 
     endRxEvent = nullptr;
     counter = 0;
+    errorcounter = 0;
 }
 
 Server::~Server()
@@ -48,6 +49,7 @@ void Server::initialize()
     ackpayload = new cMessage("ack-payload");
     ackpayload2 = new cMessage("ack-payload-2");
     waits = new cMessage("waittime");
+    errors = new cMessage("error-package");
     channelBusy = false;
     emit(channelStateSignal, IDLE);
     gate("in")->setDeliverOnReceptionStart(true);
@@ -65,10 +67,23 @@ void Server::initialize()
     pkCounter = 0;
     emit(receiveSignal, 0L);
     emit(receiveBeginSignal, 0L);
+    per= par("per");
 }
 
 void Server::handleMessage(cMessage *msg)
 {
+    EV<<"error: "<<this->errorcounter/this->receiveCounter*100<<endl;
+    EV << "receive counter: "<<this->receiveCounter<<endl;
+    if (this->errorcounter/this->receiveCounter*100 < this->per || this->errorcounter == 0 ){
+            cTimestampedValue tmp(recvStartTime, 1l);
+            emit(receiveSignal, &tmp);
+            emit(receiveSignal, 0);
+            this->errorcounter++;
+            cancelEvent(errors);
+            scheduleAt(simTime()+1, errors);
+
+
+        }
     const char *msgtxt = msg->getFullName();
     EV << "msg-server-inicial: "<< msgtxt <<endl;
     if (counter ==  20){
@@ -96,8 +111,8 @@ void Server::handleMessage(cMessage *msg)
             // start of reception at recvStartTime
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
-            emit(receiveSignal, 0);
-            emit(receiveBeginSignal, receiveCounter);
+            emit(receiveBeginSignal, ++receiveCounter);
+
             cancelEvent(ack1);
             scheduleAt(simTime()+5, ack1);
         }
@@ -106,8 +121,7 @@ void Server::handleMessage(cMessage *msg)
             // start of reception at recvStartTime
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
-            emit(receiveSignal, 0);
-            emit(receiveBeginSignal, receiveCounter);
+            emit(receiveBeginSignal, ++receiveCounter);
             cancelEvent(ack2);
             scheduleAt(simTime()+10, ack2);
             counter ++;
@@ -120,11 +134,9 @@ void Server::handleMessage(cMessage *msg)
         if ( strcmp(msgtxt,"uplink-req")==0){
             EV << "generating uplink-ack " << endl;
 
-
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
-            emit(receiveSignal, 0);
-            emit(receiveBeginSignal, receiveCounter);
+            emit(receiveBeginSignal, ++receiveCounter);
             cPacket *pkt = check_and_cast<cPacket *>(msg);
             ASSERT(pkt->isReceptionStart());
 
@@ -146,8 +158,7 @@ void Server::handleMessage(cMessage *msg)
             cTimestampedValue tmp(recvStartTime, 1l);
 
             emit(receiveSignal, &tmp);
-            emit(receiveSignal, 0);
-            emit(receiveBeginSignal, receiveCounter);
+            emit(receiveBeginSignal, ++receiveCounter);
             char pkname7[40];
             sprintf(pkname7, "ack-payload-2");
             cPacket *pkt = check_and_cast<cPacket *>(msg);
@@ -166,8 +177,7 @@ void Server::handleMessage(cMessage *msg)
         if ( strcmp(msgtxt, "wait")==0 || strcmp(msgtxt, "ack-payload")==0 || strcmp(msgtxt, "ack-payload-2")==0){
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
-            emit(receiveSignal, 0);
-            emit(receiveBeginSignal, receiveCounter);
+            emit(receiveBeginSignal, ++receiveCounter);
             cancelEvent(waits);
             scheduleAt(simTime()+1, waits);
             EV << "en tiempo de espera"<<endl;
@@ -190,8 +200,8 @@ void Server::handleMessage(cMessage *msg)
             emit(collisionLengthSignal, dt);
         }
 
-        currentCollisionNumFrames = 0;
-        receiveCounter = 0;
+        //currentCollisionNumFrames = 0;
+        //receiveCounter = 0;
         emit(receiveBeginSignal, receiveCounter);
         cancelEvent(startRxEvent);
         cancelEvent(startRx2Event);

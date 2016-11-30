@@ -39,10 +39,12 @@ class Server : public cSimpleModule
     cMessage *ack0;
     cMessage *ackpayload2;
     cMessage *waits;
+    cMessage *errors;
     long currentCollisionNumFrames;
     long receiveCounter;
+    float errorcounter;
     simtime_t recvStartTime;
-    enum { IDLE = 0, TRANSMISSION = 1, COLLISION = 2 };
+    enum { IDLE = 0, TRANSMISSION = 1, COLLISION = 2, ERRORS=3 };
     simsignal_t channelStateSignal;
     // statistics
     simsignal_t receiveBeginSignal;
@@ -61,6 +63,7 @@ class Server : public cSimpleModule
     int pkCounter;
     int counter;
     int randomnumber;
+    int per;
 
   public:
     Server();
