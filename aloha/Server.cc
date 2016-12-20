@@ -74,7 +74,7 @@ void Server::handleMessage(cMessage *msg)
 {
     EV<<"error: "<<this->errorcounter/this->receiveCounter*100<<endl;
     EV << "receive counter: "<<this->receiveCounter<<endl;
-    if (this->errorcounter/this->receiveCounter*100 < this->per || this->errorcounter == 0 ){
+    if ( (this->errorcounter/this->receiveCounter*100 < this->per || this->errorcounter == 0 )&& this->per != 0 ){
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
             emit(receiveSignal, 0);
@@ -102,7 +102,7 @@ void Server::handleMessage(cMessage *msg)
         this->counter = 0;
     }
 
-    if (strcmp(msgtxt, "end-reception") == 0 || strcmp(msgtxt, "ack-payload-2")==0 || strcmp(msgtxt, "ack-payload")==0 || strcmp(msgtxt, "downlink-1" ) == 0 || strcmp(msgtxt, "end-downlink-window1") == 0 || strcmp(msgtxt, "end-downlink-window2") == 0|| strcmp(msgtxt, "ack-downlink-1") == 0 || strcmp(msgtxt, "ack-downlink-2") == 0 || strcmp(msgtxt, "uplink-req") == 0 || strcmp(msgtxt, "uplink-payload") == 0 || strcmp(msgtxt, "waittime") == 0 )
+    if (strcmp(msgtxt, "end-reception") == 0 || strcmp(msgtxt, "ack-payload-2")==0 || strcmp(msgtxt, "ack-payload")==0 || strcmp(msgtxt, "downlink-1" ) == 0 || strcmp(msgtxt, "end-downlink-window1") == 0 || strcmp(msgtxt, "end-downlink-window2") == 0|| strcmp(msgtxt, "ack-downlink-1") == 0 || strcmp(msgtxt, "ack-downlink-2") == 0 || strcmp(msgtxt, "uplink-req") == 0 || strcmp(msgtxt, "uplink-payload") == 0 || strcmp(msgtxt, "waittime") == 0 || strcmp(msgtxt, "error-package")==0)
     {
         EV << "reception finished\n";
 
@@ -115,6 +115,9 @@ void Server::handleMessage(cMessage *msg)
 
             cancelEvent(ack1);
             scheduleAt(simTime()+5, ack1);
+            counter ++;
+            msgtxt = "waittime";
+            msg->setName("waittime");
         }
         if (strcmp(msgtxt, "ack-downlink-2") == 0){
 
@@ -126,6 +129,7 @@ void Server::handleMessage(cMessage *msg)
             scheduleAt(simTime()+10, ack2);
             counter ++;
             msgtxt = "waittime";
+            msg->setName("waittime");
         }
 
         channelBusy = false;
@@ -174,7 +178,7 @@ void Server::handleMessage(cMessage *msg)
             msgtxt = "wait";
 
         }
-        if ( strcmp(msgtxt, "wait")==0 || strcmp(msgtxt, "ack-payload")==0 || strcmp(msgtxt, "ack-payload-2")==0){
+        if ( strcmp(msgtxt, "waittime")==0 || strcmp(msgtxt, "ack-payload")==0 || strcmp(msgtxt, "ack-payload-2")==0){
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
             emit(receiveBeginSignal, ++receiveCounter);
@@ -211,7 +215,8 @@ void Server::handleMessage(cMessage *msg)
         cancelEvent(payload);
         //delete pkt;
     }
-    else {
+    else{
+
         cPacket *pkt = check_and_cast<cPacket *>(msg);
 
         ASSERT(pkt->isReceptionStart());

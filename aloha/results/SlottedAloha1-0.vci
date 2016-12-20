@@ -1,15 +1,15 @@
-file 2154 1480484202                                            
+file 282741 1482072415                                          
 version 2
-run SlottedAloha1-0-20161130-02:34:12-14787
+run SlottedAloha1-0-20161130-02:49:48-15831
 attr configname SlottedAloha1
-attr datetime 20161130-02:34:12
+attr datetime 20161130-02:49:48
 attr experiment SlottedAloha1
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Aloha
-attr processid 14787
+attr processid 15831
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -17,59 +17,58 @@ attr runnumber 0
 attr seedset 0
 param Aloha.host[*].iaTime exponential(0.5s)
 param Aloha.slotTime 100ms
-
 vector 0  Aloha.host[0]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
+0	2063 198226 0 11760 0 170.99090909091 7952 0 8 51097 337203
 vector 1  Aloha.host[1]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
+1	200289 4131 0 11468 0 166.446800731261 223 0 8 1624 12276
 vector 2  Aloha.host[2]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
+2	204420 3391 0 11522 0 167.28275862069 193 0 8 1421 10853
 vector 3  Aloha.host[3]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
+3	207811 3455 0 11500 0 166.981818181818 193 0 8 1421 10853
 vector 4  Aloha.host[4]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
+4	211266 3655 0 11443 0 166.281893793986 202 0 8 1483 11295
 vector 5  Aloha.sf7  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
+5	214921 2762 0 11736 0 170.6 183 0 1 1 1
 vector 7  Aloha.sf8  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
+7	217683 2620 0 11739 0 170.6 178 0 1 1 1
 vector 9  Aloha.sf9  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
+9	220303 56923 0 11761 0 170.99090909091 2291 0 1 1 1
 vector 11  Aloha.sf10  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
+11	277226 9 0 0 0 0 1 0 0 0 0
 vector 13  Aloha.sf11  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
+13	277235 2755 0 11738 0 170.6 178 0 1 1 1
 vector 15  Aloha.sf12  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-0	2063 8 0 0 0 0 1 0 0 0 0
-1	2071 8 0 0 0 0 1 0 0 0 0
-2	2079 8 0 0 0 0 1 0 0 0 0
-3	2087 8 0 0 0 0 1 0 0 0 0
-4	2095 8 0 0 0 0 1 0 0 0 0
-5	2103 8 0 0 0 0 1 0 0 0 0
-7	2111 8 0 0 0 0 1 0 0 0 0
-9	2119 8 0 0 0 0 1 0 0 0 0
-11	2127 9 0 0 0 0 1 0 0 0 0
-13	2136 9 0 0 0 0 1 0 0 0 0
-15	2145 9 0 0 0 0 1 0 0 0 0
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
+15	279990 2751 0 11737 0 170.6 178 0 1 1 1

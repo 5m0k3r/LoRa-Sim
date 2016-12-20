@@ -86,7 +86,7 @@ void Host::initialize()
 void Host::handleMessage(cMessage *msg)
 {
     const char *msgtxt = msg->getFullName();
-    if (state == IDLE && this->getpair() == 0) {
+    if (state == IDLE && this->getpair() == 0 || (this->timeout > 0 && this->getpair() == 0 && state == IDLE)) {
         // generate packet and schedule timer when it ends
         char pkname[40];
         sprintf(pkname, "pair-request", getId(), pkCounter++);
@@ -101,6 +101,7 @@ void Host::handleMessage(cMessage *msg)
         // is set for default the SF7 for the first communication so, i put the gate 6 for that use in the simulator.
         //sendDirect(pk, radioDelay, duration, server->gate("in"));
         sendDirect(pk, radioDelay, duration, this->getadr()->gate("in"));
+        cancelEvent(endTxEvent);
         scheduleAt(simTime()+duration, endTxEvent);
         cancelEvent(endJoinEvent);
         cancelEvent(endJoinEvent2);
@@ -238,7 +239,7 @@ void Host::handleMessage(cMessage *msg)
                 cancelEvent(ack0);
                 scheduleAt(simTime(), ack0);
     }
-    else if ( state == SLEEP && strcmp(msgtxt,"ack-payload-2") == 0 ){
+    else if ( state == SLEEP && strcmp(msgtxt,"ack-payload-2") == 0 || strcmp(msgtxt, "sleep-time") == 0 ){
         cTimestampedValue tmp(recvStartTime, 1l);
         emit(stateSignal, state);
         emit(receiveSignal, &tmp);
@@ -261,6 +262,18 @@ void Host::handleMessage(cMessage *msg)
         emit(receiveSignal, &tmp);
         emit(receiveSignal, 0);
         emit(receiveBeginSignal, receiveCounter);
+        if(this->timeout !=0){
+            if(simTime() > this->timeout && state != SLEEP){
+                EV<<"Inicio de retransmision de uplink-request"<< endl;
+                if (this->getpair()==1){
+                    state = IDLE2;
+                }
+                else{
+                    EV<<"volvi al join"<<endl;
+                    state = IDLE;
+                }
+            }
+        }
     }
     else {
         char pkname5[40];
@@ -270,18 +283,22 @@ void Host::handleMessage(cMessage *msg)
         pk5->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
         simtime_t duration = pk5->getBitLength() / txRate; // asignacion de duracion de envio de paquete
         sendDirect(pk5, radioDelay, duration, this->gate("in"));
-        EV <<"state final: "<< state << endl;
+        EV <<"state final: "<< stateSignal << endl;
         EV<<"Timeout: "<<this->timeout <<endl;
         EV<<"simtime: "<<simTime()<<endl;
-
+        if(this->getpair() == 0 && this->timeout >= simTime()){
+            EV<<"retransmision join request"<<endl;
+            state = IDLE;
+        }
 
         if(this->timeout !=0){
-            if(simTime() >= this->timeout){
+            if(simTime() > this->timeout && state != SLEEP){
                 EV<<"Inicio de retransmision de uplink-request"<< endl;
                 if (this->getpair()==1){
                     state = IDLE2;
                 }
                 else{
+                    EV<<"volvi al join"<<endl;
                     state = IDLE;
                 }
             }

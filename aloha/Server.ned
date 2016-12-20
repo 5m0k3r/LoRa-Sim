@@ -20,12 +20,12 @@ simple Server
         @signal[collisionLength](type="simtime_t");  // the length of the last collision period at the end of the collision period
         @signal[channelState](type="long");
 
-        @statistic[serverChannelState](source="channelState";title="Channel state";enum="IDLE=0,TRANSMISSION=1,COLLISION=2";record=vector);
+        @statistic[serverChannelState](source="channelState";title="Channel state";enum="IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8";record=vector);
         @statistic[receiveBegin](source="receiveBegin"; record=vector?; interpolationmode=sample-hold; title="receive begin");
-        @statistic[channelUtilization](source="timeavg(receive)"; record=vector; interpolationmode=linear; title="channel utilization");
-        @statistic[collisionMultiplicity](source=collision; record=histogram; title="collision multiplicity");
-        @statistic[collisionLength](record=sum,max; title="collision length");
-        @statistic[receivedFrames](source="sum(receive)"; record=vector; title="received frames");
+        @statistic[channelUtilization](source="timeavg(receive)"; record=last; interpolationmode=linear; title="channel utilization");
+        @statistic[collisionMultiplicity](source=collision; record=vector?,histogram; title="collision multiplicity");
+        @statistic[collisionLength](record=vector?,histogram,mean,sum,max; title="collision length");
+        @statistic[receivedFrames](source="sum(receive)"; record=last; title="received frames");
         @statistic[collidedFrames](source="count(collision)"; record=vector; title="collided frames");
         volatile int pkLenBits @unit(b);
         volatile double iaTime @unit(s);
@@ -33,6 +33,7 @@ simple Server
         double txRate @unit(bps);         // transmission rate
         double radioDelay @unit(s);
         int per;
+        
         //int sleeptime @unit(s);
     gates:
         input in @directIn;

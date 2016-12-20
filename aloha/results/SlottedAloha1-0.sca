@@ -1,14 +1,14 @@
 version 2
-run SlottedAloha1-0-20161130-02:28:13-14102
+run SlottedAloha1-0-20161130-02:49:48-15831
 attr configname SlottedAloha1
-attr datetime 20161130-02:28:13
+attr datetime 20161130-02:49:48
 attr experiment SlottedAloha1
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Aloha
-attr processid 14102
+attr processid 15831
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -17,8 +17,8 @@ attr seedset 0
 param Aloha.host[*].iaTime exponential(0.5s)
 param Aloha.slotTime 100ms
 
-scalar Aloha.server1 	duration 	1.353333333333
-statistic Aloha.server1 	collisionLength:histogram
+scalar Aloha.sf7 	duration 	170.99090909091
+statistic Aloha.sf7 	collisionLength:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -59,13 +59,13 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server1 	collisionLength:mean 	-nan
+scalar Aloha.sf7 	collisionLength:mean 	-nan
 attr title  "collision length, mean"
-scalar Aloha.server1 	collisionLength:sum 	0
+scalar Aloha.sf7 	collisionLength:sum 	0
 attr title  "collision length, sum"
-scalar Aloha.server1 	collisionLength:max 	-nan
+scalar Aloha.sf7 	collisionLength:max 	-nan
 attr title  "collision length, max"
-statistic Aloha.server1 	collisionMultiplicity:histogram
+statistic Aloha.sf7 	collisionMultiplicity:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -107,15 +107,15 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server1 	channelUtilization:last 	-nan
+scalar Aloha.sf7 	channelUtilization:last 	120.0374015644
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server1 	receivedFrames:last 	0
+scalar Aloha.sf7 	receivedFrames:last 	391
 attr source  sum(receive)
 attr title  "received frames, last"
-scalar Aloha.server2 	duration 	1.353333333333
-statistic Aloha.server2 	collisionLength:histogram
+scalar Aloha.sf8 	duration 	170.99090909091
+statistic Aloha.sf8 	collisionLength:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -156,13 +156,13 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server2 	collisionLength:mean 	-nan
+scalar Aloha.sf8 	collisionLength:mean 	-nan
 attr title  "collision length, mean"
-scalar Aloha.server2 	collisionLength:sum 	0
+scalar Aloha.sf8 	collisionLength:sum 	0
 attr title  "collision length, sum"
-scalar Aloha.server2 	collisionLength:max 	-nan
+scalar Aloha.sf8 	collisionLength:max 	-nan
 attr title  "collision length, max"
-statistic Aloha.server2 	collisionMultiplicity:histogram
+statistic Aloha.sf8 	collisionMultiplicity:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -204,15 +204,15 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server2 	channelUtilization:last 	-nan
+scalar Aloha.sf8 	channelUtilization:last 	119.88714179048
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server2 	receivedFrames:last 	0
+scalar Aloha.sf8 	receivedFrames:last 	371
 attr source  sum(receive)
 attr title  "received frames, last"
-scalar Aloha.server3 	duration 	1.353333333333
-statistic Aloha.server3 	collisionLength:histogram
+scalar Aloha.sf9 	duration 	170.99090909091
+statistic Aloha.sf9 	collisionLength:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -253,13 +253,13 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server3 	collisionLength:mean 	-nan
+scalar Aloha.sf9 	collisionLength:mean 	-nan
 attr title  "collision length, mean"
-scalar Aloha.server3 	collisionLength:sum 	0
+scalar Aloha.sf9 	collisionLength:sum 	0
 attr title  "collision length, sum"
-scalar Aloha.server3 	collisionLength:max 	-nan
+scalar Aloha.sf9 	collisionLength:max 	-nan
 attr title  "collision length, max"
-statistic Aloha.server3 	collisionMultiplicity:histogram
+statistic Aloha.sf9 	collisionMultiplicity:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -301,15 +301,15 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server3 	channelUtilization:last 	6.2386923421464
+scalar Aloha.sf9 	channelUtilization:last 	2285.3248303117
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server3 	receivedFrames:last 	26
+scalar Aloha.sf9 	receivedFrames:last 	8001
 attr source  sum(receive)
 attr title  "received frames, last"
-scalar Aloha.server4 	duration 	1.353333333333
-statistic Aloha.server4 	collisionLength:histogram
+scalar Aloha.sf10 	duration 	170.99090909091
+statistic Aloha.sf10 	collisionLength:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -350,13 +350,13 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server4 	collisionLength:mean 	-nan
+scalar Aloha.sf10 	collisionLength:mean 	-nan
 attr title  "collision length, mean"
-scalar Aloha.server4 	collisionLength:sum 	0
+scalar Aloha.sf10 	collisionLength:sum 	0
 attr title  "collision length, sum"
-scalar Aloha.server4 	collisionLength:max 	-nan
+scalar Aloha.sf10 	collisionLength:max 	-nan
 attr title  "collision length, max"
-statistic Aloha.server4 	collisionMultiplicity:histogram
+statistic Aloha.sf10 	collisionMultiplicity:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -398,15 +398,15 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server4 	channelUtilization:last 	-nan
+scalar Aloha.sf10 	channelUtilization:last 	-nan
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server4 	receivedFrames:last 	0
+scalar Aloha.sf10 	receivedFrames:last 	0
 attr source  sum(receive)
 attr title  "received frames, last"
-scalar Aloha.server5 	duration 	1.353333333333
-statistic Aloha.server5 	collisionLength:histogram
+scalar Aloha.sf11 	duration 	170.99090909091
+statistic Aloha.sf11 	collisionLength:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -447,13 +447,13 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server5 	collisionLength:mean 	-nan
+scalar Aloha.sf11 	collisionLength:mean 	-nan
 attr title  "collision length, mean"
-scalar Aloha.server5 	collisionLength:sum 	0
+scalar Aloha.sf11 	collisionLength:sum 	0
 attr title  "collision length, sum"
-scalar Aloha.server5 	collisionLength:max 	-nan
+scalar Aloha.sf11 	collisionLength:max 	-nan
 attr title  "collision length, max"
-statistic Aloha.server5 	collisionMultiplicity:histogram
+statistic Aloha.sf11 	collisionMultiplicity:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -495,15 +495,15 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server5 	channelUtilization:last 	-nan
+scalar Aloha.sf11 	channelUtilization:last 	121.45585633593
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server5 	receivedFrames:last 	0
+scalar Aloha.sf11 	receivedFrames:last 	364
 attr source  sum(receive)
 attr title  "received frames, last"
-scalar Aloha.server6 	duration 	1.353333333333
-statistic Aloha.server6 	collisionLength:histogram
+scalar Aloha.sf12 	duration 	170.99090909091
+statistic Aloha.sf12 	collisionLength:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -544,13 +544,13 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server6 	collisionLength:mean 	-nan
+scalar Aloha.sf12 	collisionLength:mean 	-nan
 attr title  "collision length, mean"
-scalar Aloha.server6 	collisionLength:sum 	0
+scalar Aloha.sf12 	collisionLength:sum 	0
 attr title  "collision length, sum"
-scalar Aloha.server6 	collisionLength:max 	-nan
+scalar Aloha.sf12 	collisionLength:max 	-nan
 attr title  "collision length, max"
-statistic Aloha.server6 	collisionMultiplicity:histogram
+statistic Aloha.sf12 	collisionMultiplicity:histogram
 field count 0
 field mean -nan
 field stddev -nan
@@ -592,10 +592,10 @@ bin	0.4	0
 bin	0.43333333333333	0
 bin	0.46666666666667	0
 bin	0.5	0
-scalar Aloha.server6 	channelUtilization:last 	-nan
+scalar Aloha.sf12 	channelUtilization:last 	121.46467639568
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server6 	receivedFrames:last 	0
+scalar Aloha.sf12 	receivedFrames:last 	364
 attr source  sum(receive)
 attr title  "received frames, last"

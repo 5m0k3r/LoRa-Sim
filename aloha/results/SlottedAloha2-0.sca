@@ -1,112 +1,767 @@
 version 2
-run SlottedAloha2-0-20161122-15:15:51-15215
+run SlottedAloha2-0-20161220-02:38:11-16757
 attr configname SlottedAloha2
-attr datetime 20161122-15:15:51
+attr datetime 20161220-02:38:11
 attr experiment SlottedAloha2
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Aloha
-attr processid 15215
+attr processid 16757
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 param Aloha.host[*].iaTime exponential(2s)
-param Aloha.host[*].pkLenBits 952b
-param Aloha.host[*].radioDelay 10ms
-param Aloha.numHosts 150
-param Aloha.server.iaTime exponential(0.4s)
-param Aloha.server.pkLenBits 952b
-param Aloha.server.radioDelay 10ms
-param Aloha.slotTime 0
-param Aloha.txRate 9.6kbps
+param Aloha.slotTime 100ms
 
-scalar Aloha.server 	duration 	10.12
-statistic Aloha.server 	collisionLength:histogram
-field count 32
-field mean 0.0073177083336562
-field stddev 0.017283912142634
-field sum 0.234166666677
-field sqrsum 0.010974305555789
+scalar Aloha.sf7 	duration 	41.993601462522
+statistic Aloha.sf7 	collisionLength:histogram
+field count 1161
+field mean 2.4338562178222
+field stddev 4.1795861958634
+field sum 2825.7070688916
+field sqrsum 27141.336011002
 field min 0
-field max 0.099166666667
+field max 15.63094454608
 attr title  "collision length, histogram"
 bin	-INF	0
-bin	-0.0495833333335	0
-bin	-0.042972222222367	0
-bin	-0.036361111111233	0
-bin	-0.0297500000001	0
-bin	-0.023138888888967	0
-bin	-0.016527777777833	0
-bin	-0.0099166666667	0
-bin	-0.0033055555555667	15
-bin	0.0033055555555667	16
-bin	0.0099166666667	0
-bin	0.016527777777833	0
-bin	0.023138888888967	0
-bin	0.0297500000001	0
-bin	0.036361111111233	0
-bin	0.042972222222367	0
-bin	0.0495833333335	0
-bin	0.056194444444633	0
-bin	0.062805555555767	0
-bin	0.0694166666669	0
-bin	0.076027777778033	0
-bin	0.082638888889167	0
-bin	0.0892500000003	0
-bin	0.095861111111433	1
-bin	0.10247222222257	0
-bin	0.1090833333337	0
-bin	0.11569444444483	0
-bin	0.12230555555597	0
-bin	0.1289166666671	0
-bin	0.13552777777823	0
-bin	0.14213888888937	0
-bin	0.1487500000005	0
-scalar Aloha.server 	collisionLength:mean 	0.0073177083336562
+bin	-0.4266666666665	0
+bin	-0.36977777777763	0
+bin	-0.31288888888877	0
+bin	-0.2559999999999	0
+bin	-0.19911111111103	0
+bin	-0.14222222222217	0
+bin	-0.0853333333333	0
+bin	-0.028444444444433	236
+bin	0.028444444444433	461
+bin	0.0853333333333	96
+bin	0.14222222222217	3
+bin	0.19911111111103	2
+bin	0.2559999999999	2
+bin	0.31288888888877	1
+bin	0.36977777777763	1
+bin	0.4266666666665	0
+bin	0.48355555555537	2
+bin	0.54044444444423	1
+bin	0.5973333333331	2
+bin	0.65422222222197	0
+bin	0.71111111111083	1
+bin	0.7679999999997	1
+bin	0.82488888888857	2
+bin	0.88177777777743	3
+bin	0.9386666666663	0
+bin	0.99555555555517	1
+bin	1.052444444444	1
+bin	1.1093333333329	1
+bin	1.1662222222218	3
+bin	1.2231111111106	0
+bin	1.2799999999995	341
+scalar Aloha.sf7 	collisionLength:mean 	2.4338562178222
 attr title  "collision length, mean"
-scalar Aloha.server 	collisionLength:sum 	0.234166666677
+scalar Aloha.sf7 	collisionLength:sum 	2825.7070688916
 attr title  "collision length, sum"
-scalar Aloha.server 	collisionLength:max 	0.099166666667
+scalar Aloha.sf7 	collisionLength:max 	15.63094454608
 attr title  "collision length, max"
-statistic Aloha.server 	collisionMultiplicity:histogram
-field count 32
-field mean 4
-field stddev 2.0478155158844
-field sum 128
-field sqrsum 642
-field min 2
-field max 10
+statistic Aloha.sf7 	collisionMultiplicity:histogram
+field count 1161
+field mean 7563.5004306632
+field stddev 2450.2194518623
+field sum 8781224
+field sqrsum 73380938926
+field min 100
+field max 9308
 attr source  collision
 attr title  "collision multiplicity, histogram"
 bin	-INF	0
-bin	-2	0
-bin	-1	0
-bin	0	0
-bin	1	0
-bin	2	11
-bin	3	5
-bin	4	2
-bin	5	8
-bin	6	3
-bin	7	1
-bin	8	1
+bin	-1325	0
+bin	-1296	0
+bin	-1267	0
+bin	-1238	0
+bin	-1209	0
+bin	-1180	0
+bin	-1151	0
+bin	-1122	0
+bin	-1093	0
+bin	-1064	0
+bin	-1035	0
+bin	-1006	0
+bin	-977	0
+bin	-948	0
+bin	-919	0
+bin	-890	0
+bin	-861	0
+bin	-832	0
+bin	-803	0
+bin	-774	0
+bin	-745	0
+bin	-716	0
+bin	-687	0
+bin	-658	0
+bin	-629	0
+bin	-600	0
+bin	-571	0
+bin	-542	0
+bin	-513	0
+bin	-484	0
+bin	-455	0
+bin	-426	0
+bin	-397	0
+bin	-368	0
+bin	-339	0
+bin	-310	0
+bin	-281	0
+bin	-252	0
+bin	-223	0
+bin	-194	0
+bin	-165	0
+bin	-136	0
+bin	-107	0
+bin	-78	0
+bin	-49	0
+bin	-20	0
 bin	9	0
-bin	10	1
-bin	11	0
-bin	12	0
-bin	13	0
-bin	14	0
-scalar Aloha.server 	collidedFrames:last 	128
-attr source  sum(collision)
-attr title  "collided frames, last"
-scalar Aloha.server 	channelUtilization:last 	18.342308959176
+bin	38	0
+bin	67	0
+bin	96	4
+bin	125	0
+bin	154	0
+bin	183	2
+bin	212	0
+bin	241	0
+bin	270	4
+bin	299	0
+bin	328	0
+bin	357	0
+bin	386	3
+bin	415	0
+bin	444	0
+bin	473	3
+bin	502	0
+bin	531	0
+bin	560	0
+bin	589	3
+bin	618	0
+bin	647	0
+bin	676	3
+bin	705	0
+bin	734	0
+bin	763	3
+bin	792	0
+bin	821	0
+bin	850	0
+bin	879	3
+bin	908	0
+bin	937	0
+bin	966	4
+bin	995	0
+bin	1024	0
+bin	1053	2
+bin	1082	0
+bin	1111	0
+bin	1140	5
+bin	1169	0
+bin	1198	0
+bin	1227	0
+bin	1256	3
+bin	1285	0
+bin	1314	0
+bin	1343	3
+bin	1372	0
+bin	1401	0
+bin	1430	3
+bin	1459	0
+bin	1488	0
+bin	1517	3
+bin	1546	0
+bin	1575	0
+bin	1604	4
+bin	1633	0
+bin	1662	0
+bin	1691	3
+bin	1720	0
+bin	1749	0
+bin	1778	3
+bin	1807	0
+bin	1836	0
+bin	1865	0
+bin	1894	3
+bin	1923	0
+bin	1952	0
+bin	1981	3
+bin	2010	0
+bin	2039	0
+bin	2068	3
+bin	2097	0
+bin	2126	0
+bin	2155	3
+bin	2184	0
+bin	2213	0
+bin	2242	4
+bin	2271	0
+bin	2300	0
+bin	2329	3
+bin	2358	0
+bin	2387	0
+bin	2416	3
+bin	2445	0
+bin	2474	0
+bin	2503	3
+bin	2532	0
+bin	2561	0
+bin	2590	3
+bin	2619	0
+bin	2648	0
+bin	2677	3
+bin	2706	0
+bin	2735	0
+bin	2764	3
+bin	2793	0
+bin	2822	4
+bin	2851	0
+bin	2880	0
+bin	2909	3
+bin	2938	0
+bin	2967	0
+bin	2996	3
+bin	3025	0
+bin	3054	0
+bin	3083	3
+bin	3112	0
+bin	3141	0
+bin	3170	3
+bin	3199	0
+bin	3228	0
+bin	3257	3
+bin	3286	0
+bin	3315	0
+bin	3344	3
+bin	3373	0
+bin	3402	4
+bin	3431	0
+bin	3460	0
+bin	3489	3
+bin	3518	0
+bin	3547	0
+bin	3576	3
+bin	3605	0
+bin	3634	0
+bin	3663	3
+bin	3692	0
+bin	3721	3
+bin	3750	0
+bin	3779	0
+bin	3808	3
+bin	3837	0
+bin	3866	0
+bin	3895	4
+bin	3924	0
+bin	3953	3
+bin	3982	0
+bin	4011	0
+bin	4040	3
+bin	4069	0
+bin	4098	0
+bin	4127	3
+bin	4156	0
+bin	4185	3
+bin	4214	0
+bin	4243	0
+bin	4272	3
+bin	4301	0
+bin	4330	3
+bin	4359	1003
+scalar Aloha.sf7 	channelUtilization:last 	2.1664117902221
 attr interpolationmode  linear
 attr source  timeavg(receive)
 attr title  "channel utilization, last"
-scalar Aloha.server 	receivedFrames:last 	335313
+scalar Aloha.sf7 	receivedFrames:last 	1143
+attr source  sum(receive)
+attr title  "received frames, last"
+scalar Aloha.sf8 	duration 	41.993601462522
+statistic Aloha.sf8 	collisionLength:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr title  "collision length, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf8 	collisionLength:mean 	-nan
+attr title  "collision length, mean"
+scalar Aloha.sf8 	collisionLength:sum 	0
+attr title  "collision length, sum"
+scalar Aloha.sf8 	collisionLength:max 	-nan
+attr title  "collision length, max"
+statistic Aloha.sf8 	collisionMultiplicity:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr source  collision
+attr title  "collision multiplicity, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf8 	channelUtilization:last 	-nan
+attr interpolationmode  linear
+attr source  timeavg(receive)
+attr title  "channel utilization, last"
+scalar Aloha.sf8 	receivedFrames:last 	0
+attr source  sum(receive)
+attr title  "received frames, last"
+scalar Aloha.sf9 	duration 	41.993601462522
+statistic Aloha.sf9 	collisionLength:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr title  "collision length, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf9 	collisionLength:mean 	-nan
+attr title  "collision length, mean"
+scalar Aloha.sf9 	collisionLength:sum 	0
+attr title  "collision length, sum"
+scalar Aloha.sf9 	collisionLength:max 	-nan
+attr title  "collision length, max"
+statistic Aloha.sf9 	collisionMultiplicity:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr source  collision
+attr title  "collision multiplicity, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf9 	channelUtilization:last 	-nan
+attr interpolationmode  linear
+attr source  timeavg(receive)
+attr title  "channel utilization, last"
+scalar Aloha.sf9 	receivedFrames:last 	0
+attr source  sum(receive)
+attr title  "received frames, last"
+scalar Aloha.sf10 	duration 	41.993601462522
+statistic Aloha.sf10 	collisionLength:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr title  "collision length, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf10 	collisionLength:mean 	-nan
+attr title  "collision length, mean"
+scalar Aloha.sf10 	collisionLength:sum 	0
+attr title  "collision length, sum"
+scalar Aloha.sf10 	collisionLength:max 	-nan
+attr title  "collision length, max"
+statistic Aloha.sf10 	collisionMultiplicity:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr source  collision
+attr title  "collision multiplicity, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf10 	channelUtilization:last 	-nan
+attr interpolationmode  linear
+attr source  timeavg(receive)
+attr title  "channel utilization, last"
+scalar Aloha.sf10 	receivedFrames:last 	0
+attr source  sum(receive)
+attr title  "received frames, last"
+scalar Aloha.sf11 	duration 	41.993601462522
+statistic Aloha.sf11 	collisionLength:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr title  "collision length, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf11 	collisionLength:mean 	-nan
+attr title  "collision length, mean"
+scalar Aloha.sf11 	collisionLength:sum 	0
+attr title  "collision length, sum"
+scalar Aloha.sf11 	collisionLength:max 	-nan
+attr title  "collision length, max"
+statistic Aloha.sf11 	collisionMultiplicity:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr source  collision
+attr title  "collision multiplicity, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf11 	channelUtilization:last 	-nan
+attr interpolationmode  linear
+attr source  timeavg(receive)
+attr title  "channel utilization, last"
+scalar Aloha.sf11 	receivedFrames:last 	0
+attr source  sum(receive)
+attr title  "received frames, last"
+scalar Aloha.sf12 	duration 	41.993601462522
+statistic Aloha.sf12 	collisionLength:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr title  "collision length, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf12 	collisionLength:mean 	-nan
+attr title  "collision length, mean"
+scalar Aloha.sf12 	collisionLength:sum 	0
+attr title  "collision length, sum"
+scalar Aloha.sf12 	collisionLength:max 	-nan
+attr title  "collision length, max"
+statistic Aloha.sf12 	collisionMultiplicity:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr source  collision
+attr title  "collision multiplicity, histogram"
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar Aloha.sf12 	channelUtilization:last 	-nan
+attr interpolationmode  linear
+attr source  timeavg(receive)
+attr title  "channel utilization, last"
+scalar Aloha.sf12 	receivedFrames:last 	0
 attr source  sum(receive)
 attr title  "received frames, last"

@@ -1,4 +1,4 @@
-file 4458 1480284987                                            
+file 4458 1482072415                                            
 version 2
 run SlottedAloha3-0-20161127-19:16:03-4878
 attr configname SlottedAloha3
@@ -18,129 +18,128 @@ attr seedset 0
 param Aloha.numHosts 10
 param Aloha.slotTime 0
 param Aloha.txRate 9.6kbps
-
 vector 0  Aloha.host[0]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 1  Aloha.host[1]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 2  Aloha.host[2]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 3  Aloha.host[3]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 4  Aloha.host[4]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 5  Aloha.host[5]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 6  Aloha.host[6]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 7  Aloha.host[7]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 8  Aloha.host[8]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 9  Aloha.host[9]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 10  Aloha.server[0]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 11  Aloha.server[0]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 12  Aloha.server[1]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 13  Aloha.server[0]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 14  Aloha.server[1]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 15  Aloha.server[2]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 16  Aloha.server[0]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 17  Aloha.server[1]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 18  Aloha.server[2]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 19  Aloha.server[3]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 20  Aloha.server[0]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 21  Aloha.server[1]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 22  Aloha.server[2]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 23  Aloha.server[3]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
-vector 24  Aloha.server[4]  serverChannelState:vector  ETV
-attr enum  IDLE=0,TRANSMISSION=1,COLLISION=2
-attr source  channelState
-attr title  "Channel state, vector"
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 0	4243 8 0 0 0 0 1 0 0 0 0
+vector 1  Aloha.host[1]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 1	4251 8 0 0 0 0 1 0 0 0 0
+vector 2  Aloha.host[2]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 2	4259 8 0 0 0 0 1 0 0 0 0
+vector 3  Aloha.host[3]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 3	4267 8 0 0 0 0 1 0 0 0 0
+vector 4  Aloha.host[4]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 4	4275 8 0 0 0 0 1 0 0 0 0
+vector 5  Aloha.host[5]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 5	4283 8 0 0 0 0 1 0 0 0 0
+vector 6  Aloha.host[6]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 6	4291 8 0 0 0 0 1 0 0 0 0
+vector 7  Aloha.host[7]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 7	4299 8 0 0 0 0 1 0 0 0 0
+vector 8  Aloha.host[8]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 8	4307 8 0 0 0 0 1 0 0 0 0
+vector 9  Aloha.host[9]  radioState:vector  ETV
+attr enum IDLE=0,TRANSMIT=1
+attr source state
+attr title "Radio state, vector"
 9	4315 8 0 0 0 0 1 0 0 0 0
+vector 10  Aloha.server[0]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 10	4323 9 0 0 0 0 1 0 0 0 0
+vector 11  Aloha.server[0]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 11	4332 9 0 0 0 0 1 0 0 0 0
+vector 12  Aloha.server[1]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 12	4341 9 0 0 0 0 1 0 0 0 0
+vector 13  Aloha.server[0]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 13	4350 9 0 0 0 0 1 0 0 0 0
+vector 14  Aloha.server[1]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 14	4359 9 0 0 0 0 1 0 0 0 0
+vector 15  Aloha.server[2]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 15	4368 9 0 0 0 0 1 0 0 0 0
+vector 16  Aloha.server[0]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 16	4377 9 0 0 0 0 1 0 0 0 0
+vector 17  Aloha.server[1]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 17	4386 9 0 0 0 0 1 0 0 0 0
+vector 18  Aloha.server[2]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 18	4395 9 0 0 0 0 1 0 0 0 0
+vector 19  Aloha.server[3]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 19	4404 9 0 0 0 0 1 0 0 0 0
+vector 20  Aloha.server[0]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 20	4413 9 0 0 0 0 1 0 0 0 0
+vector 21  Aloha.server[1]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 21	4422 9 0 0 0 0 1 0 0 0 0
+vector 22  Aloha.server[2]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 22	4431 9 0 0 0 0 1 0 0 0 0
+vector 23  Aloha.server[3]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 23	4440 9 0 0 0 0 1 0 0 0 0
+vector 24  Aloha.server[4]  serverChannelState:vector  ETV
+attr enum IDLE=0,TRANSMISSION=1,COLLISION=2
+attr source channelState
+attr title "Channel state, vector"
 24	4449 9 0 0 0 0 1 0 0 0 0
