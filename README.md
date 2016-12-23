@@ -6,6 +6,13 @@ Copy the "aloha" folder in the samples/ folder which is below
 
 the installation root folder of OMNET++ 5.0. 
 
+Download Links for OMNET++ 5.0:
+
+Windows: https://omnetpp.org/omnetpp/send/30-omnet-releases/2307-omnetpp-50-windows
+
+OSX: https://omnetpp.org/omnetpp/send/30-omnet-releases/2306-omnetpp-50-macosx
+
+Linux/UNIX : https://omnetpp.org/omnetpp/send/30-omnet-releases/2305-omnetpp-50-linux
 # Joining Phase
 
 To date, the joining phase is in working condition. It sends the "uplink window message"
