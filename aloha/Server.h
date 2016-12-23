@@ -43,6 +43,7 @@ class Server : public cSimpleModule
     long currentCollisionNumFrames;
     long receiveCounter;
     float errorcounter;
+    int errorpcounter2;
     simtime_t recvStartTime;
     enum { IDLE = 0, TRANSMISSION = 1, COLLISION = 2, ERRORS=3 };
     simsignal_t channelStateSignal;
@@ -51,6 +52,8 @@ class Server : public cSimpleModule
     simsignal_t receiveSignal;
     simsignal_t collisionLengthSignal;
     simsignal_t collisionSignal;
+    simsignal_t errorpSignal;
+
 
     simtime_t radioDelay;
     double txRate;

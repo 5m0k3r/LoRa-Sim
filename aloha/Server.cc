@@ -22,6 +22,7 @@ Server::Server()
     endRxEvent = nullptr;
     counter = 0;
     errorcounter = 0;
+    errorpcounter2 = 0;
 }
 
 Server::~Server()
@@ -64,6 +65,7 @@ void Server::initialize()
     receiveSignal = registerSignal("receive");
     collisionSignal = registerSignal("collision");
     collisionLengthSignal = registerSignal("collisionLength");
+    errorpSignal = registerSignal("errorpFrame");
     pkCounter = 0;
     emit(receiveSignal, 0L);
     emit(receiveBeginSignal, 0L);
@@ -74,11 +76,13 @@ void Server::handleMessage(cMessage *msg)
 {
     EV<<"error: "<<this->errorcounter/this->receiveCounter*100<<endl;
     EV << "receive counter: "<<this->receiveCounter<<endl;
-    if ( (this->errorcounter/this->receiveCounter*100 < this->per || this->errorcounter == 0 )&& this->per != 0 ){
+    if ( (this->errorcounter/this->receiveCounter*100 < this->per || this->errorcounter == 0) && this->per != 0 ){
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
             emit(receiveSignal, 0);
             this->errorcounter++;
+            this->errorpcounter2+=1;
+            emit(errorpSignal, errorpcounter2);
             cancelEvent(errors);
             scheduleAt(simTime()+1, errors);
 
@@ -97,7 +101,7 @@ void Server::handleMessage(cMessage *msg)
         cTimestampedValue tmp(recvStartTime, 1l);
         emit(receiveSignal, &tmp);
         emit(receiveSignal, 0);
-        emit(receiveBeginSignal, receiveCounter);
+        //emit(receiveBeginSignal, receiveCounter);
         EV<<"retransmisión de ACK"<<endl;
         this->counter = 0;
     }
@@ -112,7 +116,6 @@ void Server::handleMessage(cMessage *msg)
             cTimestampedValue tmp(recvStartTime, 1l);
             emit(receiveSignal, &tmp);
             emit(receiveBeginSignal, ++receiveCounter);
-
             cancelEvent(ack1);
             scheduleAt(simTime()+5, ack1);
             counter ++;
@@ -204,7 +207,7 @@ void Server::handleMessage(cMessage *msg)
             emit(collisionLengthSignal, dt);
         }
 
-        //currentCollisionNumFrames = 0;
+        currentCollisionNumFrames = 0;
         //receiveCounter = 0;
         emit(receiveBeginSignal, receiveCounter);
         cancelEvent(startRxEvent);

@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <random>
+
 namespace aloha {
 
 Define_Module(Host);
@@ -283,7 +284,7 @@ void Host::handleMessage(cMessage *msg)
         pk5->setBitLength(pkLenBits->longValue()); // asignación de largo de paquete (256 bytes)
         simtime_t duration = pk5->getBitLength() / txRate; // asignacion de duracion de envio de paquete
         sendDirect(pk5, radioDelay, duration, this->gate("in"));
-        EV <<"state final: "<< stateSignal << endl;
+        EV <<"state final: "<< state << endl;
         EV<<"Timeout: "<<this->timeout <<endl;
         EV<<"simtime: "<<simTime()<<endl;
         if(this->getpair() == 0 && this->timeout >= simTime()){
@@ -298,7 +299,6 @@ void Host::handleMessage(cMessage *msg)
                     state = IDLE2;
                 }
                 else{
-                    EV<<"volvi al join"<<endl;
                     state = IDLE;
                 }
             }
