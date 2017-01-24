@@ -1,15 +1,15 @@
-file 339319 1482352122                                          
+file 5922 1484560402                                            
 version 2
-run SlottedAloha2-0-20161221-17:26:28-6119
+run SlottedAloha2-0-20170116-03:13:29-17874
 attr configname SlottedAloha2
-attr datetime 20161221-17:26:28
+attr datetime 20170116-03:13:29
 attr experiment SlottedAloha2
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Aloha
-attr processid 6119
+attr processid 17874
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -18,563 +18,113 @@ attr seedset 0
 param Aloha.host[*].iaTime exponential(2s)
 param Aloha.slotTime 100ms
 
-vector 101  Aloha.host[0]  radioState:vector  ETV
+vector 22  Aloha.host[0]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 102  Aloha.host[1]  radioState:vector  ETV
+vector 23  Aloha.host[1]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 103  Aloha.host[2]  radioState:vector  ETV
+vector 24  Aloha.host[2]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 104  Aloha.host[3]  radioState:vector  ETV
+vector 25  Aloha.host[3]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 105  Aloha.host[4]  radioState:vector  ETV
+vector 26  Aloha.host[4]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 106  Aloha.host[5]  radioState:vector  ETV
+vector 27  Aloha.host[5]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 107  Aloha.host[6]  radioState:vector  ETV
+vector 28  Aloha.host[6]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 108  Aloha.host[7]  radioState:vector  ETV
+vector 29  Aloha.host[7]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 109  Aloha.host[8]  radioState:vector  ETV
+vector 30  Aloha.host[8]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 110  Aloha.host[9]  radioState:vector  ETV
+vector 31  Aloha.host[9]  radioState:vector  ETV
 attr enum  IDLE=0,TRANSMIT=1
 attr source  state
 attr title  "Radio state, vector"
-vector 111  Aloha.host[10]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 112  Aloha.host[11]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 113  Aloha.host[12]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 114  Aloha.host[13]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 115  Aloha.host[14]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 116  Aloha.host[15]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 117  Aloha.host[16]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 118  Aloha.host[17]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 119  Aloha.host[18]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 120  Aloha.host[19]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 121  Aloha.host[20]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 122  Aloha.host[21]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 123  Aloha.host[22]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 124  Aloha.host[23]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 125  Aloha.host[24]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 126  Aloha.host[25]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 127  Aloha.host[26]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 128  Aloha.host[27]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 129  Aloha.host[28]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 130  Aloha.host[29]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 131  Aloha.host[30]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 132  Aloha.host[31]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 133  Aloha.host[32]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 134  Aloha.host[33]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 135  Aloha.host[34]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 136  Aloha.host[35]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 137  Aloha.host[36]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 138  Aloha.host[37]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 139  Aloha.host[38]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 140  Aloha.host[39]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 141  Aloha.host[40]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 142  Aloha.host[41]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 143  Aloha.host[42]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 144  Aloha.host[43]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 145  Aloha.host[44]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 146  Aloha.host[45]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 147  Aloha.host[46]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 148  Aloha.host[47]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 149  Aloha.host[48]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 150  Aloha.host[49]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 151  Aloha.host[50]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 152  Aloha.host[51]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 153  Aloha.host[52]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 154  Aloha.host[53]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 155  Aloha.host[54]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 156  Aloha.host[55]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 157  Aloha.host[56]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 158  Aloha.host[57]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 159  Aloha.host[58]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 160  Aloha.host[59]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 161  Aloha.host[60]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 162  Aloha.host[61]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 163  Aloha.host[62]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 164  Aloha.host[63]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 165  Aloha.host[64]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 166  Aloha.host[65]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 167  Aloha.host[66]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 168  Aloha.host[67]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 169  Aloha.host[68]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 170  Aloha.host[69]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 171  Aloha.host[70]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 172  Aloha.host[71]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 173  Aloha.host[72]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 174  Aloha.host[73]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 175  Aloha.host[74]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 176  Aloha.host[75]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 177  Aloha.host[76]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 178  Aloha.host[77]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 179  Aloha.host[78]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 180  Aloha.host[79]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 181  Aloha.host[80]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 182  Aloha.host[81]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 183  Aloha.host[82]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 184  Aloha.host[83]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 185  Aloha.host[84]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 186  Aloha.host[85]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 187  Aloha.host[86]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 188  Aloha.host[87]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 189  Aloha.host[88]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 190  Aloha.host[89]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 191  Aloha.host[90]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 192  Aloha.host[91]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 193  Aloha.host[92]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 194  Aloha.host[93]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 195  Aloha.host[94]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 196  Aloha.host[95]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 197  Aloha.host[96]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 198  Aloha.host[97]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 199  Aloha.host[98]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 200  Aloha.host[99]  radioState:vector  ETV
-attr enum  IDLE=0,TRANSMIT=1
-attr source  state
-attr title  "Radio state, vector"
-vector 201  Aloha.sf7  serverChannelState:vector  ETV
+vector 32  Aloha.sf7  serverChannelState:vector  ETV
 attr enum  "IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8"
 attr source  channelState
 attr title  "Channel state, vector"
-vector 203  Aloha.sf8  serverChannelState:vector  ETV
+vector 34  Aloha.sf8  serverChannelState:vector  ETV
 attr enum  "IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8"
 attr source  channelState
 attr title  "Channel state, vector"
-vector 205  Aloha.sf9  serverChannelState:vector  ETV
+vector 36  Aloha.sf9  serverChannelState:vector  ETV
 attr enum  "IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8"
 attr source  channelState
 attr title  "Channel state, vector"
-vector 207  Aloha.sf10  serverChannelState:vector  ETV
+vector 38  Aloha.sf10  serverChannelState:vector  ETV
 attr enum  "IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8"
 attr source  channelState
 attr title  "Channel state, vector"
-vector 209  Aloha.sf11  serverChannelState:vector  ETV
+vector 40  Aloha.sf11  serverChannelState:vector  ETV
 attr enum  "IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8"
 attr source  channelState
 attr title  "Channel state, vector"
-vector 211  Aloha.sf12  serverChannelState:vector  ETV
+vector 42  Aloha.sf12  serverChannelState:vector  ETV
 attr enum  "IDLE = 0, TRANSMIT = 1 , PRERECEIVE = 2, RECEIVE = 3, RECEIVE2=4, IDLE2 = 5, ACK=6, ACK2=7, SLEEP=8"
 attr source  channelState
 attr title  "Channel state, vector"
-vector 202  Aloha.sf7  errorpCount:vector  ETV
+vector 33  Aloha.sf7  errorpCount:vector  ETV
 attr interpolationmode  none
 attr source  errorpFrame
 attr title  "error count, vector"
-vector 204  Aloha.sf8  errorpCount:vector  ETV
+vector 35  Aloha.sf8  errorpCount:vector  ETV
 attr interpolationmode  none
 attr source  errorpFrame
 attr title  "error count, vector"
-vector 206  Aloha.sf9  errorpCount:vector  ETV
+vector 37  Aloha.sf9  errorpCount:vector  ETV
 attr interpolationmode  none
 attr source  errorpFrame
 attr title  "error count, vector"
-vector 208  Aloha.sf10  errorpCount:vector  ETV
+vector 39  Aloha.sf10  errorpCount:vector  ETV
 attr interpolationmode  none
 attr source  errorpFrame
 attr title  "error count, vector"
-vector 210  Aloha.sf11  errorpCount:vector  ETV
+vector 41  Aloha.sf11  errorpCount:vector  ETV
 attr interpolationmode  none
 attr source  errorpFrame
 attr title  "error count, vector"
-vector 212  Aloha.sf12  errorpCount:vector  ETV
+vector 43  Aloha.sf12  errorpCount:vector  ETV
 attr interpolationmode  none
 attr source  errorpFrame
 attr title  "error count, vector"
-101	15929 986 0 12786 0 41.987202925044 44 0 8 291 2113
-102	16915 1567 0 12604 0 38.4 65 0 8 350 2398
-103	18482 930 0 12782 0 41.945681381958 42 0 8 275 1985
-104	19412 2358 0 12646 0 39.4 95 0 8 333 2009
-105	21770 818 0 12554 0 37.6 38 0 8 255 1891
-106	22588 950 0 12603 0 38.4 41 0 8 259 1897
-107	23538 823 0 12585 0 38 38 0 8 255 1891
-108	24361 815 0 12614 0 38.7 38 0 8 259 1947
-109	25176 938 0 12662 0 39.7 44 0 8 301 2253
-110	26114 1073 0 12716 0 40.7 47 0 8 305 2259
-111	27187 1739 0 12608 0 38.6 71 0 8 358 2410
-112	28926 1897 0 12629 0 38.9 77 0 8 366 2422
-113	30823 1902 0 12653 0 39.6 77 0 8 321 2071
-114	32725 2502 0 12707 0 40.5 100 0 8 340 2020
-115	35227 1034 0 12615 0 38.7 44 0 8 263 1903
-116	36261 1112 0 12628 0 38.9 47 0 8 267 1909
-117	37373 959 0 12627 0 38.9 41 0 8 259 1897
-118	38332 949 0 12661 0 39.7 41 0 8 261 1925
-119	39281 1158 0 12772 0 41.7 50 0 8 309 2265
-120	40439 1219 0 12594 0 38.14827586207 52 0 8 305 2207
-121	41658 2040 0 12643 0 39.2 83 0 8 374 2434
-122	43698 1846 0 11316 0 23.946800731261 74 0 8 264 1508
-123	45544 2891 0 12763 0 41.4 115 0 8 360 2050
-124	48435 3654 0 12533 0 37.445681381958 144 0 8 392 2046
-125	52089 1195 0 12642 0 39.2 50 0 8 271 1915
-126	53284 913 0 11283 0 23.745454545455 38 0 8 157 983
-127	54197 1042 0 12641 0 39.2 44 0 8 263 1903
-128	55239 1038 0 12703 0 40.4 44 0 8 265 1931
-129	56277 1298 0 12638 0 39.14827586207 55 0 8 309 2213
-130	57575 1378 0 12691 0 40.04827586207 58 0 8 313 2219
-131	58953 1922 0 11345 0 24.146800731261 77 0 8 268 1514
-132	60875 2441 0 12688 0 40 98 0 8 394 2464
-133	63316 3708 0 12558 0 37.645681381958 146 0 8 395 2051
-134	67024 4478 0 11815 0 28.981893793986 175 0 8 376 1550
-135	71502 1351 0 12663 0 39.7 56 0 8 279 1927
-136	72853 1429 0 12680 0 39.9 59 0 8 283 1933
-137	74282 1121 0 12652 0 39.6 47 0 8 267 1909
-138	75403 1127 0 12741 0 41.1 47 0 8 265 1881
-139	76530 1456 0 12737 0 41.04827586207 61 0 8 317 2225
-140	77986 1507 0 12783 0 41.94827586207 63 0 8 313 2167
-141	79493 2599 0 12701 0 40.3 104 0 8 402 2476
-142	82092 2748 0 12710 0 40.6 110 0 8 410 2488
-143	84840 3667 0 11794 0 28.681893793986 144 0 8 325 1443
-144	88507 4591 0 12690 0 40.045681381958 180 0 8 440 2118
-145	93098 1509 0 12697 0 40.2 62 0 8 287 1939
-146	94607 1585 0 12705 0 40.4 65 0 8 291 1945
-147	96192 1202 0 12679 0 39.9 50 0 8 271 1915
-148	97394 1190 0 12771 0 41.7 50 0 8 273 1943
-149	98584 1135 0 11892 0 30.78275862069 47 0 8 173 1057
-150	99719 1496 0 12542 0 37.5 62 0 8 271 1809
-151	101215 2894 0 12725 0 40.8 116 0 8 418 2500
-152	104109 3063 0 12744 0 41.1 122 0 8 426 2512
-153	107172 5540 0 12768 0 41.445681381958 216 0 8 522 2478
-154	112712 5117 0 12758 0 41.345681381958 200 0 8 467 2159
-155	117829 1663 0 12718 0 40.7 68 0 8 295 1951
-156	119492 1741 0 12730 0 40.9 71 0 8 299 1957
-157	121233 1280 0 12700 0 40.3 53 0 8 275 1921
-158	122513 1256 0 12545 0 37.545454545454 52 0 8 269 1885
-159	123769 1587 0 12602 0 38.4 65 0 8 275 1815
-160	125356 1668 0 12647 0 39.4 68 0 8 279 1821
-161	127024 3223 0 12767 0 41.4 128 0 8 434 2524
-162	130247 3377 0 12773 0 41.7 134 0 8 442 2536
-163	133624 5360 0 12785 0 41.963787587972 208 0 8 464 2050
-164	138984 5844 0 12601 0 38.4 226 0 8 471 1939
-165	144828 1819 0 12743 0 41.1 74 0 8 303 1963
-166	146647 1900 0 12766 0 41.4 77 0 8 307 1969
-167	148547 995 0 11425 0 24.861224489796 41 0 8 161 989
-168	149542 1334 0 12597 0 38.245454545454 55 0 8 273 1891
-169	150876 1753 0 12704 0 40.4 71 0 8 283 1827
-170	152629 1843 0 12765 0 41.4 74 0 8 287 1833
-171	154472 3509 0 12457 0 36.640402193783 139 0 8 442 2484
-172	157981 3305 0 11649 0 26.646800731261 131 0 8 364 1864
-173	161286 6409 0 12645 0 39.3 247 0 8 533 2269
-174	167695 6458 0 12223 0 34.781893793986 247 0 8 438 1406
-175	174153 1920 0 12565 0 37.7 79 0 8 303 1911
-176	176073 1910 0 12587 0 38 79 0 8 281 1697
-177	177983 1073 0 11472 0 25.161224489796 44 0 8 165 995
-178	179056 1060 0 11747 0 27.681818181818 44 0 8 167 1023
-179	180116 1914 0 12575 0 37.86551724138 76 0 8 283 1775
-180	182030 1998 0 12623 0 38.86551724138 79 0 8 287 1781
-181	184028 3401 0 11677 0 26.946800731261 134 0 8 344 1628
-182	187429 3905 0 12531 0 37.440402193783 154 0 8 462 2514
-183	191334 6718 0 12717 0 40.7 257 0 8 519 2063
-184	198052 6774 0 12735 0 41 259 0 8 529 2075
-185	204826 2115 0 12473 0 36.836363636365 85 0 8 311 1923
-186	206941 2195 0 12501 0 37.136363636365 88 0 8 315 1929
-187	209136 1516 0 12762 0 41.4 62 0 8 287 1939
-188	210652 1142 0 11784 0 28.381818181818 47 0 8 171 1029
-189	211794 2082 0 12670 0 39.76551724138 82 0 8 291 1787
-190	213876 6856 0 12742 0 41.1 262 0 8 533 2081
-191	220732 4059 0 12557 0 37.640402193783 160 0 8 470 2526
-192	224791 4215 0 12580 0 37.940402193783 166 0 8 478 2538
-193	229006 6942 0 12757 0 41.3 265 0 8 537 2087
-194	235948 7336 0 12764 0 41.4 279 0 8 592 2464
-195	243284 2273 0 12518 0 37.336363636365 91 0 8 319 1935
-196	245557 2349 0 12556 0 37.636363636365 94 0 8 323 1941
-197	247906 1595 0 12777 0 41.8 65 0 8 291 1945
-198	249501 1575 0 12702 0 40.345454545454 64 0 8 281 1853
-199	251076 2166 0 12722 0 40.76551724138 85 0 8 295 1793
-200	253242 2251 0 12776 0 41.76551724138 88 0 8 299 1799
-201	255493 18372 0 12780 0 41.940402193783 736 0 2 818 1578
-202	273865 199 101 11284 0.5 23.746800731261 8 1 8 36 204
-203	274064 33981 0 12784 0 41.963787587972 1313 0 2 2046 4030
-204	308045 352 103 11508 0.5 25.5 14 1 14 105 1015
-205	308397 11327 0 12736 0 41.045454545455 455 0 2 400 780
-206	319724 110 105 11218 0.5 23.145454545455 5 1 5 15 55
-207	319834 4373 0 12769 0 41.6 188 0 2 100 190
-208	324207 58 107 12555 0.5 37.6 3 1 3 6 14
-209	324265 4090 0 12745 0 41.1 183 0 2 100 190
-210	328355 41 108 9810 0.5 12.916969696969 2 1 2 3 5
-211	328396 10801 0 12752 0 41.260229885063 446 0 2 361 703
-212	339197 122 109 12010 0.5 32.78275862069 5 1 5 15 55
+22	3939 367 0 101 0 1 20 0 8 111 733
+23	4306 20 0 2 0 0.4 2 0 2 2 4
+24	4326 367 0 102 0 1 20 0 8 111 733
+25	4693 20 0 4 0 0.4 2 0 2 2 4
+26	4713 294 0 103 0 1 17 0 8 96 664
+27	5007 20 0 6 0 0.4 2 0 2 2 4
+28	5027 206 0 104 0 1 13 0 8 64 408
+29	5233 80 0 93 0 0.9 7 0 5 20 80
+30	5313 80 0 94 0 0.9 7 0 5 20 80
+31	5393 21 0 10 0 0.4 2 0 2 2 4
+32	5414 102 0 77 0 0.846800731261 6 0 2 3 5
+33	5516 12 11 11 0.5 0.5 1 1 1 1 1
+34	5528 102 0 84 0 0.881893793986 6 0 2 3 5
+35	5630 12 13 13 0.5 0.5 1 1 1 1 1
+36	5642 79 0 75 0 0.845454545455 5 0 2 3 5
+37	5721 12 15 15 0.5 0.5 1 1 1 1 1
+38	5733 67 0 95 0 0.961224489796 4 0 1 1 1
+39	5800 12 17 17 0.5 0.5 1 1 1 1 1
+40	5812 42 0 105 0 1 4 0 1 1 1
+41	5854 12 18 18 0.5 0.5 1 1 1 1 1
+42	5866 44 0 100 0 1 4 0 2 3 5
+43	5910 12 19 19 0.5 0.5 1 1 1 1 1
